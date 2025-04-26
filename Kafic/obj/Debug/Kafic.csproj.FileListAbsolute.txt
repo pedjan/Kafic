@@ -1,0 +1,11 @@
+E:\GIT\Kafic\Kafic\bin\Debug\Kafic.exe.config
+E:\GIT\Kafic\Kafic\bin\Debug\Kafic.exe
+E:\GIT\Kafic\Kafic\bin\Debug\Kafic.pdb
+E:\GIT\Kafic\Kafic\obj\Debug\Kafic.csproj.AssemblyReference.cache
+E:\GIT\Kafic\Kafic\obj\Debug\Kafic.Properties.Resources.resources
+E:\GIT\Kafic\Kafic\obj\Debug\Kafic.csproj.GenerateResource.cache
+E:\GIT\Kafic\Kafic\obj\Debug\Kafic.csproj.CoreCompileInputs.cache
+E:\GIT\Kafic\Kafic\obj\Debug\Kafic.exe
+E:\GIT\Kafic\Kafic\obj\Debug\Kafic.pdb
+E:\GIT\Kafic\Kafic\obj\Debug\Kafic.Login.resources
+E:\GIT\Kafic\Kafic\obj\Debug\Kafic.Pocetna.resources
