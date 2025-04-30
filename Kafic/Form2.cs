@@ -19,8 +19,7 @@ namespace Kafic
 
         private void odjavi_se_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Login.odjavljen(false);
+            this.Hide();
         }
     }
 }

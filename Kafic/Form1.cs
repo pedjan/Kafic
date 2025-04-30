@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,10 +13,7 @@ namespace Kafic
 {
     public partial class Login : Form
     {
-        static bool prijavljen = false;
         Pocetna pocetna = new Pocetna();
-
-        Korisnik k = new Korisnik("Admin", "admin");
 
         public Login()
         {
@@ -32,16 +30,42 @@ namespace Kafic
             this.Close();
         }
 
-        public static void odjavljen(bool a) {
-            prijavljen = a;
-        }
 
         private void prijavi_se_Click(object sender, EventArgs e)
         {
-            if (!prijavljen && Ime.Text.Equals(k.getIme()) && Sifra.Text.Equals(k.getSifra()))
+            Korisnik k = new Korisnik(Ime.Text, Sifra.Text);
+
+            string connstr = "Data Source = DESKTOP-QU4VIAR\\SQLEXPRESS; Initial Catalog = Kafic; Integrated Security = true";
+            SqlConnection conn = new SqlConnection(connstr);
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from korisnik where ime = '"+ k.getIme() +"' and sifra = '"+k.getSifra()+"'", conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.Read())
             {
-                prijavljen = true;
                 pocetna.Show();
+            }
+            else
+            {
+                MessageBox.Show("Podaci za prijacu nisu validni!");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string connstr = "Data Source = DESKTOP-QU4VIAR\\SQLEXPRESS; Initial Catalog = Kafic; Integrated Security = true";
+            SqlConnection conn = new SqlConnection(connstr);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("select * from korisnik where ime = 'Admin'", conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            string output = " " + reader.GetValue(1);
+            MessageBox.Show(output);
+            while (reader.Read())
+            {
+                //string output = "Output = " + reader.GetValue(0) + " " + reader.GetValue(1) + " " + reader.GetValue(2);
+                
             }
         }
     }

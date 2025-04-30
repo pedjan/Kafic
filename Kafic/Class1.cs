@@ -8,8 +8,8 @@ namespace Kafic
 {
     internal class Korisnik
     {
-        string ime;
-        string sifra;
+        private string ime;
+        private string sifra;
         public Korisnik(string ime, string sifra) { 
             this.ime = ime;
             this.sifra = sifra;
