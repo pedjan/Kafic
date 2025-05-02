@@ -1,30 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\GIT\\Kafic\\Kafic\\",
+  "WorkspaceRootPath": "C:\\Users\\Nenad\\source\\repos\\pedjan\\Kafic\\Kafic\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|E:\\GIT\\Kafic\\Kafic\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|C:\\Users\\Nenad\\source\\repos\\pedjan\\Kafic\\Kafic\\class2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|solutionrelative:class2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|c:\\users\\nenad\\source\\repos\\pedjan\\kafic\\kafic\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|E:\\GIT\\Kafic\\Kafic\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|E:\\GIT\\Kafic\\Kafic\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|C:\\Users\\Nenad\\source\\repos\\pedjan\\Kafic\\Kafic\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|E:\\GIT\\Kafic\\Kafic\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|solutionrelative:class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|E:\\GIT\\Kafic\\Kafic\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|C:\\Users\\Nenad\\source\\repos\\pedjan\\Kafic\\Kafic\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|e:\\git\\kafic\\kafic\\class2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|solutionrelative:class2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|C:\\Users\\Nenad\\source\\repos\\pedjan\\Kafic\\Kafic\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|solutionrelative:class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|C:\\Users\\Nenad\\source\\repos\\pedjan\\Kafic\\Kafic\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,43 +34,67 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Nenad\\source\\repos\\pedjan\\Kafic\\Kafic\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\Nenad\\source\\repos\\pedjan\\Kafic\\Kafic\\Form1.cs [Design]",
+              "RelativeToolTip": "Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T23:42:31.057Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form2.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Nenad\\source\\repos\\pedjan\\Kafic\\Kafic\\Form2.cs",
+              "RelativeDocumentMoniker": "Form2.cs",
+              "ToolTip": "C:\\Users\\Nenad\\source\\repos\\pedjan\\Kafic\\Kafic\\Form2.cs [Design]",
+              "RelativeToolTip": "Form2.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-26T22:28:09.303Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Class2.cs",
-              "DocumentMoniker": "E:\\GIT\\Kafic\\Kafic\\Class2.cs",
+              "DocumentMoniker": "C:\\Users\\Nenad\\source\\repos\\pedjan\\Kafic\\Kafic\\Class2.cs",
               "RelativeDocumentMoniker": "Class2.cs",
-              "ToolTip": "E:\\GIT\\Kafic\\Kafic\\Class2.cs",
+              "ToolTip": "C:\\Users\\Nenad\\source\\repos\\pedjan\\Kafic\\Kafic\\Class2.cs",
               "RelativeToolTip": "Class2.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB8AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-29T17:31:31.149Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Form1.cs",
-              "DocumentMoniker": "E:\\GIT\\Kafic\\Kafic\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Nenad\\source\\repos\\pedjan\\Kafic\\Kafic\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "E:\\GIT\\Kafic\\Kafic\\Form1.cs",
+              "ToolTip": "C:\\Users\\Nenad\\source\\repos\\pedjan\\Kafic\\Kafic\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAkwCQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAowBoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-26T21:52:56.396Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Class1.cs",
-              "DocumentMoniker": "E:\\GIT\\Kafic\\Kafic\\Class1.cs",
+              "DocumentMoniker": "C:\\Users\\Nenad\\source\\repos\\pedjan\\Kafic\\Kafic\\Class1.cs",
               "RelativeDocumentMoniker": "Class1.cs",
-              "ToolTip": "E:\\GIT\\Kafic\\Kafic\\Class1.cs",
+              "ToolTip": "C:\\Users\\Nenad\\source\\repos\\pedjan\\Kafic\\Kafic\\Class1.cs",
               "RelativeToolTip": "Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-26T23:31:27.838Z",
               "EditorCaption": ""
@@ -79,38 +103,14 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Form2.cs",
-              "DocumentMoniker": "E:\\GIT\\Kafic\\Kafic\\Form2.cs",
+              "DocumentMoniker": "C:\\Users\\Nenad\\source\\repos\\pedjan\\Kafic\\Kafic\\Form2.cs",
               "RelativeDocumentMoniker": "Form2.cs",
-              "ToolTip": "E:\\GIT\\Kafic\\Kafic\\Form2.cs",
+              "ToolTip": "C:\\Users\\Nenad\\source\\repos\\pedjan\\Kafic\\Kafic\\Form2.cs",
               "RelativeToolTip": "Form2.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAADwvxUAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAawBoAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-26T22:28:20.659Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "E:\\GIT\\Kafic\\Kafic\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "E:\\GIT\\Kafic\\Kafic\\Form1.cs [Design]",
-              "RelativeToolTip": "Form1.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-26T21:44:01.814Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form2.cs [Design]",
-              "DocumentMoniker": "E:\\GIT\\Kafic\\Kafic\\Form2.cs",
-              "RelativeDocumentMoniker": "Form2.cs",
-              "ToolTip": "E:\\GIT\\Kafic\\Kafic\\Form2.cs [Design]",
-              "RelativeToolTip": "Form2.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-26T22:28:09.303Z",
-              "EditorCaption": " [Design]"
             }
           ]
         }

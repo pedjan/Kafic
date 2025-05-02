@@ -21,5 +21,10 @@ namespace Kafic
         {
             this.Hide();
         }
+
+        private void sto_Click(object sender, EventArgs e)
+        {
+            sto.Text += "Radi";
+        }
     }
 }

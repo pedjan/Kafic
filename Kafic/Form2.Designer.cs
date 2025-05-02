@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.odjavi_se = new System.Windows.Forms.Button();
+            this.sto = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // odjavi_se
@@ -41,11 +42,22 @@
             this.odjavi_se.UseVisualStyleBackColor = true;
             this.odjavi_se.Click += new System.EventHandler(this.odjavi_se_Click);
             // 
+            // sto
+            // 
+            this.sto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.sto.Location = new System.Drawing.Point(114, 76);
+            this.sto.Name = "sto";
+            this.sto.Size = new System.Drawing.Size(100, 100);
+            this.sto.TabIndex = 1;
+            this.sto.UseVisualStyleBackColor = false;
+            this.sto.Click += new System.EventHandler(this.sto_Click);
+            // 
             // Pocetna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(811, 445);
+            this.Controls.Add(this.sto);
             this.Controls.Add(this.odjavi_se);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Pocetna";
@@ -58,5 +70,6 @@
         #endregion
 
         private System.Windows.Forms.Button odjavi_se;
+        private System.Windows.Forms.Button sto;
     }
 }

@@ -14,6 +14,7 @@ namespace Kafic
     public partial class Login : Form
     {
         Pocetna pocetna = new Pocetna();
+        Baza baza = new Baza();
 
         public Login()
         {
@@ -33,16 +34,9 @@ namespace Kafic
 
         private void prijavi_se_Click(object sender, EventArgs e)
         {
-            Korisnik k = new Korisnik(Ime.Text, Sifra.Text);
+            Korisnik k = baza.getKorisnik(Ime.Text, Sifra.Text);
 
-            string connstr = "Data Source = DESKTOP-QU4VIAR\\SQLEXPRESS; Initial Catalog = Kafic; Integrated Security = true";
-            SqlConnection conn = new SqlConnection(connstr);
-            conn.Open();
-
-            SqlCommand cmd = new SqlCommand("select * from korisnik where ime = '"+ k.getIme() +"' and sifra = '"+k.getSifra()+"'", conn);
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            if (reader.Read())
+            if (k != null)
             {
                 pocetna.Show();
             }
@@ -52,21 +46,5 @@ namespace Kafic
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string connstr = "Data Source = DESKTOP-QU4VIAR\\SQLEXPRESS; Initial Catalog = Kafic; Integrated Security = true";
-            SqlConnection conn = new SqlConnection(connstr);
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("select * from korisnik where ime = 'Admin'", conn);
-            SqlDataReader reader = cmd.ExecuteReader();
-            reader.Read();
-            string output = " " + reader.GetValue(1);
-            MessageBox.Show(output);
-            while (reader.Read())
-            {
-                //string output = "Output = " + reader.GetValue(0) + " " + reader.GetValue(1) + " " + reader.GetValue(2);
-                
-            }
-        }
     }
 }

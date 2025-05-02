@@ -9,3 +9,14 @@ E:\GIT\Kafic\Kafic\obj\Debug\Kafic.exe
 E:\GIT\Kafic\Kafic\obj\Debug\Kafic.pdb
 E:\GIT\Kafic\Kafic\obj\Debug\Kafic.Login.resources
 E:\GIT\Kafic\Kafic\obj\Debug\Kafic.Pocetna.resources
+C:\Users\Nenad\source\repos\pedjan\Kafic\Kafic\bin\Debug\Kafic.exe.config
+C:\Users\Nenad\source\repos\pedjan\Kafic\Kafic\bin\Debug\Kafic.exe
+C:\Users\Nenad\source\repos\pedjan\Kafic\Kafic\bin\Debug\Kafic.pdb
+C:\Users\Nenad\source\repos\pedjan\Kafic\Kafic\obj\Debug\Kafic.csproj.AssemblyReference.cache
+C:\Users\Nenad\source\repos\pedjan\Kafic\Kafic\obj\Debug\Kafic.Login.resources
+C:\Users\Nenad\source\repos\pedjan\Kafic\Kafic\obj\Debug\Kafic.Pocetna.resources
+C:\Users\Nenad\source\repos\pedjan\Kafic\Kafic\obj\Debug\Kafic.Properties.Resources.resources
+C:\Users\Nenad\source\repos\pedjan\Kafic\Kafic\obj\Debug\Kafic.csproj.GenerateResource.cache
+C:\Users\Nenad\source\repos\pedjan\Kafic\Kafic\obj\Debug\Kafic.csproj.CoreCompileInputs.cache
+C:\Users\Nenad\source\repos\pedjan\Kafic\Kafic\obj\Debug\Kafic.exe
+C:\Users\Nenad\source\repos\pedjan\Kafic\Kafic\obj\Debug\Kafic.pdb
