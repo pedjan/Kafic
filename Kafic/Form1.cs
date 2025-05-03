@@ -38,6 +38,8 @@ namespace Kafic
 
             if (k != null)
             {
+                Ime.Text = null;
+                Sifra.Text = null;
                 pocetna.Show();
             }
             else

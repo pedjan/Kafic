@@ -10,24 +10,16 @@ using System.Windows.Forms;
 
 namespace Kafic
 {
-    public partial class Pocetna : Form
+    public partial class Sto : Form
     {
-        Sto stoC = new Sto();
-
-        public Pocetna()
+        public Sto()
         {
             InitializeComponent();
         }
 
-        private void odjavi_se_Click(object sender, EventArgs e)
+        private void nazad_Click(object sender, EventArgs e)
         {
             this.Hide();
-        }
-
-        private void sto_Click(object sender, EventArgs e)
-        {
-            stoC.Show();
-
         }
     }
 }
