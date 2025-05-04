@@ -26,6 +26,7 @@ namespace Kafic
 
         private void sto_Click(object sender, EventArgs e)
         {
+            sto.Text = (sender as Button).Name;
             stoC.Show();
 
         }

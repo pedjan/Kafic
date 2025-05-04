@@ -32,3 +32,4 @@ C:\Users\Nenad\Documents\GitHub\Kafic\Kafic\obj\Debug\Kafic.csproj.CoreCompileIn
 C:\Users\Nenad\Documents\GitHub\Kafic\Kafic\obj\Debug\Kafic.exe
 C:\Users\Nenad\Documents\GitHub\Kafic\Kafic\obj\Debug\Kafic.pdb
 C:\Users\Nenad\Documents\GitHub\Kafic\Kafic\obj\Debug\Kafic.Sto.resources
+E:\GIT\Kafic\Kafic\obj\Debug\Kafic.Sto.resources
