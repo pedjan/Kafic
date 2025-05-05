@@ -1,25 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Kafic
 {
-    public partial class Sto : Form
+    public class Sto
     {
-        public Sto()
-        {
-            InitializeComponent();
+        private string ime;
+        private List<Porudzbina> porudzbine;
+        private bool slobodan;
+
+        public Sto(string ime) { 
+            this.ime = ime;
+            porudzbine = new List<Porudzbina>();
+            slobodan = true;
         }
 
-        private void nazad_Click(object sender, EventArgs e)
-        {
-            this.Hide();
+        public string getIme() { 
+            return this.ime;
         }
     }
 }

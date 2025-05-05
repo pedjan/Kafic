@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Kafic
 {
-    internal class Class3
+    internal class Porudzbina
     {
         private int id;
-        private string porudzbina;
-
-        public Class3() { }
+        public List<Proizvod> proizvodi;
+        private double ukupnaCena;
+        private bool placeno;
     }
 }

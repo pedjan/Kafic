@@ -32,6 +32,31 @@ namespace Kafic
             }
                 return k;
         }
+
+        public Proizvod getProizvodByName(string ime) { 
+            Proizvod p = new Proizvod();
+
+            string connstr = "Data Source = localhost\\SQLEXPRESS; Initial Catalog = Kafic; Integrated Security = true";
+            SqlConnection conn = new SqlConnection(connstr);
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from proizvodi where ime = '" + ime + "'", conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                p.setId(reader.GetInt32(0));
+                p.setIme(reader.GetString(1));
+                p.setCena(reader.GetDouble(2));
+                p.setKolicina(reader.GetInt32(3));
+            }
+            else
+            {
+                return null;
+            }
+
+            return p;
+        }
     }
 
 }
