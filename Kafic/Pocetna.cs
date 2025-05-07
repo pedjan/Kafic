@@ -12,7 +12,6 @@ namespace Kafic
 {
     public partial class Pocetna : Form
     {
-        //Sto stoC = new Sto();
         PojedinacanSto pojsto1;
         PojedinacanSto pojsto2;
         PojedinacanSto pojsto3;
@@ -30,10 +29,27 @@ namespace Kafic
             pojsto3 = new PojedinacanSto(stoo3, this);
             pojsto4 = new PojedinacanSto(stoo4, this);
         }
-
-        public Button getSto1() {
-            return sto1;
+        public Button getStoByName(string ime)
+        {
+            if (ime.Equals("sto1"))
+            {
+                return sto1;
+            }
+            if (ime.Equals("sto2"))
+            {
+                return sto2;
+            }
+            if (ime.Equals("sto3"))
+            {
+                return sto3;
+            }
+            if (ime.Equals("sto4"))
+            {
+                return sto4;
+            }
+            return null;
         }
+
         private void odjavi_se_Click(object sender, EventArgs e)
         {
             this.Hide();

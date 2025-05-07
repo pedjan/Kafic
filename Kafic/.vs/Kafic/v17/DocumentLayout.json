@@ -3,32 +3,40 @@
   "WorkspaceRootPath": "E:\\GIT\\Kafic\\Kafic\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|e:\\git\\kafic\\kafic\\pojedinacansto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|E:\\GIT\\Kafic\\Kafic\\pojedinacansto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|solutionrelative:pojedinacansto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|E:\\GIT\\Kafic\\Kafic\\pojedinacansto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|solutionrelative:pojedinacansto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|E:\\GIT\\Kafic\\Kafic\\pocetna.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|solutionrelative:pocetna.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|E:\\GIT\\Kafic\\Kafic\\pocetna.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|solutionrelative:pocetna.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|E:\\GIT\\Kafic\\Kafic\\sto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|solutionrelative:sto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|E:\\GIT\\Kafic\\Kafic\\porudzbina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|solutionrelative:porudzbina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|e:\\git\\kafic\\kafic\\pojedinacansto.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|solutionrelative:pojedinacansto.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|e:\\git\\kafic\\kafic\\pojedinacansto.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|solutionrelative:pojedinacansto.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|E:\\GIT\\Kafic\\Kafic\\proizvod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|solutionrelative:proizvod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|E:\\GIT\\Kafic\\Kafic\\pojedinacansto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|solutionrelative:pojedinacansto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|e:\\git\\kafic\\kafic\\pocetna.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|solutionrelative:pocetna.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|E:\\GIT\\Kafic\\Kafic\\sto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|solutionrelative:sto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|E:\\GIT\\Kafic\\Kafic\\pocetna.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|solutionrelative:pocetna.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{80B05E26-8837-4442-8D72-EBFB95DDDEEB}|Kafic.csproj|E:\\GIT\\Kafic\\Kafic\\baza.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,11 +62,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
+              "Title": "PojedinacanSto.Designer.cs",
+              "DocumentMoniker": "E:\\GIT\\Kafic\\Kafic\\PojedinacanSto.Designer.cs",
+              "RelativeDocumentMoniker": "PojedinacanSto.Designer.cs",
+              "ToolTip": "E:\\GIT\\Kafic\\Kafic\\PojedinacanSto.Designer.cs",
+              "RelativeToolTip": "PojedinacanSto.Designer.cs",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAiwHoAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T22:47:02.337Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PojedinacanSto.resx",
+              "DocumentMoniker": "E:\\GIT\\Kafic\\Kafic\\PojedinacanSto.resx",
+              "RelativeDocumentMoniker": "PojedinacanSto.resx",
+              "ToolTip": "E:\\GIT\\Kafic\\Kafic\\PojedinacanSto.resx",
+              "RelativeToolTip": "PojedinacanSto.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-05-07T22:46:56.608Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Proizvod.cs",
               "DocumentMoniker": "E:\\GIT\\Kafic\\Kafic\\Proizvod.cs",
               "RelativeDocumentMoniker": "Proizvod.cs",
@@ -66,11 +99,12 @@
               "RelativeToolTip": "Proizvod.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAACAAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T13:03:36.29Z"
+              "WhenOpened": "2025-05-05T13:03:36.29Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Porudzbina.cs",
               "DocumentMoniker": "E:\\GIT\\Kafic\\Kafic\\Porudzbina.cs",
               "RelativeDocumentMoniker": "Porudzbina.cs",
@@ -78,11 +112,12 @@
               "RelativeToolTip": "Porudzbina.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T12:58:13.41Z"
+              "WhenOpened": "2025-05-05T12:58:13.41Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "Sto.cs",
               "DocumentMoniker": "E:\\GIT\\Kafic\\Kafic\\Sto.cs",
               "RelativeDocumentMoniker": "Sto.cs",
@@ -90,7 +125,8 @@
               "RelativeToolTip": "Sto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T12:56:23.081Z"
+              "WhenOpened": "2025-05-05T12:56:23.081Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -100,27 +136,27 @@
               "RelativeDocumentMoniker": "PojedinacanSto.cs",
               "ToolTip": "E:\\GIT\\Kafic\\Kafic\\PojedinacanSto.cs",
               "RelativeToolTip": "PojedinacanSto.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAswCoAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAqwEMAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-05T12:38:21.245Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "Pocetna.cs",
               "DocumentMoniker": "E:\\GIT\\Kafic\\Kafic\\Pocetna.cs",
               "RelativeDocumentMoniker": "Pocetna.cs",
               "ToolTip": "E:\\GIT\\Kafic\\Kafic\\Pocetna.cs",
               "RelativeToolTip": "Pocetna.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-05T12:35:26.699Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "PojedinacanSto.cs [Design]",
               "DocumentMoniker": "E:\\GIT\\Kafic\\Kafic\\PojedinacanSto.cs",
               "RelativeDocumentMoniker": "PojedinacanSto.cs",
@@ -132,19 +168,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "Pocetna.cs [Design]",
               "DocumentMoniker": "E:\\GIT\\Kafic\\Kafic\\Pocetna.cs",
               "RelativeDocumentMoniker": "Pocetna.cs",
               "ToolTip": "E:\\GIT\\Kafic\\Kafic\\Pocetna.cs [Design]",
               "RelativeToolTip": "Pocetna.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T12:35:17.42Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-05-05T12:35:17.42Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Baza.cs",
               "DocumentMoniker": "E:\\GIT\\Kafic\\Kafic\\Baza.cs",
               "RelativeDocumentMoniker": "Baza.cs",
@@ -156,7 +191,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "Korisnik.cs",
               "DocumentMoniker": "E:\\GIT\\Kafic\\Kafic\\Korisnik.cs",
               "RelativeDocumentMoniker": "Korisnik.cs",
@@ -168,7 +203,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "Login.cs [Design]",
               "DocumentMoniker": "E:\\GIT\\Kafic\\Kafic\\Login.cs",
               "RelativeDocumentMoniker": "Login.cs",
@@ -179,7 +214,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "Login.cs",
               "DocumentMoniker": "E:\\GIT\\Kafic\\Kafic\\Login.cs",
               "RelativeDocumentMoniker": "Login.cs",

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,6 @@ namespace Kafic
     public partial class PojedinacanSto : Form
     {
         Baza baza = new Baza();
-        Porudzbina porudzbina = new Porudzbina();
         private Pocetna parentForm;
         double ukupnoC;
         public PojedinacanSto(Sto sto, Pocetna parent)
@@ -23,38 +23,65 @@ namespace Kafic
             InitializeComponent();
             this.Text = sto.getIme();
             this.parentForm = parent;
+            ukupno.Text = String.Empty;
         }
 
         private void nazad_Click(object sender, EventArgs e)
         {
             this.Hide();
         }
-        private void UpdateSto1Text(string newText)
+        private void UpdateStoCena(string sto, string novaCena)
         {
-            if (parentForm != null)
-            {
-                parentForm.getSto1().Text = newText; // Ensure sto1 is accessible
-            }
+            parentForm.getStoByName(sto).Text = novaCena;
         }
         private void item_Click(object sender, EventArgs e)
         {
             string ime = (sender as Button).Text;
             Proizvod p = baza.getProizvodByName(ime);
-            //if (porudzbine.Text.Equals("Nema porudzbina"))
-            //{
-                //porudzbine.Text = $"{"Ime",-9} {"Cena",18} {"Kolicina",18} {"Ukupno",9}\n\n";
-            //}
             double cena = p.getCena();
-            int kolicina = 2;
-            //porudzbine.Text += $"{p.getIme(),-9} {cena,18} {"1",18} {cena * kolicina,9} \n";
+            uint kolicina = getKolicina();
             ukupnoC += cena * kolicina;
             ukupno.Text = "UKUPNO: " + ukupnoC;
-            //Console.WriteLine(porudzbine.Text);
-            string[] eto = { p.getIme(), p.getCena().ToString(), "1", (cena * kolicina).ToString()};
+            string[] eto = { p.getIme(), p.getCena().ToString(), kolicina.ToString(), (cena * kolicina).ToString()};
             ListViewItem item = new ListViewItem(eto);
             test.Items.Add(item);
             ukupno.Text = "UKUPNO: " + ukupnoC;
-            UpdateSto1Text(ukupnoC + "");
+            UpdateStoCena(this.Text, ukupnoC.ToString());
+        }
+
+        private uint getKolicina() {
+            var formKolicina = new Form();
+
+            Button confirmButton = new Button
+            {
+                Text = "Potvrdi",
+                Location = new Point(100, 100),
+                Size = new Size(75, 30)
+            };
+            formKolicina.Controls.Add(confirmButton);
+
+            TextBox kolicina = new TextBox { Location = new Point(90, 50) };
+            formKolicina.Controls.Add(kolicina);
+
+            confirmButton.Click += (sender, e) =>
+            {
+                formKolicina.Hide();
+            };
+
+            formKolicina.FormBorderStyle = FormBorderStyle.None;
+
+            formKolicina.ShowDialog();
+
+            uint kolicinaBroj;
+            bool isNumeric = uint.TryParse(kolicina.Text, out kolicinaBroj);
+            while (!isNumeric)
+            {
+                MessageBox.Show("Kolicina mora biti broj veci od 0");
+                formKolicina.ShowDialog();
+                isNumeric = uint.TryParse(kolicina.Text, out kolicinaBroj);
+            }
+            
+            return kolicinaBroj;
         }
     }
 }

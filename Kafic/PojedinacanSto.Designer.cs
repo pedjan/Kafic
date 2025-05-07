@@ -133,7 +133,9 @@
             this.Controls.Add(this.kola);
             this.Controls.Add(this.naplati);
             this.Controls.Add(this.nazad);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PojedinacanSto";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
 
