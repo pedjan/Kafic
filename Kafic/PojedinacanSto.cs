@@ -28,6 +28,7 @@ namespace Kafic
 
         private void nazad_Click(object sender, EventArgs e)
         {
+            parentForm.Show();
             this.Hide();
         }
         private void UpdateStoCena(string sto, string novaCena)
@@ -42,15 +43,24 @@ namespace Kafic
             uint kolicina = getKolicina();
             ukupnoC += cena * kolicina;
             ukupno.Text = "UKUPNO: " + ukupnoC;
-            string[] eto = { p.getIme(), p.getCena().ToString(), kolicina.ToString(), (cena * kolicina).ToString()};
+            string[] eto = { p.getIme(), p.getCena().ToString(), kolicina.ToString(), (cena * kolicina).ToString() };
             ListViewItem item = new ListViewItem(eto);
             test.Items.Add(item);
             ukupno.Text = "UKUPNO: " + ukupnoC;
             UpdateStoCena(this.Text, ukupnoC.ToString());
         }
 
-        private uint getKolicina() {
+        private uint getKolicina()
+        {
             var formKolicina = new Form();
+
+            Label text = new Label
+            {
+                Text = "Unesite kolicinu",
+                Location = new Point(100, 20),
+                Size = new Size(200, 20)
+            };
+            formKolicina.Controls.Add(text);
 
             Button confirmButton = new Button
             {
@@ -80,8 +90,60 @@ namespace Kafic
                 formKolicina.ShowDialog();
                 isNumeric = uint.TryParse(kolicina.Text, out kolicinaBroj);
             }
-            
+
             return kolicinaBroj;
+        }
+
+        private void naplati_Click(object sender, EventArgs e)
+        {
+            Form naplata = new Form();
+
+            naplata.FormBorderStyle = FormBorderStyle.None;
+
+            TextBox iznos = new TextBox { Location = new Point(90, 50) };
+            naplata.Controls.Add(iznos);
+
+            Label text = new Label
+            {
+                Text = "Unesite iznos koji zelite da platite",
+                Location = new Point(70, 20),
+                Size = new Size(200, 20)
+            };
+            naplata.Controls.Add(text);
+
+            Button confirmButton = new Button
+            {
+                Text = "Naplati",
+                Location = new Point(100, 100),
+                Size = new Size(75, 30)
+            };
+            naplata.Controls.Add(confirmButton);
+
+            confirmButton.Click += (senderr, ee) =>
+            {
+                naplata.Hide();
+            };
+
+            naplata.ShowDialog();
+
+            double iznosBroj;
+            bool isNumeric = double.TryParse(iznos.Text, out iznosBroj);
+            while (!isNumeric || ukupnoC > iznosBroj)
+            {
+                MessageBox.Show("Moras uneti ispravan izraz racuna koji iznosi " + ukupnoC + "RSD");
+                naplata.ShowDialog();
+                isNumeric = double.TryParse(iznos.Text, out iznosBroj);
+                
+            }
+
+            double kusur = iznosBroj - ukupnoC;
+            MessageBox.Show("Uspesno ste platili racun\nKusur iznosi: " + Math.Round(kusur, 2) + "RSD");
+            ukupnoC = 0;
+            ukupno.Text = "UKUPNO: " + ukupnoC;
+            UpdateStoCena(this.Text, String.Empty);
+            test.Items.Clear();
+
+
         }
     }
 }

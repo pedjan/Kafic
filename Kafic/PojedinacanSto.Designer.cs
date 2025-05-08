@@ -58,6 +58,7 @@
             this.naplati.TabIndex = 2;
             this.naplati.Text = "Naplati";
             this.naplati.UseVisualStyleBackColor = true;
+            this.naplati.Click += new System.EventHandler(this.naplati_Click);
             // 
             // kola
             // 

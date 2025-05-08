@@ -12,6 +12,7 @@ namespace Kafic
 {
     public partial class Pocetna : Form
     {
+        Login parentForm;
         PojedinacanSto pojsto1;
         PojedinacanSto pojsto2;
         PojedinacanSto pojsto3;
@@ -21,13 +22,14 @@ namespace Kafic
         Sto stoo3 = new Sto("sto3");
         Sto stoo4 = new Sto("sto4");
 
-        public Pocetna()
+        public Pocetna(Login parent)
         {
             InitializeComponent();
             pojsto1 = new PojedinacanSto(stoo1, this);
             pojsto2 = new PojedinacanSto(stoo2, this);
             pojsto3 = new PojedinacanSto(stoo3, this);
             pojsto4 = new PojedinacanSto(stoo4, this);
+            this.parentForm = parent;
         }
         public Button getStoByName(string ime)
         {
@@ -52,6 +54,7 @@ namespace Kafic
 
         private void odjavi_se_Click(object sender, EventArgs e)
         {
+            parentForm.Show();
             this.Hide();
         }
 
@@ -74,7 +77,7 @@ namespace Kafic
             {
                 pojsto4.Show();
             }
-
+            this.Hide();
         }
     }
 }

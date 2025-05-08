@@ -13,15 +13,16 @@ namespace Kafic
 {
     public partial class Login : Form
     {
-        Pocetna pocetna = new Pocetna();
+        Pocetna pocetna;
         Baza baza = new Baza();
 
         public Login()
         {
             InitializeComponent();
+            pocetna = new Pocetna(this);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Login_Load(object sender, EventArgs e)
         {
 
         }
@@ -40,7 +41,8 @@ namespace Kafic
             {
                 Ime.Text = null;
                 Sifra.Text = null;
-                pocetna.Show();
+                pocetna.Show(this);
+                this.Hide();
             }
             else
             {
