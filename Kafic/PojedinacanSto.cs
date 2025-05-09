@@ -41,13 +41,22 @@ namespace Kafic
             Proizvod p = baza.getProizvodByName(ime);
             double cena = p.getCena();
             uint kolicina = getKolicina();
-            ukupnoC += cena * kolicina;
-            ukupno.Text = "UKUPNO: " + ukupnoC;
-            string[] eto = { p.getIme(), p.getCena().ToString(), kolicina.ToString(), (cena * kolicina).ToString() };
-            ListViewItem item = new ListViewItem(eto);
-            test.Items.Add(item);
-            ukupno.Text = "UKUPNO: " + ukupnoC;
-            UpdateStoCena(this.Text, ukupnoC.ToString());
+
+            if (kolicina > p.getKolicina())
+            {
+                MessageBox.Show("Nemamo dovoljno proizvoda na stanju");
+                return;
+            } 
+            else 
+            {
+                ukupnoC += cena * kolicina;
+                ukupno.Text = "UKUPNO: " + ukupnoC;
+                string[] eto = { p.getIme(), p.getCena().ToString(), kolicina.ToString(), (cena * kolicina).ToString() };
+                ListViewItem item = new ListViewItem(eto);
+                test.Items.Add(item);
+                ukupno.Text = "UKUPNO: " + ukupnoC;
+                UpdateStoCena(this.Text, ukupnoC.ToString());
+            }
         }
 
         private uint getKolicina()
@@ -134,6 +143,13 @@ namespace Kafic
                 naplata.ShowDialog();
                 isNumeric = double.TryParse(iznos.Text, out iznosBroj);
                 
+            }
+
+            foreach (var item in test.Items) {
+                ListViewItem item1 = (ListViewItem)item;
+                string ime = item1.SubItems[0].Text;
+                uint kolicina = uint.Parse(item1.SubItems[2].Text);
+                baza.updateProizvod(ime, kolicina);
             }
 
             double kusur = iznosBroj - ukupnoC;

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace Kafic
 {
@@ -28,9 +29,11 @@ namespace Kafic
             }
             else
             {
+                conn.Close();
                 return null;
             }
-                return k;
+            conn.Close();
+            return k;
         }
 
         public Proizvod getProizvodByName(string ime) { 
@@ -52,10 +55,25 @@ namespace Kafic
             }
             else
             {
+                conn.Close();
                 return null;
             }
-
+            conn.Close();
             return p;
+        }
+
+        public void updateProizvod(String ime, uint kolicina) 
+        {
+            Proizvod p = getProizvodByName(ime);
+            uint novaKolicina = (uint)p.getKolicina() - kolicina;
+
+            string connstr = "Data Source = localhost\\SQLEXPRESS; Initial Catalog = Kafic; Integrated Security = true";
+            SqlConnection conn = new SqlConnection(connstr);
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("update proizvodi set kolicina = '" + novaKolicina + "' where ime = '" + ime + "'", conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            conn.Close();
         }
     }
 
