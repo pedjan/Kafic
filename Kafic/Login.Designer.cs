@@ -36,10 +36,9 @@
             // 
             // prijavi_se
             // 
-            this.prijavi_se.Location = new System.Drawing.Point(508, 348);
-            this.prijavi_se.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.prijavi_se.Location = new System.Drawing.Point(339, 226);
             this.prijavi_se.Name = "prijavi_se";
-            this.prijavi_se.Size = new System.Drawing.Size(112, 35);
+            this.prijavi_se.Size = new System.Drawing.Size(75, 23);
             this.prijavi_se.TabIndex = 0;
             this.prijavi_se.Text = "Prijavi se";
             this.prijavi_se.UseVisualStyleBackColor = true;
@@ -47,26 +46,23 @@
             // 
             // Ime
             // 
-            this.Ime.Location = new System.Drawing.Point(490, 223);
-            this.Ime.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Ime.Location = new System.Drawing.Point(327, 145);
             this.Ime.Name = "Ime";
-            this.Ime.Size = new System.Drawing.Size(148, 26);
+            this.Ime.Size = new System.Drawing.Size(100, 20);
             this.Ime.TabIndex = 1;
             // 
             // Sifra
             // 
-            this.Sifra.Location = new System.Drawing.Point(490, 280);
-            this.Sifra.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Sifra.Location = new System.Drawing.Point(327, 182);
             this.Sifra.Name = "Sifra";
-            this.Sifra.Size = new System.Drawing.Size(148, 26);
+            this.Sifra.Size = new System.Drawing.Size(100, 20);
             this.Sifra.TabIndex = 2;
             // 
             // ugasi_program
             // 
-            this.ugasi_program.Location = new System.Drawing.Point(927, 529);
-            this.ugasi_program.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ugasi_program.Location = new System.Drawing.Point(618, 344);
             this.ugasi_program.Name = "ugasi_program";
-            this.ugasi_program.Size = new System.Drawing.Size(140, 35);
+            this.ugasi_program.Size = new System.Drawing.Size(93, 23);
             this.ugasi_program.TabIndex = 3;
             this.ugasi_program.Text = "Ugasi program";
             this.ugasi_program.UseVisualStyleBackColor = true;
@@ -74,21 +70,20 @@
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ugasi_program);
             this.Controls.Add(this.Sifra);
             this.Controls.Add(this.Ime);
             this.Controls.Add(this.prijavi_se);
             this.Cursor = System.Windows.Forms.Cursors.Default;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tiha tisa";
+            this.Text = "Login";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);

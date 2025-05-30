@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,25 +14,34 @@ namespace Kafic
     public partial class Pocetna : Form
     {
         Login parentForm;
-        PojedinacanSto pojsto1;
-        PojedinacanSto pojsto2;
-        PojedinacanSto pojsto3;
-        PojedinacanSto pojsto4;
-        Sto stoo1 = new Sto("sto1");
-        Sto stoo2 = new Sto("sto2");
-        Sto stoo3 = new Sto("sto3");
-        Sto stoo4 = new Sto("sto4");
+        UpravljanjeProizvodima up;
+
+        private readonly int BROJ_STOLOVA = 4;
+
+        List<PojedinacanSto> listaPojedinacnihStolova = new List<PojedinacanSto>();
+        List<Sto> listaStolova = new List<Sto>();
+
+        bool admin = true;
 
         public Pocetna(Login parent)
         {
             InitializeComponent();
-            pojsto1 = new PojedinacanSto(stoo1, this);
-            pojsto2 = new PojedinacanSto(stoo2, this);
-            pojsto3 = new PojedinacanSto(stoo3, this);
-            pojsto4 = new PojedinacanSto(stoo4, this);
+
+            for (int i = 0; i < BROJ_STOLOVA; i++)
+            {
+                Sto sto = new Sto("sto" + (i + 1));
+                listaStolova.Add(sto);
+                PojedinacanSto pojSto = new PojedinacanSto(sto, this);
+                listaPojedinacnihStolova.Add(pojSto);
+            }
             this.parentForm = parent;
+            if (!admin) 
+            {
+                uprproj.Visible = false;
+            }
+            up = new UpravljanjeProizvodima(this);
         }
-        public Button getStoByName(string ime)
+        public Button GetStoByName(string ime)
         {
             if (ime.Equals("sto1"))
             {
@@ -54,29 +64,34 @@ namespace Kafic
 
         private void odjavi_se_Click(object sender, EventArgs e)
         {
-            parentForm.Show();
-            this.Hide();
+            if (sto1.Text == String.Empty && sto2.Text == String.Empty && sto3.Text == String.Empty && sto4.Text == String.Empty)
+            {
+                parentForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Niste naplatili sve racune!");
+            }
         }
 
         private void sto_Click(object sender, EventArgs e)
         {
             string ime = (sender as Button).Name;
-            if (ime.Equals(stoo1.getIme()))
+
+            for(int i = 0; i < BROJ_STOLOVA; i++)
             {
-                pojsto1.Show();
+                if (ime.Equals(listaStolova[i].getIme()))
+                {
+                    listaPojedinacnihStolova[i].Show();
+                    this.Hide();
+                }
             }
-            if (ime.Equals(stoo2.getIme()))
-            {
-                pojsto2.Show();
-            }
-            if (ime.Equals(stoo3.getIme()))
-            {
-                pojsto3.Show();
-            }
-            if (ime.Equals(stoo4.getIme()))
-            {
-                pojsto4.Show();
-            }
+        }
+
+        private void uprproj_Click(object sender, EventArgs e)
+        {
+            up.Show();
             this.Hide();
         }
     }

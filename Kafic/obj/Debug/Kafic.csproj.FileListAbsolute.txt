@@ -33,3 +33,17 @@ C:\Users\Nenad\Documents\GitHub\Kafic\Kafic\obj\Debug\Kafic.exe
 C:\Users\Nenad\Documents\GitHub\Kafic\Kafic\obj\Debug\Kafic.pdb
 C:\Users\Nenad\Documents\GitHub\Kafic\Kafic\obj\Debug\Kafic.Sto.resources
 E:\GIT\Kafic\Kafic\obj\Debug\Kafic.PojedinacanSto.resources
+D:\Ostalo\GIT\Kafic\Kafic\bin\Debug\Kafic.exe.config
+D:\Ostalo\GIT\Kafic\Kafic\bin\Debug\Kafic.exe
+D:\Ostalo\GIT\Kafic\Kafic\bin\Debug\Kafic.pdb
+D:\Ostalo\GIT\Kafic\Kafic\obj\Debug\Kafic.csproj.AssemblyReference.cache
+D:\Ostalo\GIT\Kafic\Kafic\obj\Debug\Kafic.Login.resources
+D:\Ostalo\GIT\Kafic\Kafic\obj\Debug\Kafic.Pocetna.resources
+D:\Ostalo\GIT\Kafic\Kafic\obj\Debug\Kafic.Properties.Resources.resources
+D:\Ostalo\GIT\Kafic\Kafic\obj\Debug\Kafic.PojedinacanSto.resources
+D:\Ostalo\GIT\Kafic\Kafic\obj\Debug\Kafic.UpravljanjeProizvodima.resources
+D:\Ostalo\GIT\Kafic\Kafic\obj\Debug\Kafic.csproj.GenerateResource.cache
+D:\Ostalo\GIT\Kafic\Kafic\obj\Debug\Kafic.csproj.CoreCompileInputs.cache
+D:\Ostalo\GIT\Kafic\Kafic\obj\Debug\Kafic.exe
+D:\Ostalo\GIT\Kafic\Kafic\obj\Debug\Kafic.pdb
+D:\Ostalo\GIT\Kafic\Kafic\obj\Debug\Kafic.exe.config

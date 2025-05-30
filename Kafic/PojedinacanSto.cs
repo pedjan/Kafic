@@ -33,7 +33,15 @@ namespace Kafic
         }
         private void UpdateStoCena(string sto, string novaCena)
         {
-            parentForm.getStoByName(sto).Text = novaCena;
+            parentForm.GetStoByName(sto).Text = novaCena;
+            if(string.IsNullOrEmpty(novaCena))
+            {
+                parentForm.GetStoByName(sto).BackColor = Color.Blue;
+            }
+            else
+            {
+                parentForm.GetStoByName(sto).BackColor = Color.Red;
+            }
         }
         private void item_Click(object sender, EventArgs e)
         {
@@ -50,10 +58,25 @@ namespace Kafic
             else 
             {
                 ukupnoC += cena * kolicina;
-                ukupno.Text = "UKUPNO: " + ukupnoC;
-                string[] eto = { p.getIme(), p.getCena().ToString(), kolicina.ToString(), (cena * kolicina).ToString() };
-                ListViewItem item = new ListViewItem(eto);
-                test.Items.Add(item);
+                bool found = false;
+                foreach (ListViewItem itemm in test.Items)
+                {
+                    if (itemm.SubItems[0].Text.Equals(p.getIme()))
+                    {
+                        itemm.SubItems[2].Text = (uint.Parse(itemm.SubItems[2].Text) + kolicina).ToString();
+                        itemm.SubItems[3].Text = ukupnoC.ToString();
+
+                        found = true;
+                        break;
+                    }
+
+                }
+
+                if (!found) {
+                    string[] eto = { p.getIme(), p.getCena().ToString(), kolicina.ToString(), (cena * kolicina).ToString() };
+                    ListViewItem item = new ListViewItem(eto);
+                    test.Items.Add(item);
+                }
                 ukupno.Text = "UKUPNO: " + ukupnoC;
                 UpdateStoCena(this.Text, ukupnoC.ToString());
             }

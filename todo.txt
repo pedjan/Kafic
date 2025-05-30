@@ -1,0 +1,11 @@
+30.5.2025.
+
+dodati ture kad izadjes da doda u listu ukupno za turu
+
+kod izbora pica dodati vrstu pa kad se klikne ispod da izadje da se bira sve od te vrste
+
+kad je sto slobodan da bude plav kad je zauzet da bude crven - RESENO 30.5.2025.
+
+admin moze da pomera stolove
+
+da se pamti za dan, da ima za dane

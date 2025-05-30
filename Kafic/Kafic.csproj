@@ -71,6 +71,12 @@
       <DependentUpon>PojedinacanSto.cs</DependentUpon>
     </Compile>
     <Compile Include="Sto.cs" />
+    <Compile Include="UpravljanjeProizvodima.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpravljanjeProizvodima.Designer.cs">
+      <DependentUpon>UpravljanjeProizvodima.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -88,6 +94,9 @@
     </Compile>
     <EmbeddedResource Include="PojedinacanSto.resx">
       <DependentUpon>PojedinacanSto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpravljanjeProizvodima.resx">
+      <DependentUpon>UpravljanjeProizvodima.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
