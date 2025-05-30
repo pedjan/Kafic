@@ -30,11 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pocetna));
             this.odjavi_se = new System.Windows.Forms.Button();
-            this.sto1 = new System.Windows.Forms.Button();
-            this.sto2 = new System.Windows.Forms.Button();
-            this.sto3 = new System.Windows.Forms.Button();
-            this.sto4 = new System.Windows.Forms.Button();
             this.uprproj = new System.Windows.Forms.Button();
+            this.updateSto = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // odjavi_se
@@ -47,58 +44,6 @@
             this.odjavi_se.UseVisualStyleBackColor = true;
             this.odjavi_se.Click += new System.EventHandler(this.odjavi_se_Click);
             // 
-            // sto1
-            // 
-            this.sto1.BackColor = System.Drawing.Color.Blue;
-            this.sto1.FlatAppearance.BorderSize = 5;
-            this.sto1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sto1.Location = new System.Drawing.Point(114, 76);
-            this.sto1.Name = "sto1";
-            this.sto1.Size = new System.Drawing.Size(100, 100);
-            this.sto1.TabIndex = 1;
-            this.sto1.UseVisualStyleBackColor = false;
-            this.sto1.Click += new System.EventHandler(this.sto_Click);
-            // 
-            // sto2
-            // 
-            this.sto2.BackColor = System.Drawing.Color.Blue;
-            this.sto2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.sto2.FlatAppearance.BorderSize = 5;
-            this.sto2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sto2.Location = new System.Drawing.Point(264, 76);
-            this.sto2.Name = "sto2";
-            this.sto2.Size = new System.Drawing.Size(100, 100);
-            this.sto2.TabIndex = 2;
-            this.sto2.UseVisualStyleBackColor = false;
-            this.sto2.Click += new System.EventHandler(this.sto_Click);
-            // 
-            // sto3
-            // 
-            this.sto3.BackColor = System.Drawing.Color.Blue;
-            this.sto3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.sto3.FlatAppearance.BorderSize = 5;
-            this.sto3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sto3.Location = new System.Drawing.Point(422, 76);
-            this.sto3.Name = "sto3";
-            this.sto3.Size = new System.Drawing.Size(100, 100);
-            this.sto3.TabIndex = 3;
-            this.sto3.UseVisualStyleBackColor = false;
-            this.sto3.Click += new System.EventHandler(this.sto_Click);
-            // 
-            // sto4
-            // 
-            this.sto4.BackColor = System.Drawing.Color.Blue;
-            this.sto4.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.sto4.FlatAppearance.BorderSize = 5;
-            this.sto4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sto4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.sto4.Location = new System.Drawing.Point(585, 76);
-            this.sto4.Name = "sto4";
-            this.sto4.Size = new System.Drawing.Size(100, 100);
-            this.sto4.TabIndex = 4;
-            this.sto4.UseVisualStyleBackColor = false;
-            this.sto4.Click += new System.EventHandler(this.sto_Click);
-            // 
             // uprproj
             // 
             this.uprproj.BackColor = System.Drawing.SystemColors.Control;
@@ -110,17 +55,24 @@
             this.uprproj.UseVisualStyleBackColor = false;
             this.uprproj.Click += new System.EventHandler(this.uprproj_Click);
             // 
+            // updateSto
+            // 
+            this.updateSto.Location = new System.Drawing.Point(412, 20);
+            this.updateSto.Name = "updateSto";
+            this.updateSto.Size = new System.Drawing.Size(91, 23);
+            this.updateSto.TabIndex = 6;
+            this.updateSto.Text = "Sacuvaj stolove";
+            this.updateSto.UseVisualStyleBackColor = true;
+            this.updateSto.Click += new System.EventHandler(this.updateSto_Click);
+            // 
             // Pocetna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(811, 445);
+            this.Controls.Add(this.updateSto);
             this.Controls.Add(this.uprproj);
-            this.Controls.Add(this.sto4);
-            this.Controls.Add(this.sto3);
-            this.Controls.Add(this.sto2);
-            this.Controls.Add(this.sto1);
             this.Controls.Add(this.odjavi_se);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Pocetna";
@@ -133,10 +85,7 @@
         #endregion
 
         private System.Windows.Forms.Button odjavi_se;
-        private System.Windows.Forms.Button sto1;
-        private System.Windows.Forms.Button sto2;
-        private System.Windows.Forms.Button sto3;
-        private System.Windows.Forms.Button sto4;
         private System.Windows.Forms.Button uprproj;
+        private System.Windows.Forms.Button updateSto;
     }
 }

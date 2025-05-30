@@ -18,10 +18,14 @@ namespace Kafic
         Baza baza = new Baza();
         private Pocetna parentForm;
         double ukupnoC;
+        public Sto sto;
+        
         public PojedinacanSto(Sto sto, Pocetna parent)
         {
             InitializeComponent();
+            this.sto = sto;
             this.Text = sto.getIme();
+            this.Name = sto.getIme();
             this.parentForm = parent;
             ukupno.Text = String.Empty;
         }
@@ -34,7 +38,7 @@ namespace Kafic
         private void UpdateStoCena(string sto, string novaCena)
         {
             parentForm.GetStoByName(sto).Text = novaCena;
-            if(string.IsNullOrEmpty(novaCena))
+            if (string.IsNullOrEmpty(novaCena))
             {
                 parentForm.GetStoByName(sto).BackColor = Color.Blue;
             }
@@ -183,6 +187,10 @@ namespace Kafic
             test.Items.Clear();
 
 
+        }
+
+        public ListView getRacun() {
+            return this.test;
         }
     }
 }

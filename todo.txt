@@ -6,6 +6,8 @@ kod izbora pica dodati vrstu pa kad se klikne ispod da izadje da se bira sve od 
 
 kad je sto slobodan da bude plav kad je zauzet da bude crven - RESENO 30.5.2025.
 
-admin moze da pomera stolove
+srediti bug da se lepo sabira - RESENO 30.5.2025.
+
+admin moze da pomera stolove - RESENO 30.5.2025.
 
 da se pamti za dan, da ima za dane

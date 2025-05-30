@@ -15,22 +15,34 @@ namespace Kafic
     {
         Login parentForm;
         UpravljanjeProizvodima up;
+        Baza baza = new Baza();
+        
 
-        private readonly int BROJ_STOLOVA = 4;
+        private int BROJ_STOLOVA;
 
         List<PojedinacanSto> listaPojedinacnihStolova = new List<PojedinacanSto>();
-        List<Sto> listaStolova = new List<Sto>();
+        List<Sto> listaStolova;
+
+        
 
         bool admin = true;
+
+        bool dragging;
+        int xoffset;
+        int yoffset;
 
         public Pocetna(Login parent)
         {
             InitializeComponent();
+            dragging = false;
 
-            for (int i = 0; i < BROJ_STOLOVA; i++)
+
+            BROJ_STOLOVA = baza.getBrStolova();
+            listaStolova = baza.getSveStolove();
+
+            foreach (Sto stoo in listaStolova)
             {
-                Sto sto = new Sto("sto" + (i + 1));
-                listaStolova.Add(sto);
+                Sto sto = new Sto(stoo.getIme(), stoo.getX(), stoo.getY(), this);
                 PojedinacanSto pojSto = new PojedinacanSto(sto, this);
                 listaPojedinacnihStolova.Add(pojSto);
             }
@@ -43,43 +55,34 @@ namespace Kafic
         }
         public Button GetStoByName(string ime)
         {
-            if (ime.Equals("sto1"))
+            foreach (PojedinacanSto sto in listaPojedinacnihStolova)
             {
-                return sto1;
-            }
-            if (ime.Equals("sto2"))
-            {
-                return sto2;
-            }
-            if (ime.Equals("sto3"))
-            {
-                return sto3;
-            }
-            if (ime.Equals("sto4"))
-            {
-                return sto4;
+                if (sto.sto.getIme().Equals(ime))
+                {
+                    return sto.sto.stoBtn;
+                }
             }
             return null;
         }
 
         private void odjavi_se_Click(object sender, EventArgs e)
         {
-            if (sto1.Text == String.Empty && sto2.Text == String.Empty && sto3.Text == String.Empty && sto4.Text == String.Empty)
-            {
-                parentForm.Show();
-                this.Hide();
+            foreach (PojedinacanSto sto in listaPojedinacnihStolova) { 
+                if (sto.getRacun().Items.Count > 0)
+                {
+                    MessageBox.Show("Niste naplatili sve račune!");
+                    return;
+                }
             }
-            else
-            {
-                MessageBox.Show("Niste naplatili sve racune!");
-            }
+            parentForm.Show();
+            this.Hide();
         }
 
-        private void sto_Click(object sender, EventArgs e)
+        public void sto_Click(object sender, EventArgs e)
         {
             string ime = (sender as Button).Name;
 
-            for(int i = 0; i < BROJ_STOLOVA; i++)
+            for (int i = 0; i < BROJ_STOLOVA; i++)
             {
                 if (ime.Equals(listaStolova[i].getIme()))
                 {
@@ -87,12 +90,79 @@ namespace Kafic
                     this.Hide();
                 }
             }
+            
         }
 
         private void uprproj_Click(object sender, EventArgs e)
         {
             up.Show();
             this.Hide();
+        }
+
+        public void sto_MouseDown(object sender, MouseEventArgs e)
+        {
+            Button b;
+            b = (Button)sender;
+            if (Control.ModifierKeys == Keys.Control)
+            {
+                dragging = true;
+                xoffset = e.X;
+                yoffset = e.Y;
+
+            }
+        }
+
+        public void sto_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
+        }
+
+        public void sto_MouseMove(object sender, MouseEventArgs e)
+        {
+            Button b;
+            int XMoved;
+            int YMoved;
+            int newBtnX;
+            int newBtnY;
+
+            b = (Button)sender;
+            if (dragging)
+            {
+                XMoved = e.Location.X - xoffset;
+                YMoved = e.Location.Y - yoffset;
+
+                newBtnX = b.Location.X + XMoved;
+                newBtnY = b.Location.Y + YMoved;
+
+                //X
+                if (newBtnX <= 0)
+                {
+                    newBtnX = b.Location.X;
+                }
+                else if (newBtnX + b.Height >= this.ClientSize.Width)
+                {
+                    newBtnX = b.Location.X;
+                }
+
+                //Y
+                if (newBtnY <= 0)
+                {
+                    newBtnY = b.Location.Y;
+                }
+                else if (newBtnY + b.Height >= this.ClientSize.Height)
+                {
+                    newBtnY = b.Location.Y;
+                }
+                b.Location = new Point(newBtnX, newBtnY);
+            }
+        }
+
+        private void updateSto_Click(object sender, EventArgs e)
+        {
+            foreach (PojedinacanSto sto in listaPojedinacnihStolova)
+            {
+                baza.updateSto(sto.sto.getIme(), sto.sto.stoBtn.Location.X, sto.sto.stoBtn.Location.Y);
+            }
         }
     }
 }
