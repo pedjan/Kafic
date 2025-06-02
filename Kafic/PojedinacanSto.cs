@@ -35,6 +35,7 @@ namespace Kafic
             parentForm.Show();
             this.Hide();
         }
+
         private void UpdateStoCena(string sto, string novaCena)
         {
             parentForm.GetStoByName(sto).Text = novaCena;
@@ -47,6 +48,7 @@ namespace Kafic
                 parentForm.GetStoByName(sto).BackColor = Color.Red;
             }
         }
+
         private void item_Click(object sender, EventArgs e)
         {
             string ime = (sender as Button).Text;

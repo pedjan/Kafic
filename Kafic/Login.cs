@@ -15,7 +15,6 @@ namespace Kafic
     {
         Pocetna pocetna;
         Baza baza = new Baza();
-        Form1 form1 = new Form1();
 
         public Login()
         {
@@ -32,7 +31,6 @@ namespace Kafic
         {
             this.Close();
         }
-
 
         private void prijavi_se_Click(object sender, EventArgs e)
         {
@@ -51,9 +49,5 @@ namespace Kafic
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            form1.Show();
-        }
     }
 }

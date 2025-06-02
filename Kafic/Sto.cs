@@ -12,19 +12,11 @@ namespace Kafic
         private string ime;
         private int posX;
         private int posY;
-        private List<Porudzbina> porudzbine;
-        private bool slobodan;
-
 
         public Button stoBtn = new System.Windows.Forms.Button();
 
         Pocetna pocetna;
 
-        public Sto(string ime) { 
-            this.ime = ime;
-            porudzbine = new List<Porudzbina>();
-            slobodan = true;
-        }
         public Sto(string ime, int posX, int posY)
         {
             this.ime = ime;

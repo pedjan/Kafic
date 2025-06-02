@@ -12,13 +12,14 @@ namespace Kafic
 {
     public partial class UpravljanjeProizvodima : Form
     {
-
         private Pocetna parentForm;
+
         public UpravljanjeProizvodima(Pocetna parentForm)
         {
             InitializeComponent();
             this.parentForm = parentForm;
         }
+
         private void nazad_Click(object sender, EventArgs e)
         {
             parentForm.Show();

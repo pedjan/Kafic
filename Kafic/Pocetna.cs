@@ -23,8 +23,6 @@ namespace Kafic
         List<PojedinacanSto> listaPojedinacnihStolova = new List<PojedinacanSto>();
         List<Sto> listaStolova;
 
-        
-
         bool admin = true;
 
         bool dragging;
@@ -163,6 +161,11 @@ namespace Kafic
             {
                 baza.updateSto(sto.sto.getIme(), sto.sto.stoBtn.Location.X, sto.sto.stoBtn.Location.Y);
             }
+        }
+
+        private void napraviSto_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

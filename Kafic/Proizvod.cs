@@ -23,9 +23,11 @@ namespace Kafic
         public int getId() { 
             return this.id;
         }
+
         public void setIme(string ime) { 
             this.ime = ime;
         }
+
         public string getIme() { 
             return (this.ime);
         }
@@ -38,10 +40,12 @@ namespace Kafic
         {
             return this.cena;
         }
+
         public int getKolicina()
         {
             return this.kolicina;
         }
+
         public void setKolicina(int kolicina) { 
             this.kolicina = kolicina;
         }

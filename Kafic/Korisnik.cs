@@ -10,11 +10,14 @@ namespace Kafic
     {
         private string ime;
         private string sifra;
+
         public Korisnik(string ime, string sifra) { 
             this.ime = ime;
             this.sifra = sifra;
         }
+
         public Korisnik() { }
+
         public string getIme() { 
             return ime;
         }
@@ -28,7 +31,6 @@ namespace Kafic
         {
             this.ime = ime;
         }
-
 
         public void setSifra(string sifra)
         {
