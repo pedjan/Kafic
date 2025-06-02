@@ -10,10 +10,20 @@ namespace Kafic
     {
         private int id;
         private string ime;
+        private Vrsta vrsta;
         private double cena;
         private int kolicina;
 
         public Proizvod() {
+        }
+
+        public Proizvod(int id, string ime, Vrsta vrsta, double cena, int kolicina)
+        {
+            this.id = id;
+            this.ime = ime;
+            this.vrsta = vrsta;
+            this.cena = cena;
+            this.kolicina = kolicina;
         }
 
         public void setId(int id) { 
@@ -48,6 +58,10 @@ namespace Kafic
 
         public void setKolicina(int kolicina) { 
             this.kolicina = kolicina;
+        }
+
+        public void setIdV(Vrsta vrsta) { 
+            this.vrsta = vrsta;
         }
     }
 }

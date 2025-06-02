@@ -47,4 +47,3 @@ D:\Ostalo\GIT\Kafic\Kafic\obj\Debug\Kafic.csproj.CoreCompileInputs.cache
 D:\Ostalo\GIT\Kafic\Kafic\obj\Debug\Kafic.exe
 D:\Ostalo\GIT\Kafic\Kafic\obj\Debug\Kafic.pdb
 D:\Ostalo\GIT\Kafic\Kafic\obj\Debug\Kafic.exe.config
-D:\Ostalo\GIT\Kafic\Kafic\obj\Debug\Kafic.Form1.resources

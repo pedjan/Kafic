@@ -8,10 +8,12 @@ namespace Kafic
 {
     internal class Korisnik
     {
+        private int id;
         private string ime;
         private string sifra;
 
-        public Korisnik(string ime, string sifra) { 
+        public Korisnik(int id, string ime, string sifra) {
+            this.id = id;
             this.ime = ime;
             this.sifra = sifra;
         }
@@ -35,6 +37,11 @@ namespace Kafic
         public void setSifra(string sifra)
         {
             this.sifra = sifra;
+        }
+
+        public void setId(int id)
+        {
+            this.id = id;
         }
     }
 }

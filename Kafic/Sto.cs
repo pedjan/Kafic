@@ -9,6 +9,7 @@ namespace Kafic
 {
     public class Sto
     {
+        private int idS;
         private string ime;
         private int posX;
         private int posY;
@@ -17,19 +18,21 @@ namespace Kafic
 
         Pocetna pocetna;
 
-        public Sto(string ime, int posX, int posY)
+        public Sto(int idS, string ime, int posX, int posY)
         {
+            this.idS = idS;
             this.ime = ime;
             this.posX = posX;
             this.posY = posY;
         }
-        public Sto(string ime, int posX, int posY, Pocetna pocetna)
+        public Sto(int idS, string ime, int posX, int posY, Pocetna pocetna)
         {
+            this.idS = idS;
             this.ime = ime;
             this.posX = posX;
             this.posY = posY;
-
             this.pocetna = pocetna;
+
             stoBtn.BackColor = System.Drawing.Color.Blue;
             stoBtn.FlatAppearance.BorderSize = 5;
             stoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -47,7 +50,12 @@ namespace Kafic
             pocetna.Controls.Add(stoBtn);
         }
 
-        public string getIme() { 
+        public int getIdS() { 
+            return this.idS;
+        }
+
+        public string getIme()
+        {
             return this.ime;
         }
 

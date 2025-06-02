@@ -30,8 +30,6 @@
         {
             this.nazad = new System.Windows.Forms.Button();
             this.naplati = new System.Windows.Forms.Button();
-            this.kola = new System.Windows.Forms.Button();
-            this.fanta = new System.Windows.Forms.Button();
             this.ukupno = new System.Windows.Forms.Label();
             this.test = new System.Windows.Forms.ListView();
             this.Ime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -59,26 +57,6 @@
             this.naplati.Text = "Naplati";
             this.naplati.UseVisualStyleBackColor = true;
             this.naplati.Click += new System.EventHandler(this.naplati_Click);
-            // 
-            // kola
-            // 
-            this.kola.Location = new System.Drawing.Point(464, 46);
-            this.kola.Name = "kola";
-            this.kola.Size = new System.Drawing.Size(75, 23);
-            this.kola.TabIndex = 4;
-            this.kola.Text = "Kola 0.5";
-            this.kola.UseVisualStyleBackColor = true;
-            this.kola.Click += new System.EventHandler(this.item_Click);
-            // 
-            // fanta
-            // 
-            this.fanta.Location = new System.Drawing.Point(599, 46);
-            this.fanta.Name = "fanta";
-            this.fanta.Size = new System.Drawing.Size(75, 23);
-            this.fanta.TabIndex = 5;
-            this.fanta.Text = "Fanta 0.5";
-            this.fanta.UseVisualStyleBackColor = true;
-            this.fanta.Click += new System.EventHandler(this.item_Click);
             // 
             // ukupno
             // 
@@ -130,8 +108,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.test);
             this.Controls.Add(this.ukupno);
-            this.Controls.Add(this.fanta);
-            this.Controls.Add(this.kola);
             this.Controls.Add(this.naplati);
             this.Controls.Add(this.nazad);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -147,8 +123,6 @@
 
         private System.Windows.Forms.Button nazad;
         private System.Windows.Forms.Button naplati;
-        private System.Windows.Forms.Button kola;
-        private System.Windows.Forms.Button fanta;
         private System.Windows.Forms.Label ukupno;
         private System.Windows.Forms.ListView test;
         private System.Windows.Forms.ColumnHeader Ime;

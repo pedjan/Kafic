@@ -33,6 +33,7 @@
             this.uprproj = new System.Windows.Forms.Button();
             this.updateSto = new System.Windows.Forms.Button();
             this.napraviSto = new System.Windows.Forms.Button();
+            this.obrisiSto = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // odjavi_se
@@ -76,12 +77,23 @@
             this.napraviSto.UseVisualStyleBackColor = true;
             this.napraviSto.Click += new System.EventHandler(this.napraviSto_Click);
             // 
+            // obrisiSto
+            // 
+            this.obrisiSto.Location = new System.Drawing.Point(201, 21);
+            this.obrisiSto.Name = "obrisiSto";
+            this.obrisiSto.Size = new System.Drawing.Size(75, 23);
+            this.obrisiSto.TabIndex = 8;
+            this.obrisiSto.Text = "Obrisi sto";
+            this.obrisiSto.UseVisualStyleBackColor = true;
+            this.obrisiSto.Click += new System.EventHandler(this.obrisiSto_Click);
+            // 
             // Pocetna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(811, 445);
+            this.Controls.Add(this.obrisiSto);
             this.Controls.Add(this.napraviSto);
             this.Controls.Add(this.updateSto);
             this.Controls.Add(this.uprproj);
@@ -100,5 +112,6 @@
         private System.Windows.Forms.Button uprproj;
         private System.Windows.Forms.Button updateSto;
         private System.Windows.Forms.Button napraviSto;
+        private System.Windows.Forms.Button obrisiSto;
     }
 }

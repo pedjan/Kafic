@@ -19,7 +19,9 @@ namespace Kafic
         private Pocetna parentForm;
         double ukupnoC;
         public Sto sto;
-        
+        List<Vrsta> vrste;
+        List<Button> proizvodiBtn = new List<Button>();
+
         public PojedinacanSto(Sto sto, Pocetna parent)
         {
             InitializeComponent();
@@ -28,10 +30,30 @@ namespace Kafic
             this.Name = sto.getIme();
             this.parentForm = parent;
             ukupno.Text = String.Empty;
+
+            vrste = baza.getVrste();
+
+            foreach (Vrsta vrsta in vrste)
+            {
+                Button vrstaBtn = new Button
+                {
+                    Text = vrsta.getIme(),
+                    Location = new Point(461 + 72 * (vrsta.getIdV() - 1), 12)
+                };
+                vrstaBtn.Click += vrstaBtn_Click;
+                this.Controls.Add(vrstaBtn);
+            }
         }
 
         private void nazad_Click(object sender, EventArgs e)
         {
+            if (proizvodiBtn.Count != 0)
+            {
+                foreach (Button btn in proizvodiBtn)
+                {
+                    this.Controls.Remove(btn);
+                }
+            }
             parentForm.Show();
             this.Hide();
         }
@@ -193,6 +215,39 @@ namespace Kafic
 
         public ListView getRacun() {
             return this.test;
+        }
+
+        private void vrstaBtn_Click(object sender, EventArgs e)
+        {
+            if (proizvodiBtn.Count != 0) {
+                foreach (Button btn in proizvodiBtn)
+                {
+                    this.Controls.Remove(btn);
+                }
+            }
+            string imeVrste = (sender as Button).Text;
+            List<Proizvod> proizvodi = new List<Proizvod>();
+            foreach (Vrsta vrsta in vrste)
+            {
+                if (vrsta.getIme().Equals(imeVrste))
+                {
+                    proizvodi = baza.getProizvodiByVrsta(vrsta);
+                }
+            }
+            int i = 0;
+            foreach (Proizvod p in proizvodi)
+            {
+                Button proizvodBtn = new Button
+                {
+                    Text = p.getIme(),
+                    Location = new Point(461 + 100 * i, 81),
+                    Size = new Size(100, 30)
+                };
+                proizvodBtn.Click += item_Click;
+                proizvodiBtn.Add(proizvodBtn);
+                this.Controls.Add(proizvodBtn);
+                i++;
+            }
         }
     }
 }
