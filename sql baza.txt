@@ -1,0 +1,32 @@
+
+CREATE DATABASE baza;
+CREATE TABLE korisnik(idK int primary key not null IDENTITY, ime VARCHAR(256) not null, sifra VARCHAR(256) not null);
+CREATE TABLE sto(idS int primary key not null IDENTITY, ime VARCHAR(256), x int not null, y int not null);
+CREATE TABLE vrsta(idV int primary key not null IDENTITY, ime VARCHAR(256) not null);
+CREATE TABLE proizvodi(idP int primary key not null IDENTITY, ime VARCHAR(256) not null, idV int, CONSTRAINT FK_idV FOREIGN KEY (idV) REFERENCES vrsta(idV), cena float, kolicina int);
+
+
+SELECT * FROM korisnik;
+SELECT * FROM sto;
+SELECT * FROM vrsta;
+SELECT * FROM proizvodi;
+
+INSERT INTO korisnik (ime, sifra) VALUES ('a', 'a');
+INSERT INTO korisnik (ime, sifra) VALUES ('admin', 'admin');
+
+INSERT INTO sto (ime, x, y) VALUES ('Sto 1', 100, 100);
+
+INSERT INTO vrsta (ime) VALUES ('Hladna pića');
+INSERT INTO vrsta (ime) VALUES ('Topli napici');
+INSERT INTO vrsta (ime) VALUES ('Alkoholna pica');
+
+INSERT INTO proizvodi (ime, idV, cena, kolicina) VALUES ('Coca-Cola 0.25', 1, 199.99, 200);
+INSERT INTO proizvodi (ime, idV, cena, kolicina) VALUES ('Sprite 0.25', 1, 199.99, 200);
+
+INSERT INTO proizvodi (ime, idV, cena, kolicina) VALUES ('Pivo Lav 0.5', 3, 199.99, 200);
+INSERT INTO proizvodi (ime, idV, cena, kolicina) VALUES ('Pivo Jelen 0.5', 3, 199.99, 200);
+
+drop table korisnik;
+drop table sto;
+drop table vrsta;
+drop table proizvodi;

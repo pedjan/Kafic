@@ -15,12 +15,19 @@ namespace Kafic
 {
     public partial class PojedinacanSto : Form
     {
-        Baza baza = new Baza();
+        private Baza baza = new Baza();
         private Pocetna parentForm;
-        double ukupnoC;
+        private double ukupnoC;
         public Sto sto;
-        List<Vrsta> vrste;
-        List<Button> proizvodiBtn = new List<Button>();
+        private List<Vrsta> vrste;
+        private List<Button> proizvodiBtn = new List<Button>();
+        private Form naplata;
+        private TextBox iznos;
+
+        private Form formKolicina;
+        private bool isNumeric;
+        private uint kolicinaBroj;
+        private TextBox kolicina;
 
         public PojedinacanSto(Sto sto, Pocetna parent)
         {
@@ -76,7 +83,13 @@ namespace Kafic
             string ime = (sender as Button).Text;
             Proizvod p = baza.getProizvodByName(ime);
             double cena = p.getCena();
-            uint kolicina = getKolicina();
+            getKolicina();
+            uint kolicina = kolicinaBroj;
+
+            if (kolicina == 0)
+            {
+                return;
+            }
 
             if (kolicina > p.getKolicina())
             {
@@ -110,9 +123,11 @@ namespace Kafic
             }
         }
 
-        private uint getKolicina()
+        private void getKolicina()
         {
-            var formKolicina = new Form();
+            formKolicina = new Form();
+
+            formKolicina.FormBorderStyle = FormBorderStyle.None;
 
             Label text = new Label
             {
@@ -122,45 +137,54 @@ namespace Kafic
             };
             formKolicina.Controls.Add(text);
 
-            Button confirmButton = new Button
+            Button confirmKolicinaButton = new Button
             {
                 Text = "Potvrdi",
                 Location = new Point(100, 100),
                 Size = new Size(75, 30)
             };
-            formKolicina.Controls.Add(confirmButton);
+            formKolicina.Controls.Add(confirmKolicinaButton);
 
-            TextBox kolicina = new TextBox { Location = new Point(90, 50) };
+            kolicina = new TextBox { Location = new Point(90, 50) };
             formKolicina.Controls.Add(kolicina);
 
-            confirmButton.Click += (sender, e) =>
+            confirmKolicinaButton.Click += new System.EventHandler(confirmKolicinaButton_Click);
+
+            Button cancelButton = new Button
             {
+                Text = "Otkazi",
+                Location = new Point(100, 150),
+                Size = new Size(75, 30)
+            };
+            formKolicina.Controls.Add(cancelButton);
+
+            cancelButton.Click += (senderr, ee) =>
+            {
+                kolicinaBroj = 0;
                 formKolicina.Hide();
             };
 
-            formKolicina.FormBorderStyle = FormBorderStyle.None;
-
             formKolicina.ShowDialog();
+        }
 
-            uint kolicinaBroj;
-            bool isNumeric = uint.TryParse(kolicina.Text, out kolicinaBroj);
-            while (!isNumeric)
+        private void confirmKolicinaButton_Click(object sender, EventArgs e)
+        {
+            isNumeric = uint.TryParse(kolicina.Text, out kolicinaBroj);
+            if (!isNumeric)
             {
                 MessageBox.Show("Kolicina mora biti broj veci od 0");
-                formKolicina.ShowDialog();
                 isNumeric = uint.TryParse(kolicina.Text, out kolicinaBroj);
             }
-
-            return kolicinaBroj;
+            formKolicina.Hide();
         }
 
         private void naplati_Click(object sender, EventArgs e)
         {
-            Form naplata = new Form();
+            naplata = new Form();
 
             naplata.FormBorderStyle = FormBorderStyle.None;
 
-            TextBox iznos = new TextBox { Location = new Point(90, 50) };
+            iznos = new TextBox { Location = new Point(90, 50) };
             naplata.Controls.Add(iznos);
 
             Label text = new Label
@@ -171,46 +195,64 @@ namespace Kafic
             };
             naplata.Controls.Add(text);
 
-            Button confirmButton = new Button
+            Button confirmNaplataButton = new Button
             {
                 Text = "Naplati",
                 Location = new Point(100, 100),
                 Size = new Size(75, 30)
             };
-            naplata.Controls.Add(confirmButton);
+            naplata.Controls.Add(confirmNaplataButton);
 
-            confirmButton.Click += (senderr, ee) =>
+            Button cancelButton = new Button
             {
+                Text = "Otkazi",
+                Location = new Point(100, 150),
+                Size = new Size(75, 30)
+            };
+            naplata.Controls.Add(cancelButton);
+
+            cancelButton.Click += (senderr, ee) =>
+            {
+
                 naplata.Hide();
             };
 
-            naplata.ShowDialog();
+            confirmNaplataButton.Click += new System.EventHandler(confirmNaplataButton_Click);
+            if (!(ukupno.Text == "" || ukupno.Text == "UKUPNO: 0"))
+            {
+                naplata.ShowDialog();
+            }
 
+        }
+
+        private void confirmNaplataButton_Click(object sender, EventArgs e) {
             double iznosBroj;
             bool isNumeric = double.TryParse(iznos.Text, out iznosBroj);
-            while (!isNumeric || ukupnoC > iznosBroj)
+            if (!isNumeric || ukupnoC > iznosBroj)
             {
                 MessageBox.Show("Moras uneti ispravan izraz racuna koji iznosi " + ukupnoC + "RSD");
-                naplata.ShowDialog();
+                naplata.Show();
                 isNumeric = double.TryParse(iznos.Text, out iznosBroj);
-                
             }
+            else
+            {
 
-            foreach (var item in test.Items) {
-                ListViewItem item1 = (ListViewItem)item;
-                string ime = item1.SubItems[0].Text;
-                uint kolicina = uint.Parse(item1.SubItems[2].Text);
-                baza.updateProizvod(ime, kolicina);
+                foreach (var item in test.Items)
+                {
+                    ListViewItem item1 = (ListViewItem)item;
+                    string ime = item1.SubItems[0].Text;
+                    uint kolicina = uint.Parse(item1.SubItems[2].Text);
+                    baza.updateProizvod(ime, kolicina);
+                }
+
+                double kusur = iznosBroj - ukupnoC;
+                MessageBox.Show("Uspesno ste platili racun\nKusur iznosi: " + Math.Round(kusur, 2) + "RSD");
+                ukupnoC = 0;
+                ukupno.Text = "UKUPNO: " + ukupnoC;
+                UpdateStoCena(this.Text, String.Empty);
+                test.Items.Clear();
+                naplata.Hide();
             }
-
-            double kusur = iznosBroj - ukupnoC;
-            MessageBox.Show("Uspesno ste platili racun\nKusur iznosi: " + Math.Round(kusur, 2) + "RSD");
-            ukupnoC = 0;
-            ukupno.Text = "UKUPNO: " + ukupnoC;
-            UpdateStoCena(this.Text, String.Empty);
-            test.Items.Clear();
-
-
         }
 
         public ListView getRacun() {
