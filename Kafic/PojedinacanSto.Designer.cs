@@ -36,32 +36,43 @@
             this.Cena = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Kolicina = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // nazad
             // 
-            this.nazad.Location = new System.Drawing.Point(713, 415);
+            this.nazad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.nazad.BackColor = System.Drawing.Color.White;
+            this.nazad.FlatAppearance.BorderSize = 0;
+            this.nazad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nazad.Location = new System.Drawing.Point(1177, 646);
             this.nazad.Name = "nazad";
             this.nazad.Size = new System.Drawing.Size(75, 23);
             this.nazad.TabIndex = 0;
             this.nazad.Text = "Nazad";
-            this.nazad.UseVisualStyleBackColor = true;
+            this.nazad.UseVisualStyleBackColor = false;
             this.nazad.Click += new System.EventHandler(this.nazad_Click);
             // 
             // naplati
             // 
-            this.naplati.Location = new System.Drawing.Point(12, 345);
+            this.naplati.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.naplati.BackColor = System.Drawing.Color.White;
+            this.naplati.FlatAppearance.BorderSize = 0;
+            this.naplati.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.naplati.Location = new System.Drawing.Point(15, 646);
             this.naplati.Name = "naplati";
             this.naplati.Size = new System.Drawing.Size(75, 23);
             this.naplati.TabIndex = 2;
             this.naplati.Text = "Naplati";
-            this.naplati.UseVisualStyleBackColor = true;
+            this.naplati.UseVisualStyleBackColor = false;
             this.naplati.Click += new System.EventHandler(this.naplati_Click);
             // 
             // ukupno
             // 
+            this.ukupno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ukupno.AutoSize = true;
-            this.ukupno.Location = new System.Drawing.Point(12, 308);
+            this.ukupno.Location = new System.Drawing.Point(12, 595);
             this.ukupno.Name = "ukupno";
             this.ukupno.Size = new System.Drawing.Size(35, 13);
             this.ukupno.TabIndex = 6;
@@ -69,6 +80,7 @@
             // 
             // test
             // 
+            this.test.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.test.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Ime,
             this.Cena,
@@ -77,7 +89,7 @@
             this.test.HideSelection = false;
             this.test.Location = new System.Drawing.Point(12, 12);
             this.test.Name = "test";
-            this.test.Size = new System.Drawing.Size(400, 282);
+            this.test.Size = new System.Drawing.Size(400, 569);
             this.test.TabIndex = 7;
             this.test.UseCompatibleStateImageBehavior = false;
             this.test.View = System.Windows.Forms.View.Details;
@@ -101,21 +113,32 @@
             // 
             this.columnHeader1.Text = "Ukupno";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.test);
+            this.panel1.Controls.Add(this.naplati);
+            this.panel1.Controls.Add(this.ukupno);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(416, 681);
+            this.panel1.TabIndex = 8;
+            // 
             // PojedinacanSto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.test);
-            this.Controls.Add(this.ukupno);
-            this.Controls.Add(this.naplati);
+            this.BackColor = System.Drawing.Color.BurlyWood;
+            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.nazad);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PojedinacanSto";
             this.Text = "Sto";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -129,5 +152,6 @@
         private System.Windows.Forms.ColumnHeader Cena;
         private System.Windows.Forms.ColumnHeader Kolicina;
         private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -45,8 +45,12 @@ namespace Kafic
                 Button vrstaBtn = new Button
                 {
                     Text = vrsta.getIme(),
-                    Location = new Point(461 + 72 * (vrsta.getIdV() - 1), 12)
+                    Location = new Point(461 + 72 * (vrsta.getIdV() - 1), 12),
+                    BackColor = Color.White,
+                    //FlatAppearance.BorderSize = 0,
+                    FlatStyle = System.Windows.Forms.FlatStyle.Flat
                 };
+                vrstaBtn.FlatAppearance.BorderSize = 0;
                 vrstaBtn.Click += vrstaBtn_Click;
                 this.Controls.Add(vrstaBtn);
             }
@@ -283,8 +287,12 @@ namespace Kafic
                 {
                     Text = p.getIme(),
                     Location = new Point(461 + 100 * i, 81),
-                    Size = new Size(100, 30)
+                    Size = new Size(100, 30),
+                    BackColor = Color.White,
+                    //FlatAppearance.BorderSize = 0,
+                    FlatStyle = System.Windows.Forms.FlatStyle.Flat
                 };
+                proizvodBtn.FlatAppearance.BorderSize = 0; 
                 proizvodBtn.Click += item_Click;
                 proizvodiBtn.Add(proizvodBtn);
                 this.Controls.Add(proizvodBtn);

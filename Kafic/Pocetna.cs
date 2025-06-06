@@ -30,6 +30,9 @@ namespace Kafic
 
         bool admin = true;
 
+        //private Rectangle originalFormSize;
+        //private List<Rectangle> buttonOriginalRectAngles = new List<Rectangle>();
+
         public Pocetna(Login parent)
         {
             InitializeComponent();
@@ -42,8 +45,10 @@ namespace Kafic
             foreach (Sto stoo in listaStolova)
             {
                 Sto sto = new Sto(stoo.getIdS(), stoo.getIme(), stoo.getX(), stoo.getY(), this);
+                //this.panel2.Controls.Add(sto.stoBtn);
                 PojedinacanSto pojSto = new PojedinacanSto(sto, this);
                 listaPojedinacnihStolova.Add(pojSto);
+                //buttonOriginalRectAngles.Add(new Rectangle(sto.stoBtn.Location.X, sto.stoBtn.Location.Y, sto.stoBtn.Width, sto.stoBtn.Height));
             }
             this.parentForm = parent;
             if (!admin)
@@ -51,6 +56,7 @@ namespace Kafic
                 uprproj.Visible = false;
             }
             up = new UpravljanjeProizvodima(this);
+            //originalFormSize = this.ClientRectangle;
         }
         public Button GetStoByName(string ime)
         {
@@ -167,47 +173,17 @@ namespace Kafic
 
         private void napraviSto_Click(object sender, EventArgs e)
         {
-            //Form naplata = new Form();
-
-            //naplata.FormBorderStyle = FormBorderStyle.None;
-
-            //TextBox ime = new TextBox { Location = new Point(90, 50) };
-            //naplata.Controls.Add(ime);
-
-            //Label text = new Label
-            //{
-            //    Text = "Unesite ime stola",
-            //    Location = new Point(70, 20),
-            //    Size = new Size(200, 20)
-            //};
-            //naplata.Controls.Add(text);
-
-            //Button confirmButton = new Button
-            //{
-            //    Text = "Potvrdi",
-            //    Location = new Point(100, 100),
-            //    Size = new Size(75, 30)
-            //};
-            //naplata.Controls.Add(confirmButton);
-
-            //confirmButton.Click += (senderr, ee) =>
-            //{
-            //    naplata.Hide();
-            //};
-
-            //naplata.ShowDialog();
-
             BROJ_STOLOVA++;
 
             Sto sto = new Sto(BROJ_STOLOVA+1, "Sto " + BROJ_STOLOVA, 100, 100, this);
             listaStolova.Add(sto);
             PojedinacanSto pojSto = new PojedinacanSto(sto, this);
             listaPojedinacnihStolova.Add(pojSto);
-
+            //buttonOriginalRectAngles.Add(new Rectangle(sto.stoBtn.Location.X, sto.stoBtn.Location.Y, sto.stoBtn.Width, sto.stoBtn.Height));
+            //this.panel2.Controls.Add(sto.stoBtn);
             baza.dodajSto(sto.getIme(), sto.getX(), sto.getY());
             
 
-            Console.WriteLine("Broj stolova: " + BROJ_STOLOVA + "id stola je: " + sto.getIdS());
         }
 
         private void obrisiSto_Click(object sender, EventArgs e)
@@ -261,6 +237,36 @@ namespace Kafic
                     }
                 }
             }
+        }
+
+
+        //private void resizeControl(Rectangle r, Control c)
+        //{
+        //    float xRatio = (float)this.Width / (float)originalFormSize.Width;
+        //    float yRatio = (float)this.Height / (float)originalFormSize.Height;
+
+        //    int newX = (int)(r.X * xRatio);
+        //    int newY = (int)(r.Y * yRatio);
+
+        //    int newWidth = (int)(r.Width * xRatio);
+        //    int newHeight = (int)(r.Height * yRatio);
+
+        //    c.Location = new Point(newX, newY);
+        //    c.Size = new Size(newWidth, newHeight);
+        //}
+
+        private void Pocetna_Resize(object sender, EventArgs e)
+        {
+            //float xRatio = (float)this.Width / (float)originalFormSize.Width;
+            //float yRatio = (float)this.Height / (float)originalFormSize.Height;
+
+            //foreach(PojedinacanSto sto in listaPojedinacnihStolova)
+            //{
+            //    Button btn = sto.sto.stoBtn;
+            //    btn.Size = new Size((int)(btn.Width / xRatio), (int)(btn.Height / yRatio));
+            //}
+            
+
         }
     }
 }

@@ -28,15 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.prijavi_se = new System.Windows.Forms.Button();
             this.Ime = new System.Windows.Forms.TextBox();
             this.Sifra = new System.Windows.Forms.TextBox();
             this.ugasi_program = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelKorisnickoIme = new System.Windows.Forms.Label();
+            this.labelSifra = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // prijavi_se
             // 
-            this.prijavi_se.Location = new System.Drawing.Point(339, 226);
+            this.prijavi_se.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.prijavi_se.FlatAppearance.BorderSize = 0;
+            this.prijavi_se.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.prijavi_se.Location = new System.Drawing.Point(252, 290);
             this.prijavi_se.Name = "prijavi_se";
             this.prijavi_se.Size = new System.Drawing.Size(75, 23);
             this.prijavi_se.TabIndex = 0;
@@ -46,21 +53,26 @@
             // 
             // Ime
             // 
-            this.Ime.Location = new System.Drawing.Point(327, 145);
+            this.Ime.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Ime.Location = new System.Drawing.Point(238, 206);
             this.Ime.Name = "Ime";
             this.Ime.Size = new System.Drawing.Size(100, 20);
             this.Ime.TabIndex = 1;
             // 
             // Sifra
             // 
-            this.Sifra.Location = new System.Drawing.Point(327, 182);
+            this.Sifra.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Sifra.Location = new System.Drawing.Point(238, 247);
             this.Sifra.Name = "Sifra";
             this.Sifra.Size = new System.Drawing.Size(100, 20);
             this.Sifra.TabIndex = 2;
             // 
             // ugasi_program
             // 
-            this.ugasi_program.Location = new System.Drawing.Point(618, 344);
+            this.ugasi_program.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ugasi_program.FlatAppearance.BorderSize = 0;
+            this.ugasi_program.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ugasi_program.Location = new System.Drawing.Point(1065, 604);
             this.ugasi_program.Name = "ugasi_program";
             this.ugasi_program.Size = new System.Drawing.Size(93, 23);
             this.ugasi_program.TabIndex = 3;
@@ -68,19 +80,61 @@
             this.ugasi_program.UseVisualStyleBackColor = true;
             this.ugasi_program.Click += new System.EventHandler(this.ugasi_program_Click);
             // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(212, 107);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(160, 63);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Login";
+            // 
+            // labelKorisnickoIme
+            // 
+            this.labelKorisnickoIme.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelKorisnickoIme.AutoSize = true;
+            this.labelKorisnickoIme.BackColor = System.Drawing.Color.Transparent;
+            this.labelKorisnickoIme.Location = new System.Drawing.Point(154, 209);
+            this.labelKorisnickoIme.Name = "labelKorisnickoIme";
+            this.labelKorisnickoIme.Size = new System.Drawing.Size(78, 13);
+            this.labelKorisnickoIme.TabIndex = 5;
+            this.labelKorisnickoIme.Text = "Korisnicko ime:";
+            // 
+            // labelSifra
+            // 
+            this.labelSifra.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelSifra.AutoSize = true;
+            this.labelSifra.BackColor = System.Drawing.Color.Transparent;
+            this.labelSifra.Location = new System.Drawing.Point(201, 250);
+            this.labelSifra.Name = "labelSifra";
+            this.labelSifra.Size = new System.Drawing.Size(31, 13);
+            this.labelSifra.TabIndex = 6;
+            this.labelSifra.Text = "Sifra:";
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.labelSifra);
+            this.Controls.Add(this.labelKorisnickoIme);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.ugasi_program);
             this.Controls.Add(this.Sifra);
             this.Controls.Add(this.Ime);
             this.Controls.Add(this.prijavi_se);
             this.Cursor = System.Windows.Forms.Cursors.Default;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
@@ -97,6 +151,9 @@
         private System.Windows.Forms.TextBox Ime;
         private System.Windows.Forms.TextBox Sifra;
         private System.Windows.Forms.Button ugasi_program;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelKorisnickoIme;
+        private System.Windows.Forms.Label labelSifra;
     }
 }
 

@@ -34,22 +34,31 @@
             this.updateSto = new System.Windows.Forms.Button();
             this.napraviSto = new System.Windows.Forms.Button();
             this.obrisiSto = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // odjavi_se
             // 
-            this.odjavi_se.Location = new System.Drawing.Point(700, 21);
+            this.odjavi_se.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.odjavi_se.BackColor = System.Drawing.SystemColors.Control;
+            this.odjavi_se.FlatAppearance.BorderSize = 0;
+            this.odjavi_se.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.odjavi_se.Location = new System.Drawing.Point(1093, 39);
             this.odjavi_se.Name = "odjavi_se";
             this.odjavi_se.Size = new System.Drawing.Size(75, 23);
             this.odjavi_se.TabIndex = 0;
             this.odjavi_se.Text = "Odjavi se";
-            this.odjavi_se.UseVisualStyleBackColor = true;
+            this.odjavi_se.UseVisualStyleBackColor = false;
             this.odjavi_se.Click += new System.EventHandler(this.odjavi_se_Click);
             // 
             // uprproj
             // 
+            this.uprproj.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.uprproj.BackColor = System.Drawing.SystemColors.Control;
-            this.uprproj.Location = new System.Drawing.Point(533, 21);
+            this.uprproj.FlatAppearance.BorderSize = 0;
+            this.uprproj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uprproj.Location = new System.Drawing.Point(12, 39);
             this.uprproj.Name = "uprproj";
             this.uprproj.Size = new System.Drawing.Size(127, 23);
             this.uprproj.TabIndex = 5;
@@ -59,49 +68,77 @@
             // 
             // updateSto
             // 
-            this.updateSto.Location = new System.Drawing.Point(412, 20);
+            this.updateSto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.updateSto.BackColor = System.Drawing.SystemColors.Control;
+            this.updateSto.FlatAppearance.BorderSize = 0;
+            this.updateSto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updateSto.Location = new System.Drawing.Point(662, 39);
             this.updateSto.Name = "updateSto";
             this.updateSto.Size = new System.Drawing.Size(91, 23);
             this.updateSto.TabIndex = 6;
             this.updateSto.Text = "Sacuvaj stolove";
-            this.updateSto.UseVisualStyleBackColor = true;
+            this.updateSto.UseVisualStyleBackColor = false;
             this.updateSto.Click += new System.EventHandler(this.updateSto_Click);
             // 
             // napraviSto
             // 
-            this.napraviSto.Location = new System.Drawing.Point(302, 19);
+            this.napraviSto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.napraviSto.BackColor = System.Drawing.SystemColors.Control;
+            this.napraviSto.FlatAppearance.BorderSize = 0;
+            this.napraviSto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.napraviSto.Location = new System.Drawing.Point(472, 39);
             this.napraviSto.Name = "napraviSto";
             this.napraviSto.Size = new System.Drawing.Size(75, 23);
             this.napraviSto.TabIndex = 7;
             this.napraviSto.Text = "Napravi sto";
-            this.napraviSto.UseVisualStyleBackColor = true;
+            this.napraviSto.UseVisualStyleBackColor = false;
             this.napraviSto.Click += new System.EventHandler(this.napraviSto_Click);
             // 
             // obrisiSto
             // 
-            this.obrisiSto.Location = new System.Drawing.Point(201, 21);
+            this.obrisiSto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.obrisiSto.BackColor = System.Drawing.SystemColors.Control;
+            this.obrisiSto.FlatAppearance.BorderSize = 0;
+            this.obrisiSto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.obrisiSto.Location = new System.Drawing.Point(567, 39);
             this.obrisiSto.Name = "obrisiSto";
             this.obrisiSto.Size = new System.Drawing.Size(75, 23);
             this.obrisiSto.TabIndex = 8;
             this.obrisiSto.Text = "Obrisi sto";
-            this.obrisiSto.UseVisualStyleBackColor = true;
+            this.obrisiSto.UseVisualStyleBackColor = false;
             this.obrisiSto.Click += new System.EventHandler(this.obrisiSto_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.BurlyWood;
+            this.panel1.Controls.Add(this.odjavi_se);
+            this.panel1.Controls.Add(this.uprproj);
+            this.panel1.Controls.Add(this.updateSto);
+            this.panel1.Controls.Add(this.napraviSto);
+            this.panel1.Controls.Add(this.obrisiSto);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1280, 100);
+            this.panel1.TabIndex = 9;
             // 
             // Pocetna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(811, 445);
-            this.Controls.Add(this.obrisiSto);
-            this.Controls.Add(this.napraviSto);
-            this.Controls.Add(this.updateSto);
-            this.Controls.Add(this.uprproj);
-            this.Controls.Add(this.odjavi_se);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "Pocetna";
             this.Text = "Pocetna";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Resize += new System.EventHandler(this.Pocetna_Resize);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -113,5 +150,6 @@
         private System.Windows.Forms.Button updateSto;
         private System.Windows.Forms.Button napraviSto;
         private System.Windows.Forms.Button obrisiSto;
+        private System.Windows.Forms.Panel panel1;
     }
 }
