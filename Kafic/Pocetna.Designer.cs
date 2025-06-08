@@ -28,19 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pocetna));
             this.odjavi_se = new System.Windows.Forms.Button();
             this.uprproj = new System.Windows.Forms.Button();
             this.napraviSto = new System.Windows.Forms.Button();
             this.obrisiSto = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelMesto = new System.Windows.Forms.Label();
             this.buttonPomeriSto = new System.Windows.Forms.Button();
             this.buttonKafic = new System.Windows.Forms.Button();
             this.buttonPlaza = new System.Windows.Forms.Button();
-            this.buttonBasta = new System.Windows.Forms.Button();
+            this.buttonSplav = new System.Windows.Forms.Button();
             this.datumIVreme = new System.Windows.Forms.Label();
             this.korisnikLabel = new System.Windows.Forms.Label();
-            this.labelMesto = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,7 +106,7 @@
             this.panel1.Controls.Add(this.buttonPomeriSto);
             this.panel1.Controls.Add(this.buttonKafic);
             this.panel1.Controls.Add(this.buttonPlaza);
-            this.panel1.Controls.Add(this.buttonBasta);
+            this.panel1.Controls.Add(this.buttonSplav);
             this.panel1.Controls.Add(this.datumIVreme);
             this.panel1.Controls.Add(this.korisnikLabel);
             this.panel1.Controls.Add(this.odjavi_se);
@@ -120,6 +119,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1280, 100);
             this.panel1.TabIndex = 9;
+            // 
+            // labelMesto
+            // 
+            this.labelMesto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelMesto.AutoSize = true;
+            this.labelMesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMesto.Location = new System.Drawing.Point(838, 34);
+            this.labelMesto.Name = "labelMesto";
+            this.labelMesto.Size = new System.Drawing.Size(82, 31);
+            this.labelMesto.TabIndex = 10;
+            this.labelMesto.Text = "Splav";
             // 
             // buttonPomeriSto
             // 
@@ -163,19 +173,19 @@
             this.buttonPlaza.UseVisualStyleBackColor = false;
             this.buttonPlaza.Click += new System.EventHandler(this.mesto_Click);
             // 
-            // buttonBasta
+            // buttonSplav
             // 
-            this.buttonBasta.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonBasta.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonBasta.FlatAppearance.BorderSize = 0;
-            this.buttonBasta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBasta.Location = new System.Drawing.Point(471, 23);
-            this.buttonBasta.Name = "buttonBasta";
-            this.buttonBasta.Size = new System.Drawing.Size(75, 23);
-            this.buttonBasta.TabIndex = 11;
-            this.buttonBasta.Text = "Basta";
-            this.buttonBasta.UseVisualStyleBackColor = false;
-            this.buttonBasta.Click += new System.EventHandler(this.mesto_Click);
+            this.buttonSplav.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonSplav.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonSplav.FlatAppearance.BorderSize = 0;
+            this.buttonSplav.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSplav.Location = new System.Drawing.Point(471, 23);
+            this.buttonSplav.Name = "buttonSplav";
+            this.buttonSplav.Size = new System.Drawing.Size(75, 23);
+            this.buttonSplav.TabIndex = 11;
+            this.buttonSplav.Text = "Splav";
+            this.buttonSplav.UseVisualStyleBackColor = false;
+            this.buttonSplav.Click += new System.EventHandler(this.mesto_Click);
             // 
             // datumIVreme
             // 
@@ -197,23 +207,13 @@
             this.korisnikLabel.TabIndex = 9;
             this.korisnikLabel.Text = "Prijavljen si kao: ";
             // 
-            // labelMesto
-            // 
-            this.labelMesto.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelMesto.AutoSize = true;
-            this.labelMesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMesto.Location = new System.Drawing.Point(838, 34);
-            this.labelMesto.Name = "labelMesto";
-            this.labelMesto.Size = new System.Drawing.Size(84, 31);
-            this.labelMesto.TabIndex = 10;
-            this.labelMesto.Text = "Basta";
-            // 
             // Pocetna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::Kafic.Properties.Resources.pexels_fotios_photos_734973;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
@@ -239,7 +239,7 @@
         private System.Windows.Forms.Label korisnikLabel;
         private System.Windows.Forms.Button buttonKafic;
         private System.Windows.Forms.Button buttonPlaza;
-        private System.Windows.Forms.Button buttonBasta;
+        private System.Windows.Forms.Button buttonSplav;
         private System.Windows.Forms.Button buttonPomeriSto;
         private System.Windows.Forms.Label labelMesto;
     }

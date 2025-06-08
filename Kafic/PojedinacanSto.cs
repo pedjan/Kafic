@@ -71,14 +71,16 @@ namespace Kafic
 
         private void UpdateStoCena(string sto, string novaCena)
         {
-            parentForm.GetStoByName(sto).Text = novaCena;
+            
             if (string.IsNullOrEmpty(novaCena))
             {
                 parentForm.GetStoByName(sto).BackColor = Color.Blue;
+                parentForm.GetStoByName(sto).Text = this.sto.getIme();
             }
             else
             {
                 parentForm.GetStoByName(sto).BackColor = Color.Red;
+                parentForm.GetStoByName(sto).Text = this.sto.getIme() + "\n\n" + novaCena;
             }
         }
 
@@ -349,6 +351,59 @@ namespace Kafic
                     MessageBox.Show("Količina mora biti broj veći od 0.");
                 }
             }
+        }
+
+        public void premesti(List<ListViewItem> items, PojedinacanSto sto) {
+            foreach (ListViewItem item in items)
+            {
+                bool found = false;
+                foreach (ListViewItem itemm in sto.test.Items)
+                {
+                    if (itemm.SubItems[0].Text.Equals(item.SubItems[0].Text))
+                    {
+                        itemm.SubItems[2].Text = (uint.Parse(itemm.SubItems[2].Text) + uint.Parse(item.SubItems[2].Text)).ToString();
+                        itemm.SubItems[3].Text = (Double.Parse(itemm.SubItems[3].Text) + Double.Parse(item.SubItems[3].Text)).ToString();
+
+                        found = true;
+                        break;
+                    }
+
+                }
+
+                if (!found)
+                {
+                    test.Items.Add(item);
+                }
+            }
+        }
+
+        private void buttonPomeri_Click(object sender, EventArgs e)
+        {
+            PojedinacanSto sto = parentForm.getPojedinacanStoByIme(comboBox1.Text);
+            List<ListViewItem> items = new List<ListViewItem>();
+            foreach (ListViewItem item in test.Items)
+            {
+                items.Add(item);
+            }
+            
+            test.Items.Clear();
+            UpdateStoCena(this.Text, String.Empty);
+            sto.ukupnoC += ukupnoC;
+            sto.ukupno.Text = "Ukupno: " + sto.ukupnoC;
+            double novaCena = sto.ukupnoC;
+            ukupno.Text = "UKUPNO: 0";
+            sto.premesti(items, sto);
+            UpdateStoCena(comboBox1.Text, novaCena.ToString());
+            ukupnoC = 0;
+            
+
+        }
+
+        private void PojedinacanSto_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'bazaDataSet2.sto' table. You can move, or remove it, as needed.
+            this.stoTableAdapter.Fill(this.bazaDataSet2.sto);
+
         }
     }
 }

@@ -57,6 +57,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>bazaDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="bazaDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bazaDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Korisnik.cs" />
     <Compile Include="Baza.cs" />
     <Compile Include="Login.cs">
@@ -103,6 +108,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="PojedinacanSto.resx">
       <DependentUpon>PojedinacanSto.cs</DependentUpon>
@@ -132,6 +138,17 @@
     <None Include="bazaDataSet1.xss">
       <DependentUpon>bazaDataSet1.xsd</DependentUpon>
     </None>
+    <None Include="bazaDataSet2.xsc">
+      <DependentUpon>bazaDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="bazaDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>bazaDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bazaDataSet2.xss">
+      <DependentUpon>bazaDataSet2.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -147,6 +164,27 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2149872527.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\luke-chesser-KR2mdHJ5qMg-unsplash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-jolodiazr-3661921.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-pixmike-413195.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pojsto.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pod.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-fotios-photos-734973.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -42,6 +42,7 @@ namespace Kafic
             stoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             stoBtn.Location = new System.Drawing.Point(posX, posY);
             stoBtn.Name = ime;
+            stoBtn.Text = ime;
             stoBtn.Size = new System.Drawing.Size(100, 100);
             stoBtn.UseVisualStyleBackColor = false;
             stoBtn.TabIndex = idS;

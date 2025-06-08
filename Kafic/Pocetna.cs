@@ -178,7 +178,7 @@ namespace Kafic
         private void napraviSto_Click(object sender, EventArgs e)
         {
             BROJ_STOLOVA++;
-            Sto sto = new Sto(BROJ_STOLOVA+1, "Sto " + BROJ_STOLOVA, 100, 100, mesto, this);
+            Sto sto = new Sto(BROJ_STOLOVA + 1, "Sto " + BROJ_STOLOVA, 100, 100, mesto, this);
             listaStolova.Add(sto);
             PojedinacanSto pojSto = new PojedinacanSto(sto, this);
             listaPojedinacnihStolova.Add(pojSto);
@@ -242,8 +242,10 @@ namespace Kafic
             }
         }
 
-        public void setKorisnik(Korisnik k) {
-            if (!(k.getIme().Equals("admin") && k.getSifra().Equals("admin"))) {
+        public void setKorisnik(Korisnik k)
+        {
+            if (!(k.getIme().Equals("admin") && k.getSifra().Equals("admin")))
+            {
                 uprproj.Visible = false;
                 napraviSto.Visible = false;
                 obrisiSto.Visible = false;
@@ -263,7 +265,7 @@ namespace Kafic
             aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
             aTimer.Interval = 1000;
             aTimer.Enabled = true;
-            
+
         }
 
         private void OnTimedEvent(object source, ElapsedEventArgs e)
@@ -292,7 +294,8 @@ namespace Kafic
                 }
 
             }
-            else {
+            else
+            {
                 odjavi_se.Visible = true;
                 napraviSto.Visible = true;
                 uprproj.Visible = true;
@@ -310,10 +313,12 @@ namespace Kafic
         {
             string imeDugmeta = (sender as Button).Name;
 
-            if (imeDugmeta.Equals("buttonBasta"))
+            if (imeDugmeta.Equals("buttonSplav"))
             {
                 mesto = 0;
-                labelMesto.Text = "Basta";
+                labelMesto.Text = "Splav";
+                this.BackgroundImage = Properties.Resources.pexels_fotios_photos_734973;
+                this.BackgroundImageLayout = ImageLayout.Stretch;
                 foreach (PojedinacanSto sto in listaPojedinacnihStolova)
                 {
                     if (sto.sto.getMesto() == 0)
@@ -331,6 +336,8 @@ namespace Kafic
             {
                 mesto = 1;
                 labelMesto.Text = "Plaza";
+                this.BackgroundImage = Properties.Resources.pexels_jolodiazr_3661921;
+                this.BackgroundImageLayout = ImageLayout.Stretch;
                 foreach (PojedinacanSto sto in listaPojedinacnihStolova)
                 {
                     if (sto.sto.getMesto() == 1)
@@ -342,12 +349,14 @@ namespace Kafic
                         sto.sto.stoBtn.Visible = false;
                     }
                 }
-                
+
             }
             else if (imeDugmeta.Equals("buttonKafic"))
             {
                 mesto = 2;
                 labelMesto.Text = "Kafic";
+                this.BackgroundImage = Properties.Resources.pod;
+                this.BackgroundImageLayout = ImageLayout.Tile;
                 foreach (PojedinacanSto sto in listaPojedinacnihStolova)
                 {
                     if (sto.sto.getMesto() == 2)
@@ -359,8 +368,20 @@ namespace Kafic
                         sto.sto.stoBtn.Visible = false;
                     }
                 }
-                
+
             }
+        }
+
+        public PojedinacanSto getPojedinacanStoByIme(string ime)
+        {
+            foreach (PojedinacanSto sto in listaPojedinacnihStolova)
+            {
+                if (sto.sto.getIme().Equals(ime))
+                {
+                    return sto;
+                }
+            }
+            return null;
         }
     }
 }

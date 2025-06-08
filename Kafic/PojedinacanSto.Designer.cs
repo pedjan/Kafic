@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PojedinacanSto));
+            this.components = new System.ComponentModel.Container();
             this.nazad = new System.Windows.Forms.Button();
             this.naplati = new System.Windows.Forms.Button();
             this.ukupno = new System.Windows.Forms.Label();
@@ -38,8 +38,15 @@
             this.Kolicina = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.edit = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.buttonPomeri = new System.Windows.Forms.Button();
+            this.labelPremestiNaSto = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.bazaDataSet2 = new Kafic.bazaDataSet2();
+            this.stoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.stoTableAdapter = new Kafic.bazaDataSet2TableAdapters.stoTableAdapter();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bazaDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // nazad
@@ -74,6 +81,7 @@
             // 
             this.ukupno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ukupno.AutoSize = true;
+            this.ukupno.BackColor = System.Drawing.SystemColors.Control;
             this.ukupno.Location = new System.Drawing.Point(12, 595);
             this.ukupno.Name = "ukupno";
             this.ukupno.Size = new System.Drawing.Size(35, 13);
@@ -88,8 +96,7 @@
             this.Ime,
             this.Cena,
             this.Kolicina,
-            this.columnHeader1,
-            this.edit});
+            this.columnHeader1});
             this.test.HideSelection = false;
             this.test.LabelEdit = true;
             this.test.Location = new System.Drawing.Point(12, 12);
@@ -103,7 +110,7 @@
             // Ime
             // 
             this.Ime.Text = "Ime";
-            this.Ime.Width = 177;
+            this.Ime.Width = 214;
             // 
             // Cena
             // 
@@ -123,6 +130,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.labelPremestiNaSto);
+            this.panel1.Controls.Add(this.buttonPomeri);
             this.panel1.Controls.Add(this.test);
             this.panel1.Controls.Add(this.naplati);
             this.panel1.Controls.Add(this.ukupno);
@@ -132,16 +142,63 @@
             this.panel1.Size = new System.Drawing.Size(416, 681);
             this.panel1.TabIndex = 8;
             // 
-            // edit
+            // buttonPomeri
             // 
-            this.edit.Text = "Edit";
+            this.buttonPomeri.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonPomeri.BackColor = System.Drawing.Color.White;
+            this.buttonPomeri.FlatAppearance.BorderSize = 0;
+            this.buttonPomeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPomeri.Location = new System.Drawing.Point(312, 646);
+            this.buttonPomeri.Name = "buttonPomeri";
+            this.buttonPomeri.Size = new System.Drawing.Size(75, 23);
+            this.buttonPomeri.TabIndex = 8;
+            this.buttonPomeri.Text = "Premesti";
+            this.buttonPomeri.UseVisualStyleBackColor = false;
+            this.buttonPomeri.Click += new System.EventHandler(this.buttonPomeri_Click);
+            // 
+            // labelPremestiNaSto
+            // 
+            this.labelPremestiNaSto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelPremestiNaSto.AutoSize = true;
+            this.labelPremestiNaSto.BackColor = System.Drawing.Color.White;
+            this.labelPremestiNaSto.Location = new System.Drawing.Point(195, 607);
+            this.labelPremestiNaSto.Name = "labelPremestiNaSto";
+            this.labelPremestiNaSto.Size = new System.Drawing.Size(82, 13);
+            this.labelPremestiNaSto.TabIndex = 10;
+            this.labelPremestiNaSto.Text = "Premesti na sto:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboBox1.DataSource = this.stoBindingSource;
+            this.comboBox1.DisplayMember = "ime";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(283, 604);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 11;
+            this.comboBox1.ValueMember = "ime";
+            // 
+            // bazaDataSet2
+            // 
+            this.bazaDataSet2.DataSetName = "bazaDataSet2";
+            this.bazaDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // stoBindingSource
+            // 
+            this.stoBindingSource.DataMember = "sto";
+            this.stoBindingSource.DataSource = this.bazaDataSet2;
+            // 
+            // stoTableAdapter
+            // 
+            this.stoTableAdapter.ClearBeforeFill = true;
             // 
             // PojedinacanSto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::Kafic.Properties.Resources.pojsto;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.panel1);
@@ -151,8 +208,11 @@
             this.Name = "PojedinacanSto";
             this.Text = "Sto";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.PojedinacanSto_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bazaDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -168,6 +228,11 @@
         private System.Windows.Forms.ColumnHeader Kolicina;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ColumnHeader edit;
+        private System.Windows.Forms.Button buttonPomeri;
+        private System.Windows.Forms.Label labelPremestiNaSto;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private bazaDataSet2 bazaDataSet2;
+        private System.Windows.Forms.BindingSource stoBindingSource;
+        private bazaDataSet2TableAdapters.stoTableAdapter stoTableAdapter;
     }
 }
