@@ -21,6 +21,7 @@ namespace Kafic
         private int BROJ_STOLOVA;
         List<PojedinacanSto> listaPojedinacnihStolova = new List<PojedinacanSto>();
         List<Sto> listaStolova;
+        public int mesto = 0;
 
         bool brisanjeStola = false;
 
@@ -36,20 +37,30 @@ namespace Kafic
             InitializeComponent();
             dragging = false;
 
+            ucitajStolove();
 
+            this.parentForm = parent;
+
+            up = new UpravljanjeProizvodima(this);
+        }
+
+        private void ucitajStolove()
+        {
             BROJ_STOLOVA = baza.getBrStolova();
             listaStolova = baza.getSveStolove();
 
             foreach (Sto stoo in listaStolova)
             {
-                Sto sto = new Sto(stoo.getIdS(), stoo.getIme(), stoo.getX(), stoo.getY(), this);
+                Sto sto = new Sto(stoo.getIdS(), stoo.getIme(), stoo.getX(), stoo.getY(), stoo.getMesto(), this);
                 PojedinacanSto pojSto = new PojedinacanSto(sto, this);
                 listaPojedinacnihStolova.Add(pojSto);
+                if (sto.getMesto() != 0)
+                {
+                    sto.stoBtn.Visible = false;
+                }
             }
-            this.parentForm = parent;
-
-            up = new UpravljanjeProizvodima(this);
         }
+
         public Button GetStoByName(string ime)
         {
             foreach (PojedinacanSto sto in listaPojedinacnihStolova)
@@ -156,7 +167,7 @@ namespace Kafic
             }
         }
 
-        private void updateSto_Click(object sender, EventArgs e)
+        private void updateStolove()
         {
             foreach (PojedinacanSto sto in listaPojedinacnihStolova)
             {
@@ -167,11 +178,11 @@ namespace Kafic
         private void napraviSto_Click(object sender, EventArgs e)
         {
             BROJ_STOLOVA++;
-            Sto sto = new Sto(BROJ_STOLOVA+1, "Sto " + BROJ_STOLOVA, 100, 100, this);
+            Sto sto = new Sto(BROJ_STOLOVA+1, "Sto " + BROJ_STOLOVA, 100, 100, mesto, this);
             listaStolova.Add(sto);
             PojedinacanSto pojSto = new PojedinacanSto(sto, this);
             listaPojedinacnihStolova.Add(pojSto);
-            baza.dodajSto(sto.getIme(), sto.getX(), sto.getY());
+            baza.dodajSto(sto.getIme(), sto.getX(), sto.getY(), sto.getMesto());
         }
 
         private void obrisiSto_Click(object sender, EventArgs e)
@@ -180,9 +191,11 @@ namespace Kafic
             if (brisanjeStola)
             {
                 odjavi_se.Visible = false;
-                updateSto.Visible = false;
                 napraviSto.Visible = false;
                 uprproj.Visible = false;
+                buttonPomeriSto.Visible = false;
+
+                obrisiSto.Text = "Zaustavi";
 
                 foreach (PojedinacanSto sto in listaPojedinacnihStolova)
                 {
@@ -193,9 +206,11 @@ namespace Kafic
             else
             {
                 odjavi_se.Visible = true;
-                updateSto.Visible = true;
                 napraviSto.Visible = true;
                 uprproj.Visible = true;
+                buttonPomeriSto.Visible = true;
+
+                obrisiSto.Text = "Obrisi";
 
                 foreach (PojedinacanSto sto in listaPojedinacnihStolova)
                 {
@@ -231,7 +246,6 @@ namespace Kafic
             if (!(k.getIme().Equals("admin") && k.getSifra().Equals("admin"))) {
                 uprproj.Visible = false;
                 napraviSto.Visible = false;
-                updateSto.Visible = false;
                 obrisiSto.Visible = false;
                 buttonPomeriSto.Visible = false;
             }
@@ -239,7 +253,6 @@ namespace Kafic
             {
                 uprproj.Visible = true;
                 napraviSto.Visible = true;
-                updateSto.Visible = true;
                 obrisiSto.Visible = true;
                 buttonPomeriSto.Visible = true;
             }
@@ -263,9 +276,15 @@ namespace Kafic
 
         private void buttonPomeriSto_Click(object sender, EventArgs e)
         {
+            updateStolove();
             pomeranje = !pomeranje;
             if (pomeranje)
             {
+                odjavi_se.Visible = false;
+                napraviSto.Visible = false;
+                uprproj.Visible = false;
+                obrisiSto.Visible = false;
+
                 buttonPomeriSto.Text = "Zaustavi";
                 foreach (PojedinacanSto sto in listaPojedinacnihStolova)
                 {
@@ -274,11 +293,73 @@ namespace Kafic
 
             }
             else {
+                odjavi_se.Visible = true;
+                napraviSto.Visible = true;
+                uprproj.Visible = true;
+                obrisiSto.Visible = true;
+
                 buttonPomeriSto.Text = "Pomeri sto";
                 foreach (PojedinacanSto sto in listaPojedinacnihStolova)
                 {
                     sto.sto.stoBtn.Click += new System.EventHandler(sto_Click);
                 }
+            }
+        }
+
+        private void mesto_Click(object sender, EventArgs e)
+        {
+            string imeDugmeta = (sender as Button).Name;
+
+            if (imeDugmeta.Equals("buttonBasta"))
+            {
+                mesto = 0;
+                labelMesto.Text = "Basta";
+                foreach (PojedinacanSto sto in listaPojedinacnihStolova)
+                {
+                    if (sto.sto.getMesto() == 0)
+                    {
+                        sto.sto.stoBtn.Visible = true;
+                    }
+                    else
+                    {
+                        sto.sto.stoBtn.Visible = false;
+                    }
+                }
+                mesto = 0;
+            }
+            else if (imeDugmeta.Equals("buttonPlaza"))
+            {
+                mesto = 1;
+                labelMesto.Text = "Plaza";
+                foreach (PojedinacanSto sto in listaPojedinacnihStolova)
+                {
+                    if (sto.sto.getMesto() == 1)
+                    {
+                        sto.sto.stoBtn.Visible = true;
+                    }
+                    else
+                    {
+                        sto.sto.stoBtn.Visible = false;
+                    }
+                }
+                
+            }
+            else if (imeDugmeta.Equals("buttonKafic"))
+            {
+                mesto = 2;
+                labelMesto.Text = "Kafic";
+                foreach (PojedinacanSto sto in listaPojedinacnihStolova)
+                {
+                    if (sto.sto.getMesto() == 2)
+                    {
+                        sto.sto.stoBtn.Visible = true;
+                    }
+                    else
+                    {
+                        sto.sto.stoBtn.Visible = false;
+                    }
+                }
+                
             }
         }
     }

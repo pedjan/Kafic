@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+using Microsoft.VisualBasic;
 
 namespace Kafic
 {
@@ -47,7 +48,6 @@ namespace Kafic
                     Text = vrsta.getIme(),
                     Location = new Point(461 + 72 * (vrsta.getIdV() - 1), 12),
                     BackColor = Color.White,
-                    //FlatAppearance.BorderSize = 0,
                     FlatStyle = System.Windows.Forms.FlatStyle.Flat
                 };
                 vrstaBtn.FlatAppearance.BorderSize = 0;
@@ -297,6 +297,57 @@ namespace Kafic
                 proizvodiBtn.Add(proizvodBtn);
                 this.Controls.Add(proizvodBtn);
                 i++;
+            }
+        }
+
+        private void Test_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (test.SelectedItems.Count == 1)
+            {
+                ListViewItem item = test.SelectedItems[0];
+                string imeProizvoda = item.SubItems[0].Text;
+                string trenutnaKolicina = item.SubItems[2].Text;
+
+                string input = Microsoft.VisualBasic.Interaction.InputBox(
+                    $"Unesite novu količinu za {imeProizvoda}:",
+                    "Izmena količine",
+                    trenutnaKolicina);
+
+                if (uint.TryParse(input, out uint novaKolicina) && novaKolicina > 0)
+                {
+                    item.SubItems[2].Text = novaKolicina.ToString();
+                    double cena = double.Parse(item.SubItems[1].Text);
+                    item.SubItems[3].Text = (cena * novaKolicina).ToString();
+
+                    double ukupnoC = 0;
+                    foreach (ListViewItem it in test.Items)
+                    {
+                        ukupnoC += double.Parse(it.SubItems[3].Text);
+                    }
+                    this.ukupnoC = ukupnoC;
+
+                    ukupno.Text = "UKUPNO: " + ukupnoC;
+                    UpdateStoCena(this.Text, ukupnoC.ToString());
+                }
+                if (novaKolicina == 0)
+                {
+                    test.Items.Remove(item);
+                    ukupnoC -= double.Parse(item.SubItems[3].Text);
+                    ukupno.Text = "UKUPNO: " + ukupnoC;
+                    if (ukupnoC == 0)
+                    {
+                        UpdateStoCena(this.Text, String.Empty);
+                    }
+                    else
+                    {
+                        UpdateStoCena(this.Text, ukupnoC.ToString());
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Količina mora biti broj veći od 0.");
+                }
             }
         }
     }

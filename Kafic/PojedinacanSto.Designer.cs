@@ -38,6 +38,7 @@
             this.Kolicina = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.edit = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,34 +88,37 @@
             this.Ime,
             this.Cena,
             this.Kolicina,
-            this.columnHeader1});
+            this.columnHeader1,
+            this.edit});
             this.test.HideSelection = false;
+            this.test.LabelEdit = true;
             this.test.Location = new System.Drawing.Point(12, 12);
             this.test.Name = "test";
             this.test.Size = new System.Drawing.Size(400, 569);
             this.test.TabIndex = 7;
             this.test.UseCompatibleStateImageBehavior = false;
             this.test.View = System.Windows.Forms.View.Details;
+            this.test.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Test_MouseDoubleClick);
             // 
             // Ime
             // 
             this.Ime.Text = "Ime";
-            this.Ime.Width = 103;
+            this.Ime.Width = 177;
             // 
             // Cena
             // 
             this.Cena.Text = "Cena";
-            this.Cena.Width = 116;
+            this.Cena.Width = 68;
             // 
             // Kolicina
             // 
             this.Kolicina.Text = "Kolicina";
-            this.Kolicina.Width = 92;
+            this.Kolicina.Width = 49;
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Ukupno";
-            this.columnHeader1.Width = 81;
+            this.columnHeader1.Width = 51;
             // 
             // panel1
             // 
@@ -127,6 +131,10 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(416, 681);
             this.panel1.TabIndex = 8;
+            // 
+            // edit
+            // 
+            this.edit.Text = "Edit";
             // 
             // PojedinacanSto
             // 
@@ -160,5 +168,6 @@
         private System.Windows.Forms.ColumnHeader Kolicina;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ColumnHeader edit;
     }
 }

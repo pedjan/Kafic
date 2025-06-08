@@ -31,16 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pocetna));
             this.odjavi_se = new System.Windows.Forms.Button();
             this.uprproj = new System.Windows.Forms.Button();
-            this.updateSto = new System.Windows.Forms.Button();
             this.napraviSto = new System.Windows.Forms.Button();
             this.obrisiSto = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonPomeriSto = new System.Windows.Forms.Button();
-            this.kafic = new System.Windows.Forms.Button();
+            this.buttonKafic = new System.Windows.Forms.Button();
             this.buttonPlaza = new System.Windows.Forms.Button();
             this.buttonBasta = new System.Windows.Forms.Button();
             this.datumIVreme = new System.Windows.Forms.Label();
             this.korisnikLabel = new System.Windows.Forms.Label();
+            this.labelMesto = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,20 +71,6 @@
             this.uprproj.Text = "Upravljanje proizvodima";
             this.uprproj.UseVisualStyleBackColor = false;
             this.uprproj.Click += new System.EventHandler(this.uprproj_Click);
-            // 
-            // updateSto
-            // 
-            this.updateSto.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.updateSto.BackColor = System.Drawing.SystemColors.Control;
-            this.updateSto.FlatAppearance.BorderSize = 0;
-            this.updateSto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.updateSto.Location = new System.Drawing.Point(658, 58);
-            this.updateSto.Name = "updateSto";
-            this.updateSto.Size = new System.Drawing.Size(91, 23);
-            this.updateSto.TabIndex = 6;
-            this.updateSto.Text = "Sacuvaj stolove";
-            this.updateSto.UseVisualStyleBackColor = false;
-            this.updateSto.Click += new System.EventHandler(this.updateSto_Click);
             // 
             // napraviSto
             // 
@@ -117,15 +103,15 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.BurlyWood;
+            this.panel1.Controls.Add(this.labelMesto);
             this.panel1.Controls.Add(this.buttonPomeriSto);
-            this.panel1.Controls.Add(this.kafic);
+            this.panel1.Controls.Add(this.buttonKafic);
             this.panel1.Controls.Add(this.buttonPlaza);
             this.panel1.Controls.Add(this.buttonBasta);
             this.panel1.Controls.Add(this.datumIVreme);
             this.panel1.Controls.Add(this.korisnikLabel);
             this.panel1.Controls.Add(this.odjavi_se);
             this.panel1.Controls.Add(this.uprproj);
-            this.panel1.Controls.Add(this.updateSto);
             this.panel1.Controls.Add(this.napraviSto);
             this.panel1.Controls.Add(this.obrisiSto);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -141,7 +127,7 @@
             this.buttonPomeriSto.BackColor = System.Drawing.SystemColors.Control;
             this.buttonPomeriSto.FlatAppearance.BorderSize = 0;
             this.buttonPomeriSto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPomeriSto.Location = new System.Drawing.Point(373, 58);
+            this.buttonPomeriSto.Location = new System.Drawing.Point(658, 58);
             this.buttonPomeriSto.Name = "buttonPomeriSto";
             this.buttonPomeriSto.Size = new System.Drawing.Size(75, 23);
             this.buttonPomeriSto.TabIndex = 14;
@@ -149,18 +135,19 @@
             this.buttonPomeriSto.UseVisualStyleBackColor = false;
             this.buttonPomeriSto.Click += new System.EventHandler(this.buttonPomeriSto_Click);
             // 
-            // kafic
+            // buttonKafic
             // 
-            this.kafic.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.kafic.BackColor = System.Drawing.SystemColors.Control;
-            this.kafic.FlatAppearance.BorderSize = 0;
-            this.kafic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.kafic.Location = new System.Drawing.Point(658, 23);
-            this.kafic.Name = "kafic";
-            this.kafic.Size = new System.Drawing.Size(75, 23);
-            this.kafic.TabIndex = 13;
-            this.kafic.Text = "Kafic";
-            this.kafic.UseVisualStyleBackColor = false;
+            this.buttonKafic.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonKafic.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonKafic.FlatAppearance.BorderSize = 0;
+            this.buttonKafic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonKafic.Location = new System.Drawing.Point(658, 23);
+            this.buttonKafic.Name = "buttonKafic";
+            this.buttonKafic.Size = new System.Drawing.Size(75, 23);
+            this.buttonKafic.TabIndex = 13;
+            this.buttonKafic.Text = "Kafic";
+            this.buttonKafic.UseVisualStyleBackColor = false;
+            this.buttonKafic.Click += new System.EventHandler(this.mesto_Click);
             // 
             // buttonPlaza
             // 
@@ -174,6 +161,7 @@
             this.buttonPlaza.TabIndex = 12;
             this.buttonPlaza.Text = "Plaza";
             this.buttonPlaza.UseVisualStyleBackColor = false;
+            this.buttonPlaza.Click += new System.EventHandler(this.mesto_Click);
             // 
             // buttonBasta
             // 
@@ -187,6 +175,7 @@
             this.buttonBasta.TabIndex = 11;
             this.buttonBasta.Text = "Basta";
             this.buttonBasta.UseVisualStyleBackColor = false;
+            this.buttonBasta.Click += new System.EventHandler(this.mesto_Click);
             // 
             // datumIVreme
             // 
@@ -207,6 +196,17 @@
             this.korisnikLabel.Size = new System.Drawing.Size(86, 13);
             this.korisnikLabel.TabIndex = 9;
             this.korisnikLabel.Text = "Prijavljen si kao: ";
+            // 
+            // labelMesto
+            // 
+            this.labelMesto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelMesto.AutoSize = true;
+            this.labelMesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMesto.Location = new System.Drawing.Point(838, 34);
+            this.labelMesto.Name = "labelMesto";
+            this.labelMesto.Size = new System.Drawing.Size(84, 31);
+            this.labelMesto.TabIndex = 10;
+            this.labelMesto.Text = "Basta";
             // 
             // Pocetna
             // 
@@ -232,15 +232,15 @@
 
         private System.Windows.Forms.Button odjavi_se;
         private System.Windows.Forms.Button uprproj;
-        private System.Windows.Forms.Button updateSto;
         private System.Windows.Forms.Button napraviSto;
         private System.Windows.Forms.Button obrisiSto;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label datumIVreme;
         private System.Windows.Forms.Label korisnikLabel;
-        private System.Windows.Forms.Button kafic;
+        private System.Windows.Forms.Button buttonKafic;
         private System.Windows.Forms.Button buttonPlaza;
         private System.Windows.Forms.Button buttonBasta;
         private System.Windows.Forms.Button buttonPomeriSto;
+        private System.Windows.Forms.Label labelMesto;
     }
 }

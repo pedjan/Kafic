@@ -103,22 +103,23 @@ namespace Kafic
 
             while (reader.Read())
             {
-                Sto sto = new Sto(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3));
+                Sto sto = new Sto(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4));
                 stolovi.Add(sto);
             }
             conn.Close();
             return stolovi;
         }
 
-        public void dodajSto(string ime, int X, int Y) {
+        public void dodajSto(string ime, int X, int Y, int mesto) {
             string connstr = "Data Source = localhost\\SQLEXPRESS; Initial Catalog = baza; Integrated Security = true";
             SqlConnection conn = new SqlConnection(connstr);
             conn.Open();
 
-            SqlCommand cmd = new SqlCommand("insert into Sto (ime, x, y) values (@ime, @X, @Y)", conn);
+            SqlCommand cmd = new SqlCommand("insert into Sto (ime, x, y, mesto) values (@ime, @X, @Y, @mesto)", conn);
             cmd.Parameters.AddWithValue("@ime", ime);
             cmd.Parameters.AddWithValue("@X", X);
             cmd.Parameters.AddWithValue("@Y", Y);
+            cmd.Parameters.AddWithValue("@mesto", mesto);
             cmd.ExecuteNonQuery();
 
 
