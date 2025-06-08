@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kafic
 {
-    internal class Korisnik
+    public class Korisnik
     {
         private int id;
         private string ime;
@@ -43,5 +43,7 @@ namespace Kafic
         {
             this.id = id;
         }
+
+
     }
 }

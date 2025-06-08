@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 
 namespace Kafic
@@ -27,11 +28,8 @@ namespace Kafic
         bool dragging;
         int xoffset;
         int yoffset;
+        bool pomeranje;
 
-        bool admin = true;
-
-        //private Rectangle originalFormSize;
-        //private List<Rectangle> buttonOriginalRectAngles = new List<Rectangle>();
 
         public Pocetna(Login parent)
         {
@@ -45,18 +43,12 @@ namespace Kafic
             foreach (Sto stoo in listaStolova)
             {
                 Sto sto = new Sto(stoo.getIdS(), stoo.getIme(), stoo.getX(), stoo.getY(), this);
-                //this.panel2.Controls.Add(sto.stoBtn);
                 PojedinacanSto pojSto = new PojedinacanSto(sto, this);
                 listaPojedinacnihStolova.Add(pojSto);
-                //buttonOriginalRectAngles.Add(new Rectangle(sto.stoBtn.Location.X, sto.stoBtn.Location.Y, sto.stoBtn.Width, sto.stoBtn.Height));
             }
             this.parentForm = parent;
-            if (!admin)
-            {
-                uprproj.Visible = false;
-            }
+
             up = new UpravljanjeProizvodima(this);
-            //originalFormSize = this.ClientRectangle;
         }
         public Button GetStoByName(string ime)
         {
@@ -109,8 +101,9 @@ namespace Kafic
         {
             Button b;
             b = (Button)sender;
-            if (Control.ModifierKeys == Keys.Control)
+            if (pomeranje)
             {
+
                 dragging = true;
                 xoffset = e.X;
                 yoffset = e.Y;
@@ -174,16 +167,11 @@ namespace Kafic
         private void napraviSto_Click(object sender, EventArgs e)
         {
             BROJ_STOLOVA++;
-
             Sto sto = new Sto(BROJ_STOLOVA+1, "Sto " + BROJ_STOLOVA, 100, 100, this);
             listaStolova.Add(sto);
             PojedinacanSto pojSto = new PojedinacanSto(sto, this);
             listaPojedinacnihStolova.Add(pojSto);
-            //buttonOriginalRectAngles.Add(new Rectangle(sto.stoBtn.Location.X, sto.stoBtn.Location.Y, sto.stoBtn.Width, sto.stoBtn.Height));
-            //this.panel2.Controls.Add(sto.stoBtn);
             baza.dodajSto(sto.getIme(), sto.getX(), sto.getY());
-            
-
         }
 
         private void obrisiSto_Click(object sender, EventArgs e)
@@ -239,34 +227,59 @@ namespace Kafic
             }
         }
 
+        public void setKorisnik(Korisnik k) {
+            if (!(k.getIme().Equals("admin") && k.getSifra().Equals("admin"))) {
+                uprproj.Visible = false;
+                napraviSto.Visible = false;
+                updateSto.Visible = false;
+                obrisiSto.Visible = false;
+                buttonPomeriSto.Visible = false;
+            }
+            else
+            {
+                uprproj.Visible = true;
+                napraviSto.Visible = true;
+                updateSto.Visible = true;
+                obrisiSto.Visible = true;
+                buttonPomeriSto.Visible = true;
+            }
+            korisnikLabel.Text = "Prijavljen si kao: " + k.getIme();
 
-        //private void resizeControl(Rectangle r, Control c)
-        //{
-        //    float xRatio = (float)this.Width / (float)originalFormSize.Width;
-        //    float yRatio = (float)this.Height / (float)originalFormSize.Height;
 
-        //    int newX = (int)(r.X * xRatio);
-        //    int newY = (int)(r.Y * yRatio);
-
-        //    int newWidth = (int)(r.Width * xRatio);
-        //    int newHeight = (int)(r.Height * yRatio);
-
-        //    c.Location = new Point(newX, newY);
-        //    c.Size = new Size(newWidth, newHeight);
-        //}
-
-        private void Pocetna_Resize(object sender, EventArgs e)
-        {
-            //float xRatio = (float)this.Width / (float)originalFormSize.Width;
-            //float yRatio = (float)this.Height / (float)originalFormSize.Height;
-
-            //foreach(PojedinacanSto sto in listaPojedinacnihStolova)
-            //{
-            //    Button btn = sto.sto.stoBtn;
-            //    btn.Size = new Size((int)(btn.Width / xRatio), (int)(btn.Height / yRatio));
-            //}
+            System.Timers.Timer aTimer = new System.Timers.Timer();
+            aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            aTimer.Interval = 1000;
+            aTimer.Enabled = true;
             
+        }
 
+        private void OnTimedEvent(object source, ElapsedEventArgs e)
+        {
+            this.Invoke((MethodInvoker)delegate
+            {
+                datumIVreme.Text = "Datum i vreme: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+            });
+        }
+
+        private void buttonPomeriSto_Click(object sender, EventArgs e)
+        {
+            pomeranje = !pomeranje;
+            if (pomeranje)
+            {
+                buttonPomeriSto.Text = "Zaustavi";
+                foreach (PojedinacanSto sto in listaPojedinacnihStolova)
+                {
+                    sto.sto.stoBtn.Click -= new System.EventHandler(sto_Click);
+                }
+
+            }
+            else {
+                buttonPomeriSto.Text = "Pomeri sto";
+                foreach (PojedinacanSto sto in listaPojedinacnihStolova)
+                {
+                    sto.sto.stoBtn.Click += new System.EventHandler(sto_Click);
+                }
+            }
         }
     }
 }

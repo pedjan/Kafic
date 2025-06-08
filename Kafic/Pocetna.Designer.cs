@@ -35,6 +35,12 @@
             this.napraviSto = new System.Windows.Forms.Button();
             this.obrisiSto = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonPomeriSto = new System.Windows.Forms.Button();
+            this.kafic = new System.Windows.Forms.Button();
+            this.buttonPlaza = new System.Windows.Forms.Button();
+            this.buttonBasta = new System.Windows.Forms.Button();
+            this.datumIVreme = new System.Windows.Forms.Label();
+            this.korisnikLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +50,7 @@
             this.odjavi_se.BackColor = System.Drawing.SystemColors.Control;
             this.odjavi_se.FlatAppearance.BorderSize = 0;
             this.odjavi_se.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.odjavi_se.Location = new System.Drawing.Point(1093, 39);
+            this.odjavi_se.Location = new System.Drawing.Point(1139, 58);
             this.odjavi_se.Name = "odjavi_se";
             this.odjavi_se.Size = new System.Drawing.Size(75, 23);
             this.odjavi_se.TabIndex = 0;
@@ -58,7 +64,7 @@
             this.uprproj.BackColor = System.Drawing.SystemColors.Control;
             this.uprproj.FlatAppearance.BorderSize = 0;
             this.uprproj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.uprproj.Location = new System.Drawing.Point(12, 39);
+            this.uprproj.Location = new System.Drawing.Point(12, 58);
             this.uprproj.Name = "uprproj";
             this.uprproj.Size = new System.Drawing.Size(127, 23);
             this.uprproj.TabIndex = 5;
@@ -72,7 +78,7 @@
             this.updateSto.BackColor = System.Drawing.SystemColors.Control;
             this.updateSto.FlatAppearance.BorderSize = 0;
             this.updateSto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.updateSto.Location = new System.Drawing.Point(662, 39);
+            this.updateSto.Location = new System.Drawing.Point(658, 58);
             this.updateSto.Name = "updateSto";
             this.updateSto.Size = new System.Drawing.Size(91, 23);
             this.updateSto.TabIndex = 6;
@@ -86,7 +92,7 @@
             this.napraviSto.BackColor = System.Drawing.SystemColors.Control;
             this.napraviSto.FlatAppearance.BorderSize = 0;
             this.napraviSto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.napraviSto.Location = new System.Drawing.Point(472, 39);
+            this.napraviSto.Location = new System.Drawing.Point(471, 58);
             this.napraviSto.Name = "napraviSto";
             this.napraviSto.Size = new System.Drawing.Size(75, 23);
             this.napraviSto.TabIndex = 7;
@@ -100,7 +106,7 @@
             this.obrisiSto.BackColor = System.Drawing.SystemColors.Control;
             this.obrisiSto.FlatAppearance.BorderSize = 0;
             this.obrisiSto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.obrisiSto.Location = new System.Drawing.Point(567, 39);
+            this.obrisiSto.Location = new System.Drawing.Point(564, 58);
             this.obrisiSto.Name = "obrisiSto";
             this.obrisiSto.Size = new System.Drawing.Size(75, 23);
             this.obrisiSto.TabIndex = 8;
@@ -111,6 +117,12 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.BurlyWood;
+            this.panel1.Controls.Add(this.buttonPomeriSto);
+            this.panel1.Controls.Add(this.kafic);
+            this.panel1.Controls.Add(this.buttonPlaza);
+            this.panel1.Controls.Add(this.buttonBasta);
+            this.panel1.Controls.Add(this.datumIVreme);
+            this.panel1.Controls.Add(this.korisnikLabel);
             this.panel1.Controls.Add(this.odjavi_se);
             this.panel1.Controls.Add(this.uprproj);
             this.panel1.Controls.Add(this.updateSto);
@@ -122,6 +134,79 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1280, 100);
             this.panel1.TabIndex = 9;
+            // 
+            // buttonPomeriSto
+            // 
+            this.buttonPomeriSto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonPomeriSto.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonPomeriSto.FlatAppearance.BorderSize = 0;
+            this.buttonPomeriSto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPomeriSto.Location = new System.Drawing.Point(373, 58);
+            this.buttonPomeriSto.Name = "buttonPomeriSto";
+            this.buttonPomeriSto.Size = new System.Drawing.Size(75, 23);
+            this.buttonPomeriSto.TabIndex = 14;
+            this.buttonPomeriSto.Text = "Pomeri sto";
+            this.buttonPomeriSto.UseVisualStyleBackColor = false;
+            this.buttonPomeriSto.Click += new System.EventHandler(this.buttonPomeriSto_Click);
+            // 
+            // kafic
+            // 
+            this.kafic.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.kafic.BackColor = System.Drawing.SystemColors.Control;
+            this.kafic.FlatAppearance.BorderSize = 0;
+            this.kafic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.kafic.Location = new System.Drawing.Point(658, 23);
+            this.kafic.Name = "kafic";
+            this.kafic.Size = new System.Drawing.Size(75, 23);
+            this.kafic.TabIndex = 13;
+            this.kafic.Text = "Kafic";
+            this.kafic.UseVisualStyleBackColor = false;
+            // 
+            // buttonPlaza
+            // 
+            this.buttonPlaza.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonPlaza.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonPlaza.FlatAppearance.BorderSize = 0;
+            this.buttonPlaza.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPlaza.Location = new System.Drawing.Point(564, 23);
+            this.buttonPlaza.Name = "buttonPlaza";
+            this.buttonPlaza.Size = new System.Drawing.Size(75, 23);
+            this.buttonPlaza.TabIndex = 12;
+            this.buttonPlaza.Text = "Plaza";
+            this.buttonPlaza.UseVisualStyleBackColor = false;
+            // 
+            // buttonBasta
+            // 
+            this.buttonBasta.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonBasta.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonBasta.FlatAppearance.BorderSize = 0;
+            this.buttonBasta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBasta.Location = new System.Drawing.Point(471, 23);
+            this.buttonBasta.Name = "buttonBasta";
+            this.buttonBasta.Size = new System.Drawing.Size(75, 23);
+            this.buttonBasta.TabIndex = 11;
+            this.buttonBasta.Text = "Basta";
+            this.buttonBasta.UseVisualStyleBackColor = false;
+            // 
+            // datumIVreme
+            // 
+            this.datumIVreme.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.datumIVreme.AutoSize = true;
+            this.datumIVreme.Location = new System.Drawing.Point(994, 23);
+            this.datumIVreme.Name = "datumIVreme";
+            this.datumIVreme.Size = new System.Drawing.Size(73, 13);
+            this.datumIVreme.TabIndex = 10;
+            this.datumIVreme.Text = "datum i vreme";
+            // 
+            // korisnikLabel
+            // 
+            this.korisnikLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.korisnikLabel.AutoSize = true;
+            this.korisnikLabel.Location = new System.Drawing.Point(994, 63);
+            this.korisnikLabel.Name = "korisnikLabel";
+            this.korisnikLabel.Size = new System.Drawing.Size(86, 13);
+            this.korisnikLabel.TabIndex = 9;
+            this.korisnikLabel.Text = "Prijavljen si kao: ";
             // 
             // Pocetna
             // 
@@ -137,8 +222,8 @@
             this.Name = "Pocetna";
             this.Text = "Pocetna";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Resize += new System.EventHandler(this.Pocetna_Resize);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -151,5 +236,11 @@
         private System.Windows.Forms.Button napraviSto;
         private System.Windows.Forms.Button obrisiSto;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label datumIVreme;
+        private System.Windows.Forms.Label korisnikLabel;
+        private System.Windows.Forms.Button kafic;
+        private System.Windows.Forms.Button buttonPlaza;
+        private System.Windows.Forms.Button buttonBasta;
+        private System.Windows.Forms.Button buttonPomeriSto;
     }
 }

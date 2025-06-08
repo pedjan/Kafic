@@ -171,7 +171,7 @@ namespace Kafic
             return vrste;
         }
 
-        public List<Proizvod> getProizvodiByVrsta(Vrsta v)
+        public List<Proizvod> getProizvodiByVrsta(int idV)
         {
             List<Proizvod> proizvodi = new List<Proizvod>();
 
@@ -179,12 +179,12 @@ namespace Kafic
             SqlConnection conn = new SqlConnection(connstr);
             conn.Open();
 
-            SqlCommand cmd = new SqlCommand("select * from proizvodi where idV = '"+ v.getIdV() + "' ", conn);
+            SqlCommand cmd = new SqlCommand("select * from proizvodi where idV = '"+ idV + "' ", conn);
             SqlDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read())
             {
-                Proizvod proizvod = new Proizvod(reader.GetInt32(0), reader.GetString(1), v, reader.GetDouble(3), reader.GetInt32(4));
+                Proizvod proizvod = new Proizvod(reader.GetInt32(0), reader.GetString(1), getVrstaById(idV), reader.GetDouble(3), reader.GetInt32(4));
                 proizvodi.Add(proizvod);
             }
             conn.Close();

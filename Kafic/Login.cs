@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace Kafic
 {
@@ -41,6 +42,7 @@ namespace Kafic
                 Ime.Text = null;
                 Sifra.Text = null;
                 pocetna.Show(this);
+                pocetna.setKorisnik(k);
                 this.Hide();
             }
             else
@@ -50,4 +52,5 @@ namespace Kafic
         }
 
     }
+
 }

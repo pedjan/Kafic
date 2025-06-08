@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PojedinacanSto));
             this.nazad = new System.Windows.Forms.Button();
             this.naplati = new System.Windows.Forms.Button();
             this.ukupno = new System.Windows.Forms.Label();
@@ -81,6 +82,7 @@
             // test
             // 
             this.test.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.test.BackColor = System.Drawing.SystemColors.Window;
             this.test.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Ime,
             this.Cena,
@@ -112,9 +114,11 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Ukupno";
+            this.columnHeader1.Width = 81;
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.test);
             this.panel1.Controls.Add(this.naplati);
             this.panel1.Controls.Add(this.ukupno);
@@ -128,10 +132,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.BurlyWood;
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.nazad);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PojedinacanSto";
             this.Text = "Sto";

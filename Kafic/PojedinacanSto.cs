@@ -277,7 +277,7 @@ namespace Kafic
             {
                 if (vrsta.getIme().Equals(imeVrste))
                 {
-                    proizvodi = baza.getProizvodiByVrsta(vrsta);
+                    proizvodi = baza.getProizvodiByVrsta(vrsta.getIdV());
                 }
             }
             int i = 0;
