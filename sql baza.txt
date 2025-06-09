@@ -1,7 +1,7 @@
 
 CREATE DATABASE baza;
 CREATE TABLE korisnik(idK int primary key not null IDENTITY, ime VARCHAR(256) not null, sifra VARCHAR(256) not null);
-CREATE TABLE sto(idS int primary key not null IDENTITY, ime VARCHAR(256), x int not null, y int not null, mesto int not null);
+CREATE TABLE sto(idS int primary key not null, ime VARCHAR(256), x int not null, y int not null, mesto int not null);
 CREATE TABLE vrsta(idV int primary key not null IDENTITY, ime VARCHAR(256) not null);
 CREATE TABLE proizvodi(idP int primary key not null IDENTITY, ime VARCHAR(256) not null, idV int, CONSTRAINT FK_idV FOREIGN KEY (idV) REFERENCES vrsta(idV), cena float, kolicina int);
 

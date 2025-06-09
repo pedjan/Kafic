@@ -14,7 +14,8 @@ namespace Kafic
         private double cena;
         private int kolicina;
 
-        public Proizvod() {
+        public Proizvod()
+        {
         }
 
         public Proizvod(int id, string ime, Vrsta vrsta, double cena, int kolicina)
@@ -26,23 +27,28 @@ namespace Kafic
             this.kolicina = kolicina;
         }
 
-        public void setId(int id) { 
+        public void setId(int id)
+        {
             this.id = id;
         }
 
-        public int getId() { 
+        public int getId()
+        {
             return this.id;
         }
 
-        public void setIme(string ime) { 
+        public void setIme(string ime)
+        {
             this.ime = ime;
         }
 
-        public string getIme() { 
+        public string getIme()
+        {
             return (this.ime);
         }
 
-        public void setCena(double cena) { 
+        public void setCena(double cena)
+        {
             this.cena = cena;
         }
 
@@ -56,12 +62,19 @@ namespace Kafic
             return this.kolicina;
         }
 
-        public void setKolicina(int kolicina) { 
+        public void setKolicina(int kolicina)
+        {
             this.kolicina = kolicina;
         }
 
-        public void setIdV(Vrsta vrsta) { 
+        public void setIdV(Vrsta vrsta)
+        {
             this.vrsta = vrsta;
+        }
+
+        public string getVrstaIme()
+        {
+            return this.vrsta.getIme();
         }
     }
 }

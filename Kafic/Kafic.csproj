@@ -52,11 +52,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>bazaDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="bazaDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>bazaDataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="bazaDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -126,17 +121,6 @@
     </None>
     <None Include="bazaDataSet.xss">
       <DependentUpon>bazaDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="bazaDataSet1.xsc">
-      <DependentUpon>bazaDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="bazaDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>bazaDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="bazaDataSet1.xss">
-      <DependentUpon>bazaDataSet1.xsd</DependentUpon>
     </None>
     <None Include="bazaDataSet2.xsc">
       <DependentUpon>bazaDataSet2.xsd</DependentUpon>

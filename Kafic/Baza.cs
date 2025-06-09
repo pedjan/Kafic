@@ -78,6 +78,20 @@ namespace Kafic
             conn.Close();
         }
 
+        public void dodajKolicinuZaProizvod(String ime, uint kolicina)
+        {
+            Proizvod p = getProizvodByName(ime);
+            uint novaKolicina = (uint)p.getKolicina() + kolicina;
+
+            string connstr = "Data Source = localhost\\SQLEXPRESS; Initial Catalog = baza; Integrated Security = true";
+            SqlConnection conn = new SqlConnection(connstr);
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("update proizvodi set kolicina = '" + novaKolicina + "' where ime = '" + ime + "'", conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            conn.Close();
+        }
+
         public void updateSto(string ime, int x, int y)
         {
 
@@ -110,12 +124,30 @@ namespace Kafic
             return stolovi;
         }
 
-        public void dodajSto(string ime, int X, int Y, int mesto) {
+        //public void dodajSto(string ime, int X, int Y, int mesto) {
+        //    string connstr = "Data Source = localhost\\SQLEXPRESS; Initial Catalog = baza; Integrated Security = true";
+        //    SqlConnection conn = new SqlConnection(connstr);
+        //    conn.Open();
+
+        //    SqlCommand cmd = new SqlCommand("insert into Sto (ime, x, y, mesto) values (@ime, @X, @Y, @mesto)", conn);
+        //    cmd.Parameters.AddWithValue("@ime", ime);
+        //    cmd.Parameters.AddWithValue("@X", X);
+        //    cmd.Parameters.AddWithValue("@Y", Y);
+        //    cmd.Parameters.AddWithValue("@mesto", mesto);
+        //    cmd.ExecuteNonQuery();
+
+
+        //    conn.Close();
+        //}
+
+        public void dodajSto(int idS, string ime, int X, int Y, int mesto)
+        {
             string connstr = "Data Source = localhost\\SQLEXPRESS; Initial Catalog = baza; Integrated Security = true";
             SqlConnection conn = new SqlConnection(connstr);
             conn.Open();
 
-            SqlCommand cmd = new SqlCommand("insert into Sto (ime, x, y, mesto) values (@ime, @X, @Y, @mesto)", conn);
+            SqlCommand cmd = new SqlCommand("insert into Sto (idS, ime, x, y, mesto) values (@idS, @ime, @X, @Y, @mesto)", conn);
+            cmd.Parameters.AddWithValue("@idS", idS);
             cmd.Parameters.AddWithValue("@ime", ime);
             cmd.Parameters.AddWithValue("@X", X);
             cmd.Parameters.AddWithValue("@Y", Y);
@@ -215,6 +247,23 @@ namespace Kafic
             }
             conn.Close();
             return v;
+        }
+
+        public List<Proizvod> getSveProizvode()
+        {
+            List<Proizvod> proizvodi = new List<Proizvod>();
+            string connstr = "Data Source = localhost\\SQLEXPRESS; Initial Catalog = baza; Integrated Security = true";
+            SqlConnection conn = new SqlConnection(connstr);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("select * from proizvodi", conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Proizvod proizvod = new Proizvod(reader.GetInt32(0), reader.GetString(1), getVrstaById(reader.GetInt32(2)), reader.GetDouble(3), reader.GetInt32(4));
+                proizvodi.Add(proizvod);
+            }
+            conn.Close();
+            return proizvodi;
         }
     }
 

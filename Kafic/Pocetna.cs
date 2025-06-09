@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
@@ -177,12 +178,33 @@ namespace Kafic
 
         private void napraviSto_Click(object sender, EventArgs e)
         {
+
             BROJ_STOLOVA++;
-            Sto sto = new Sto(BROJ_STOLOVA + 1, "Sto " + BROJ_STOLOVA, 100, 100, mesto, this);
-            listaStolova.Add(sto);
-            PojedinacanSto pojSto = new PojedinacanSto(sto, this);
-            listaPojedinacnihStolova.Add(pojSto);
-            baza.dodajSto(sto.getIme(), sto.getX(), sto.getY(), sto.getMesto());
+            bool napravio = false;
+            for (int i = 0; i < listaStolova.Count; i++)
+            {
+                    int pom = i + 1;
+                    if (listaStolova[i].getIdS() != pom)
+                    {
+                        Sto sto = new Sto(pom, "Sto " + pom, 100, 100, mesto, this);
+                        listaStolova.Add(sto);
+                        PojedinacanSto pojSto = new PojedinacanSto(sto, this);
+                        listaPojedinacnihStolova.Add(pojSto);
+                        baza.dodajSto(sto.getIdS(), sto.getIme(), sto.getX(), sto.getY(), sto.getMesto());
+                        listaStolova = baza.getSveStolove();
+                        napravio = true;
+                    }
+                
+            }
+
+            if (!napravio) {
+                Sto sto = new Sto(BROJ_STOLOVA, "Sto " + BROJ_STOLOVA, 100, 100, mesto, this);
+                listaStolova.Add(sto);
+                PojedinacanSto pojSto = new PojedinacanSto(sto, this);
+                listaPojedinacnihStolova.Add(pojSto);
+                baza.dodajSto(sto.getIdS(), sto.getIme(), sto.getX(), sto.getY(), sto.getMesto());
+            }
+            
         }
 
         private void obrisiSto_Click(object sender, EventArgs e)
@@ -270,10 +292,17 @@ namespace Kafic
 
         private void OnTimedEvent(object source, ElapsedEventArgs e)
         {
-            this.Invoke((MethodInvoker)delegate
+            try
             {
-                datumIVreme.Text = "Datum i vreme: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-            });
+                this.Invoke((MethodInvoker)delegate
+                {
+                    datumIVreme.Text = "Datum i vreme: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                });
+            }
+            catch (ObjectDisposedException)
+            {
+                // Ignorisi exception ako je forma zatvorena
+            }
         }
 
         private void buttonPomeriSto_Click(object sender, EventArgs e)

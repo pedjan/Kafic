@@ -14,9 +14,6 @@ namespace Kafic
     {
         private Pocetna parentForm;
         private Baza baza = new Baza();
-        private List<Vrsta> vrste = new List<Vrsta>();
-        private List<Button> proizvodiBtn = new List<Button>();
-        private List<Button> vrsteBtn = new List<Button>();
 
         public UpravljanjeProizvodima(Pocetna parentForm)
         {
@@ -36,15 +33,18 @@ namespace Kafic
             stanje.Visible = true;
             izmeniKol.Visible = true;
 
-            foreach (Button btn in vrsteBtn)
-            {
-                this.Controls.Remove(btn);
-            }
+            labelVrsta.Visible = false;
+            comboBox1.Visible = false;
+            labelPrizvod.Visible = false;
+            comboBox2.Visible = false;
+            comboBox2.Items.Clear();
+            labelKolicina.Visible = false;
+            numericUpDown1.Visible = false;
+            buttonDodaj.Visible = false;
 
-            foreach (Button btn in proizvodiBtn)
-            {
-                this.Controls.Remove(btn);
-            }
+            naslovRadnje.Visible = false;
+
+            labelProizvodi.Visible = false;
 
             this.nazad.Click += new System.EventHandler(this.nazad_Click);
             this.nazad.Click -= new System.EventHandler(this.nazadP_Click);
@@ -60,64 +60,100 @@ namespace Kafic
             stanje.Visible = false;
             izmeniKol.Visible = false;
 
-            vrste = baza.getVrste();
+            labelVrsta.Visible = true;
+            comboBox1.Visible = true;
 
-            foreach (Vrsta vrsta in vrste)
-            {
-                Button vrstaBtn = new Button
-                {
-                    Text = vrsta.getIme(),
-                    Location = new Point(461 + 72 * (vrsta.getIdV() - 1), 12),
-                    BackColor = Color.White,
-                    //FlatAppearance.BorderSize = 0,
-                    FlatStyle = System.Windows.Forms.FlatStyle.Flat
-                };
-                vrstaBtn.FlatAppearance.BorderSize = 0;
-                vrstaBtn.Click += vrstaBtn_Click;
-                vrsteBtn.Add(vrstaBtn);
-                this.Controls.Add(vrstaBtn);
-            }
+            naslovRadnje.Visible = true;
+            naslovRadnje.Text = "Nabavka proizvoda";
+
+            //vrste = baza.getVrste();
+
+            //foreach (Vrsta vrsta in vrste)
+            //{
+            //    Button vrstaBtn = new Button
+            //    {
+            //        Text = vrsta.getIme(),
+            //        Location = new Point(461 + 72 * (vrsta.getIdV() - 1), 12),
+            //        BackColor = Color.White,
+            //        //FlatAppearance.BorderSize = 0,
+            //        FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            //    };
+            //    vrstaBtn.FlatAppearance.BorderSize = 0;
+            //    vrstaBtn.Click += vrstaBtn_Click;
+            //    vrsteBtn.Add(vrstaBtn);
+            //    this.Controls.Add(vrstaBtn);
+            //}
 
 
         }
 
-        private void vrstaBtn_Click(object sender, EventArgs e)
+        private void UpravljanjeProizvodima_Load(object sender, EventArgs e)
         {
-            if (proizvodiBtn.Count != 0)
-            {
-                foreach (Button btn in proizvodiBtn)
-                {
-                    this.Controls.Remove(btn);
-                }
-            }
-            string imeVrste = (sender as Button).Text;
-            List<Proizvod> proizvodi = new List<Proizvod>();
-            foreach (Vrsta vrsta in vrste)
-            {
-                if (vrsta.getIme().Equals(imeVrste))
-                {
-                    proizvodi = baza.getProizvodiByVrsta(vrsta.getIdV());
-                }
-            }
-            int i = 0;
-            foreach (Proizvod p in proizvodi)
-            {
-                Button proizvodBtn = new Button
-                {
-                    Text = p.getIme(),
-                    Location = new Point(461 + 100 * i, 81),
-                    Size = new Size(100, 30),
-                    BackColor = Color.White,
-                    //FlatAppearance.BorderSize = 0,
-                    FlatStyle = System.Windows.Forms.FlatStyle.Flat
-                };
-                proizvodBtn.FlatAppearance.BorderSize = 0;
-                //proizvodBtn.Click += item_Click;
-                proizvodiBtn.Add(proizvodBtn);
-                this.Controls.Add(proizvodBtn);
-                i++;
-            }
+            // TODO: This line of code loads data into the 'bazaDataSet.vrsta' table. You can move, or remove it, as needed.
+            this.vrstaTableAdapter.Fill(this.bazaDataSet.vrsta);
+
         }
 
+        private void izabranaVrsta(object sender, EventArgs e)
+        {
+            comboBox2.Items.Clear();
+            Vrsta v = baza.getVrstaById(comboBox1.SelectedIndex + 1);
+            List<Proizvod> proizvodi = baza.getProizvodiByVrsta(v.getIdV());
+            foreach (Proizvod proizvod in proizvodi)
+            {
+                comboBox2.Items.Add(proizvod.getIme());
+            }
+            labelPrizvod.Visible = true;
+            comboBox2.Visible = true;
+        }
+
+        private void izabanProizvod(object sender, EventArgs e)
+        {
+            labelKolicina.Visible = true;
+            numericUpDown1.Visible = true;
+            buttonDodaj.Visible = true;
+        }
+
+        private void buttonDodaj_Click(object sender, EventArgs e)
+        {
+            if(numericUpDown1.Value < 1)
+            {
+                MessageBox.Show("Količina mora biti veća od 0.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }else {
+                uint kolicina = (uint)numericUpDown1.Value;
+                baza.dodajKolicinuZaProizvod(comboBox2.SelectedItem.ToString(), kolicina);
+                MessageBox.Show("Uspesno ste dodali " + kolicina + " komada za proizvod: " + comboBox2.Text, "Uspesno", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                labelPrizvod.Visible = false;
+                comboBox2.Visible = false;
+                labelKolicina.Visible = false;
+                numericUpDown1.Visible = false;
+                buttonDodaj.Visible = false;
+                comboBox2.Items.Clear();
+            }
+
+        }
+
+        private void stanje_Click(object sender, EventArgs e)
+        {
+            this.nazad.Click -= new System.EventHandler(this.nazad_Click);
+            this.nazad.Click += new System.EventHandler(this.nazadP_Click);
+
+            nabavka.Visible = false;
+            stanje.Visible = false;
+            izmeniKol.Visible = false;
+
+            naslovRadnje.Visible = true;
+            naslovRadnje.Text = "Stanje proizvoda";
+
+            List<Proizvod> proizvodi = baza.getSveProizvode();
+            string format = String.Format("{0,-5} {1,-20} {2,-25} {3,-10} {4,-10}\n\n", "ID", "Ime", "Vrsta", "Cena", "Količina");
+            foreach (Proizvod proizvod in proizvodi)
+            {
+                format += String.Format("{0,-5} {1,-20} {2,-25} {3,-10} {4,-10}\n", proizvod.getId(), proizvod.getIme(), proizvod.getVrstaIme(), proizvod.getCena(), proizvod.getKolicina());
+            }
+            labelProizvodi.Text = format;
+            labelProizvodi.Visible = true;
+        }
     }
 }

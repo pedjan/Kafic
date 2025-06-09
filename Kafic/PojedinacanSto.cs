@@ -75,12 +75,12 @@ namespace Kafic
             if (string.IsNullOrEmpty(novaCena))
             {
                 parentForm.GetStoByName(sto).BackColor = Color.Blue;
-                parentForm.GetStoByName(sto).Text = this.sto.getIme();
+                parentForm.GetStoByName(sto).Text = sto;
             }
             else
             {
                 parentForm.GetStoByName(sto).BackColor = Color.Red;
-                parentForm.GetStoByName(sto).Text = this.sto.getIme() + "\n\n" + novaCena;
+                parentForm.GetStoByName(sto).Text = sto + "\n\n" + novaCena;
             }
         }
 
@@ -380,23 +380,24 @@ namespace Kafic
         private void buttonPomeri_Click(object sender, EventArgs e)
         {
             PojedinacanSto sto = parentForm.getPojedinacanStoByIme(comboBox1.Text);
-            List<ListViewItem> items = new List<ListViewItem>();
-            foreach (ListViewItem item in test.Items)
+            if(sto.sto.getIdS() != this.sto.getIdS())
             {
-                items.Add(item);
-            }
-            
-            test.Items.Clear();
-            UpdateStoCena(this.Text, String.Empty);
-            sto.ukupnoC += ukupnoC;
-            sto.ukupno.Text = "Ukupno: " + sto.ukupnoC;
-            double novaCena = sto.ukupnoC;
-            ukupno.Text = "UKUPNO: 0";
-            sto.premesti(items, sto);
-            UpdateStoCena(comboBox1.Text, novaCena.ToString());
-            ukupnoC = 0;
-            
+                List<ListViewItem> items = new List<ListViewItem>();
+                foreach (ListViewItem item in test.Items)
+                {
+                    items.Add(item);
+                }
 
+                test.Items.Clear();
+                UpdateStoCena(this.Text, String.Empty);
+                sto.ukupnoC += ukupnoC;
+                sto.ukupno.Text = "Ukupno: " + sto.ukupnoC;
+                double novaCena = sto.ukupnoC;
+                ukupno.Text = "UKUPNO: 0";
+                sto.premesti(items, sto);
+                UpdateStoCena(comboBox1.Text, novaCena.ToString());
+                ukupnoC = 0;
+            }
         }
 
         private void PojedinacanSto_Load(object sender, EventArgs e)
