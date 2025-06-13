@@ -14,6 +14,7 @@ namespace Kafic
     {
         private Pocetna parentForm;
         private Baza baza = new Baza();
+        private int opcija;
 
         public UpravljanjeProizvodima(Pocetna parentForm)
         {
@@ -32,6 +33,7 @@ namespace Kafic
             nabavka.Visible = true;
             stanje.Visible = true;
             izmeniKol.Visible = true;
+            pazar.Visible = true;
 
             labelVrsta.Visible = false;
             comboBox1.Visible = false;
@@ -41,10 +43,12 @@ namespace Kafic
             labelKolicina.Visible = false;
             numericUpDown1.Visible = false;
             buttonDodaj.Visible = false;
-
             naslovRadnje.Visible = false;
+            dateTimePicker1.Visible = false;
 
-            labelProizvodi.Visible = false;
+            labelDatum.Visible = false;
+
+            proizvodiTB.Visible = false;
 
             this.nazad.Click += new System.EventHandler(this.nazad_Click);
             this.nazad.Click -= new System.EventHandler(this.nazadP_Click);
@@ -59,31 +63,14 @@ namespace Kafic
             nabavka.Visible = false;
             stanje.Visible = false;
             izmeniKol.Visible = false;
+            pazar.Visible = false;
 
             labelVrsta.Visible = true;
             comboBox1.Visible = true;
 
             naslovRadnje.Visible = true;
             naslovRadnje.Text = "Nabavka proizvoda";
-
-            //vrste = baza.getVrste();
-
-            //foreach (Vrsta vrsta in vrste)
-            //{
-            //    Button vrstaBtn = new Button
-            //    {
-            //        Text = vrsta.getIme(),
-            //        Location = new Point(461 + 72 * (vrsta.getIdV() - 1), 12),
-            //        BackColor = Color.White,
-            //        //FlatAppearance.BorderSize = 0,
-            //        FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            //    };
-            //    vrstaBtn.FlatAppearance.BorderSize = 0;
-            //    vrstaBtn.Click += vrstaBtn_Click;
-            //    vrsteBtn.Add(vrstaBtn);
-            //    this.Controls.Add(vrstaBtn);
-            //}
-
+            opcija = 0;
 
         }
 
@@ -112,23 +99,59 @@ namespace Kafic
             labelKolicina.Visible = true;
             numericUpDown1.Visible = true;
             buttonDodaj.Visible = true;
+            if (opcija == 1) {
+                buttonDodaj.Text = "Izmeni";
+
+            } else {
+                buttonDodaj.Text = "Dodaj";
+            }
         }
 
         private void buttonDodaj_Click(object sender, EventArgs e)
         {
-            if(numericUpDown1.Value < 1)
+            
+            if(opcija != 2 && numericUpDown1.Value < 1)
             {
                 MessageBox.Show("Količina mora biti veća od 0.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }else {
                 uint kolicina = (uint)numericUpDown1.Value;
-                baza.dodajKolicinuZaProizvod(comboBox2.SelectedItem.ToString(), kolicina);
-                MessageBox.Show("Uspesno ste dodali " + kolicina + " komada za proizvod: " + comboBox2.Text, "Uspesno", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (opcija == 1)
+                {
+                    baza.kolicinaProizvoda(comboBox2.SelectedItem.ToString(), kolicina);
+                    MessageBox.Show("Uspesno ste postavili " + kolicina + " komada za proizvod: " + comboBox2.Text, "Uspesno", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                if(opcija == 2)
+                {
+                    DateTime datum = dateTimePicker1.Value;
+                    List<Pazar> lista = baza.getPazar(datum);
+                    int zarada = 0;
+                    string format = String.Format("{0,-20} {1,-10}\n\n", "Proizvod", "Količina");
+                    format += String.Format("{0,-20} {1,-10}", "", "");
+                    foreach (Pazar p in lista)
+                    {
+                        format += String.Format("{0,-20} {1,-10}\n", p.Proizvod, p.Kolicina);
+                        zarada += p.Kolicina * (int)baza.getProizvodByName(p.Proizvod).getCena();
+                    }
+                    format += String.Format("{0,-100}", "");
+                    format += "\nUKUPNA ZARADA: " + zarada + "RSD";
+                    proizvodiTB.Text = format;
+                    proizvodiTB.Size = new Size(280, 500);
+                    proizvodiTB.Visible = true;
+                    
+                }
+                else
+                {
+                    baza.dodajKolicinuZaProizvod(comboBox2.SelectedItem.ToString(), kolicina);
+                    MessageBox.Show("Uspesno ste dodali " + kolicina + " komada za proizvod: " + comboBox2.Text, "Uspesno", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
                 labelPrizvod.Visible = false;
                 comboBox2.Visible = false;
                 labelKolicina.Visible = false;
                 numericUpDown1.Visible = false;
                 buttonDodaj.Visible = false;
+                dateTimePicker1.Visible = false;
+                labelDatum.Visible = false;
                 comboBox2.Items.Clear();
             }
 
@@ -142,18 +165,62 @@ namespace Kafic
             nabavka.Visible = false;
             stanje.Visible = false;
             izmeniKol.Visible = false;
+            pazar.Visible = false;
 
             naslovRadnje.Visible = true;
             naslovRadnje.Text = "Stanje proizvoda";
 
             List<Proizvod> proizvodi = baza.getSveProizvode();
             string format = String.Format("{0,-5} {1,-20} {2,-25} {3,-10} {4,-10}\n\n", "ID", "Ime", "Vrsta", "Cena", "Količina");
+            format += String.Format("{0,-5} {1,-20} {2,-25} {3,-10} {4,-10}\n\n", "", "", "", "", "");
             foreach (Proizvod proizvod in proizvodi)
             {
                 format += String.Format("{0,-5} {1,-20} {2,-25} {3,-10} {4,-10}\n", proizvod.getId(), proizvod.getIme(), proizvod.getVrstaIme(), proizvod.getCena(), proizvod.getKolicina());
             }
-            labelProizvodi.Text = format;
-            labelProizvodi.Visible = true;
+            proizvodiTB.Text = format;
+            proizvodiTB.Size = new Size(614, 487);
+            proizvodiTB.Visible = true;
+
+        }
+
+        private void izmeniKol_Click(object sender, EventArgs e)
+        {
+            this.nazad.Click -= new System.EventHandler(this.nazad_Click);
+            this.nazad.Click += new System.EventHandler(this.nazadP_Click);
+
+            nabavka.Visible = false;
+            stanje.Visible = false;
+            izmeniKol.Visible = false;
+            pazar.Visible = false;
+
+            labelVrsta.Visible = true;
+            comboBox1.Visible = true;
+
+            naslovRadnje.Visible = true;
+            naslovRadnje.Text = "Izmena kolicine";
+
+            opcija = 1;
+        }
+
+        private void pazar_Click(object sender, EventArgs e)
+        {
+            this.nazad.Click -= new System.EventHandler(this.nazad_Click);
+            this.nazad.Click += new System.EventHandler(this.nazadP_Click);
+
+            nabavka.Visible = false;
+            stanje.Visible = false;
+            izmeniKol.Visible = false;
+            pazar.Visible = false;
+
+            labelDatum.Visible = true;
+            buttonDodaj.Text = "Prikaži";
+            buttonDodaj.Visible = true;
+
+            naslovRadnje.Visible = true;
+            naslovRadnje.Text = "Prikaz pazara za dan: " + DateTime.Now.Date.ToString().Substring(0, 10);
+            dateTimePicker1.Visible = true;
+
+            opcija = 2;
         }
     }
 }

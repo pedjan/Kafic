@@ -30,6 +30,12 @@ namespace Kafic
         private uint kolicinaBroj;
         private TextBox kolicina;
 
+        private Form formIzmenaKolicine;
+        private TextBox novaKolicinaT;
+        private ListViewItem item;
+
+        private Proizvod izabraniProizvod;
+
         public PojedinacanSto(Sto sto, Pocetna parent)
         {
             InitializeComponent();
@@ -87,8 +93,8 @@ namespace Kafic
         private void item_Click(object sender, EventArgs e)
         {
             string ime = (sender as Button).Text;
-            Proizvod p = baza.getProizvodByName(ime);
-            double cena = p.getCena();
+            izabraniProizvod = baza.getProizvodByName(ime);
+            double cena = izabraniProizvod.getCena();
             getKolicina();
             uint kolicina = kolicinaBroj;
 
@@ -97,7 +103,7 @@ namespace Kafic
                 return;
             }
 
-            if (kolicina > p.getKolicina())
+            if (kolicina > izabraniProizvod.getKolicina())
             {
                 MessageBox.Show("Nemamo dovoljno proizvoda na stanju");
                 return;
@@ -108,7 +114,7 @@ namespace Kafic
                 bool found = false;
                 foreach (ListViewItem itemm in test.Items)
                 {
-                    if (itemm.SubItems[0].Text.Equals(p.getIme()))
+                    if (itemm.SubItems[0].Text.Equals(izabraniProizvod.getIme()))
                     {
                         itemm.SubItems[2].Text = (uint.Parse(itemm.SubItems[2].Text) + kolicina).ToString();
                         itemm.SubItems[3].Text = ukupnoC.ToString();
@@ -120,7 +126,7 @@ namespace Kafic
                 }
 
                 if (!found) {
-                    string[] eto = { p.getIme(), p.getCena().ToString(), kolicina.ToString(), (cena * kolicina).ToString() };
+                    string[] eto = { izabraniProizvod.getIme(), izabraniProizvod.getCena().ToString(), kolicina.ToString(), (cena * kolicina).ToString() };
                     ListViewItem item = new ListViewItem(eto);
                     test.Items.Add(item);
                 }
@@ -181,6 +187,7 @@ namespace Kafic
                 MessageBox.Show("Kolicina mora biti broj veci od 0");
                 isNumeric = uint.TryParse(kolicina.Text, out kolicinaBroj);
             }
+            baza.updateProizvod(izabraniProizvod.getIme(), (int)(kolicinaBroj));
             formKolicina.Hide();
         }
 
@@ -248,9 +255,9 @@ namespace Kafic
                     ListViewItem item1 = (ListViewItem)item;
                     string ime = item1.SubItems[0].Text;
                     uint kolicina = uint.Parse(item1.SubItems[2].Text);
-                    baza.updateProizvod(ime, kolicina);
+                    baza.updatePazar(ime, (int)kolicina);
                 }
-
+                baza.updateKasa((int)ukupnoC);
                 double kusur = iznosBroj - ukupnoC;
                 MessageBox.Show("Uspesno ste platili racun\nKusur iznosi: " + Math.Round(kusur, 2) + "RSD");
                 ukupnoC = 0;
@@ -288,10 +295,9 @@ namespace Kafic
                 Button proizvodBtn = new Button
                 {
                     Text = p.getIme(),
-                    Location = new Point(461 + 100 * i, 81),
+                    Location = new Point(461 + 100 * (i % 9), 81 + 30 * (i / 9)),
                     Size = new Size(100, 30),
                     BackColor = Color.White,
-                    //FlatAppearance.BorderSize = 0,
                     FlatStyle = System.Windows.Forms.FlatStyle.Flat
                 };
                 proizvodBtn.FlatAppearance.BorderSize = 0; 
@@ -306,51 +312,93 @@ namespace Kafic
         {
             if (test.SelectedItems.Count == 1)
             {
-                ListViewItem item = test.SelectedItems[0];
+                item = test.SelectedItems[0];
                 string imeProizvoda = item.SubItems[0].Text;
                 string trenutnaKolicina = item.SubItems[2].Text;
 
-                string input = Microsoft.VisualBasic.Interaction.InputBox(
-                    $"Unesite novu količinu za {imeProizvoda}:",
-                    "Izmena količine",
-                    trenutnaKolicina);
+                formIzmenaKolicine = new Form();
 
-                if (uint.TryParse(input, out uint novaKolicina) && novaKolicina > 0)
+                formIzmenaKolicine.FormBorderStyle = FormBorderStyle.None;
+
+                Label text = new Label
                 {
-                    item.SubItems[2].Text = novaKolicina.ToString();
-                    double cena = double.Parse(item.SubItems[1].Text);
-                    item.SubItems[3].Text = (cena * novaKolicina).ToString();
+                    Text = "Unesite novu kolicinu\n0 da obrisete",
+                    Location = new Point(100, 20),
+                    Size = new Size(200, 30)
+                };
+                formIzmenaKolicine.Controls.Add(text);
 
-                    double ukupnoC = 0;
-                    foreach (ListViewItem it in test.Items)
-                    {
-                        ukupnoC += double.Parse(it.SubItems[3].Text);
-                    }
-                    this.ukupnoC = ukupnoC;
+                Button confirmKolicinaButton = new Button
+                {
+                    Text = "Potvrdi",
+                    Location = new Point(100, 100),
+                    Size = new Size(75, 30)
+                };
+                formIzmenaKolicine.Controls.Add(confirmKolicinaButton);
 
-                    ukupno.Text = "UKUPNO: " + ukupnoC;
-                    UpdateStoCena(this.Text, ukupnoC.ToString());
+                novaKolicinaT = new TextBox { Location = new Point(90, 50) };
+                formIzmenaKolicine.Controls.Add(novaKolicinaT);
+
+                confirmKolicinaButton.Click += new System.EventHandler(confirmNovaKolicinaButton_Click);
+
+                Button cancelButton = new Button
+                {
+                    Text = "Otkazi",
+                    Location = new Point(100, 150),
+                    Size = new Size(75, 30)
+                };
+                formIzmenaKolicine.Controls.Add(cancelButton);
+
+                cancelButton.Click += (senderr, ee) =>
+                {
+                    formIzmenaKolicine.Hide();
+                };
+
+                formIzmenaKolicine.ShowDialog();
+
+            }
+        }
+
+        private void confirmNovaKolicinaButton_Click(object sender, EventArgs e) {
+            if (uint.TryParse(novaKolicinaT.Text, out uint novaKolicina) && novaKolicina > 0)
+            {
+                baza.updateProizvod(item.SubItems[0].Text, (int)novaKolicina - int.Parse(item.SubItems[2].Text));
+
+                item.SubItems[2].Text = novaKolicina.ToString();
+                double cena = double.Parse(item.SubItems[1].Text);
+                item.SubItems[3].Text = (cena * novaKolicina).ToString();
+
+                double ukupnoC = 0;
+                foreach (ListViewItem it in test.Items)
+                {
+                    ukupnoC += double.Parse(it.SubItems[3].Text);
                 }
-                if (novaKolicina == 0)
-                {
-                    test.Items.Remove(item);
-                    ukupnoC -= double.Parse(item.SubItems[3].Text);
-                    ukupno.Text = "UKUPNO: " + ukupnoC;
-                    if (ukupnoC == 0)
-                    {
-                        UpdateStoCena(this.Text, String.Empty);
-                    }
-                    else
-                    {
-                        UpdateStoCena(this.Text, ukupnoC.ToString());
+                this.ukupnoC = ukupnoC;
 
-                    }
+                ukupno.Text = "UKUPNO: " + ukupnoC;
+                UpdateStoCena(this.Text, ukupnoC.ToString());
+            }
+            else if (novaKolicina == 0)
+            {
+                test.Items.Remove(item);
+                ukupnoC -= double.Parse(item.SubItems[3].Text);
+                ukupno.Text = "UKUPNO: " + ukupnoC;
+                baza.updateProizvod(item.SubItems[0].Text, 0-int.Parse(item.SubItems[2].Text));
+                if (ukupnoC == 0)
+                {
+                    UpdateStoCena(this.Text, String.Empty);
                 }
                 else
                 {
-                    MessageBox.Show("Količina mora biti broj veći od 0.");
+                    UpdateStoCena(this.Text, ukupnoC.ToString());
+
                 }
             }
+            else
+            {
+                MessageBox.Show("Količina mora biti broj veći od 0.");
+            }
+            formIzmenaKolicine.Hide();
         }
 
         public void premesti(List<ListViewItem> items, PojedinacanSto sto) {

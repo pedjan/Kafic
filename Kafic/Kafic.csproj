@@ -65,6 +65,7 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pazar.cs" />
     <Compile Include="Pocetna.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +82,11 @@
     <Compile Include="PojedinacanSto.Designer.cs">
       <DependentUpon>PojedinacanSto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Sto.cs" />
     <Compile Include="UpravljanjeProizvodima.cs">
       <SubType>Form</SubType>
@@ -95,18 +101,12 @@
     <EmbeddedResource Include="Pocetna.resx">
       <DependentUpon>Pocetna.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PojedinacanSto.resx">
+      <DependentUpon>PojedinacanSto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <EmbeddedResource Include="PojedinacanSto.resx">
-      <DependentUpon>PojedinacanSto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpravljanjeProizvodima.resx">
       <DependentUpon>UpravljanjeProizvodima.cs</DependentUpon>
@@ -150,25 +150,22 @@
     <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\2149872527.jpg" />
+    <None Include="Resources\login.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\luke-chesser-KR2mdHJ5qMg-unsplash.jpg" />
+    <None Include="Resources\splav.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pexels-jolodiazr-3661921.jpg" />
+    <None Include="Resources\pojedinacni sto.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pexels-pixmike-413195.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pojsto.jpg" />
+    <None Include="Resources\upravljanje proizvodima.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pod.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pexels-fotios-photos-734973.jpg" />
+    <None Include="Resources\plaza.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

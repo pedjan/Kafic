@@ -1,32 +1,87 @@
-
 CREATE DATABASE baza;
 CREATE TABLE korisnik(idK int primary key not null IDENTITY, ime VARCHAR(256) not null, sifra VARCHAR(256) not null);
 CREATE TABLE sto(idS int primary key not null, ime VARCHAR(256), x int not null, y int not null, mesto int not null);
 CREATE TABLE vrsta(idV int primary key not null IDENTITY, ime VARCHAR(256) not null);
 CREATE TABLE proizvodi(idP int primary key not null IDENTITY, ime VARCHAR(256) not null, idV int, CONSTRAINT FK_idV FOREIGN KEY (idV) REFERENCES vrsta(idV), cena float, kolicina int);
+CREATE TABLE kasa(idK int primary key not null IDENTITY, stanje int not null);
+CREATE TABLE pazar(idPa int primary key not null IDENTITY, proizvod varchar(256), kolicina int not null, datum date);
 
-
-SELECT * FROM korisnik;
-SELECT * FROM sto;
-SELECT * FROM vrsta;
-SELECT * FROM proizvodi;
+insert into kasa (stanje) values (0) 
 
 INSERT INTO korisnik (ime, sifra) VALUES ('a', 'a');
 INSERT INTO korisnik (ime, sifra) VALUES ('admin', 'admin');
 
-INSERT INTO sto (ime, x, y) VALUES ('Sto 1', 100, 100);
 
-INSERT INTO vrsta (ime) VALUES ('Hladna pića');
-INSERT INTO vrsta (ime) VALUES ('Topli napici');
-INSERT INTO vrsta (ime) VALUES ('Alkoholna pica');
+insert into vrsta (ime) values ('Kafe')
+insert into vrsta (ime) values ('Vode')
+insert into vrsta (ime) values ('Sokovi')
+insert into vrsta (ime) values ('Vina')
+insert into vrsta (ime) values ('Piva')
+insert into vrsta (ime) values ('Zestoka pica')
+insert into vrsta (ime) values ('Kokteli')
+insert into vrsta (ime) values ('Energetska pica')
+insert into vrsta (ime) values ('Poslastice')
 
-INSERT INTO proizvodi (ime, idV, cena, kolicina) VALUES ('Coca-Cola 0.25', 1, 199.99, 200);
-INSERT INTO proizvodi (ime, idV, cena, kolicina) VALUES ('Sprite 0.25', 1, 199.99, 200);
+insert into proizvodi (ime, idV, cena, kolicina) values ('Domaca kafa', 1, 180, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Espresso', 1, 180, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Ice kafa', 1, 250, 100)
 
-INSERT INTO proizvodi (ime, idV, cena, kolicina) VALUES ('Pivo Lav 0.5', 3, 199.99, 200);
-INSERT INTO proizvodi (ime, idV, cena, kolicina) VALUES ('Pivo Jelen 0.5', 3, 199.99, 200);
+insert into proizvodi (ime, idV, cena, kolicina) values ('Rosa 0.33', 2, 190, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Knjac 0.25', 2, 220, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Rosa 0.7', 2, 500, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Knjaz 0.7', 2, 500, 100)
 
-drop table korisnik;
-drop table sto;
-drop table vrsta;
-drop table proizvodi;
+insert into proizvodi (ime, idV, cena, kolicina) values ('Limunska trava', 3, 260, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Cedevita', 3, 250, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Sokici', 3, 290, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Sola', 3, 250, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Orangina', 3, 250, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Coca Cola', 3, 250, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Fanta', 3, 250, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Sprita', 3, 250, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Schweppes', 3, 250, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Cockta', 3, 250, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Bravo sok', 3, 230, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Limunada', 3, 260, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Cedjena narandza', 3, 280, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Cedjena jabuka', 3, 250, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('MIX', 3, 370, 100)
+
+insert into proizvodi (ime, idV, cena, kolicina) values ('Crno vino', 4, 420, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Belo vino', 4, 420, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Rose vino', 4, 420, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Sangria', 4, 350, 100)
+
+insert into proizvodi (ime, idV, cena, kolicina) values ('Zajecarsko', 5, 330, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Zajecarsko crno', 5, 330, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Kapuziner', 5, 580, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Heiniken 0.2', 5, 390, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Heiniken 0.4', 5, 350, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Birra Moretti', 5, 330, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Lasko', 5, 400, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Blanc', 5, 380, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Somersby', 5, 390, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Smirnoff Ice', 5, 380, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Pivo ukus', 5, 270, 100)
+
+insert into proizvodi (ime, idV, cena, kolicina) values ('Jack Daniels', 6, 380, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Dzin', 6, 380, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Tekila', 6, 380, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Jagermeister', 6, 330, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Viljamovka', 6, 460, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Kajsija rakija', 6, 460, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Dunja rakija', 6, 460, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Gorki list', 6, 330, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Aperol', 6, 350, 100)
+
+insert into proizvodi (ime, idV, cena, kolicina) values ('Koktel', 7, 450, 100)
+
+insert into proizvodi (ime, idV, cena, kolicina) values ('Guarana', 8, 280, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Ultra', 8, 280, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Red Bull', 8, 280, 100)
+
+insert into proizvodi (ime, idV, cena, kolicina) values ('Sladoled', 9, 460, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Krofne', 9, 200, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Desert u casi', 9, 350, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Plazma sejk', 9, 390, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Trilece', 9, 380, 100)

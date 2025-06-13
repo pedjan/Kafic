@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
+using System.Runtime.InteropServices;
 
 namespace Kafic
 {
@@ -64,16 +65,26 @@ namespace Kafic
             return p;
         }
 
-        public void updateProizvod(String ime, uint kolicina) 
+        public void updateProizvod(String ime, int kolicina) 
         {
             Proizvod p = getProizvodByName(ime);
-            uint novaKolicina = (uint)p.getKolicina() - kolicina;
+            int novaKolicina = (p.getKolicina() - kolicina);
 
             string connstr = "Data Source = localhost\\SQLEXPRESS; Initial Catalog = baza; Integrated Security = true";
             SqlConnection conn = new SqlConnection(connstr);
             conn.Open();
 
             SqlCommand cmd = new SqlCommand("update proizvodi set kolicina = '" + novaKolicina + "' where ime = '" + ime + "'", conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            conn.Close();
+        }
+
+        public void kolicinaProizvoda(String ime, uint kolicina) {
+            string connstr = "Data Source = localhost\\SQLEXPRESS; Initial Catalog = baza; Integrated Security = true";
+            SqlConnection conn = new SqlConnection(connstr);
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("update proizvodi set kolicina = '" + kolicina + "' where ime = '" + ime + "'", conn);
             SqlDataReader reader = cmd.ExecuteReader();
             conn.Close();
         }
@@ -123,22 +134,6 @@ namespace Kafic
             conn.Close();
             return stolovi;
         }
-
-        //public void dodajSto(string ime, int X, int Y, int mesto) {
-        //    string connstr = "Data Source = localhost\\SQLEXPRESS; Initial Catalog = baza; Integrated Security = true";
-        //    SqlConnection conn = new SqlConnection(connstr);
-        //    conn.Open();
-
-        //    SqlCommand cmd = new SqlCommand("insert into Sto (ime, x, y, mesto) values (@ime, @X, @Y, @mesto)", conn);
-        //    cmd.Parameters.AddWithValue("@ime", ime);
-        //    cmd.Parameters.AddWithValue("@X", X);
-        //    cmd.Parameters.AddWithValue("@Y", Y);
-        //    cmd.Parameters.AddWithValue("@mesto", mesto);
-        //    cmd.ExecuteNonQuery();
-
-
-        //    conn.Close();
-        //}
 
         public void dodajSto(int idS, string ime, int X, int Y, int mesto)
         {
@@ -264,6 +259,96 @@ namespace Kafic
             }
             conn.Close();
             return proizvodi;
+        }
+
+        public int getKasa() {
+            int kasa = 0;
+            string connstr = "Data Source = localhost\\SQLEXPRESS; Initial Catalog = baza; Integrated Security = true";
+            SqlConnection conn = new SqlConnection(connstr);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("select * from kasa", conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                kasa = reader.GetInt32(1);
+            }
+            conn.Close();
+            return kasa;
+        }
+
+        public void updateKasa(int izmena)
+        {
+            int novoStanje = getKasa() + izmena;
+            Console.WriteLine("Stanje kase pre izmene: " + getKasa());
+            Console.WriteLine("Izmena kase: " + izmena);
+            Console.WriteLine("Novo stanje kase: " + novoStanje);
+
+            string connstr = "Data Source = localhost\\SQLEXPRESS; Initial Catalog = baza; Integrated Security = true";
+            SqlConnection conn = new SqlConnection(connstr);
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("update kasa set stanje = '" + novoStanje + "'", conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            conn.Close();
+        }
+
+        public List<Pazar> getPazar(DateTime datum) {
+
+            List<Pazar> pazari = new List<Pazar>();
+
+            string connstr = "Data Source = localhost\\SQLEXPRESS; Initial Catalog = baza; Integrated Security = true";
+            SqlConnection conn = new SqlConnection(connstr);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("select * from pazar where datum = '" + datum + "'", conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Pazar pazar = new Pazar(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetDateTime(3));
+                pazari.Add(pazar);
+            }
+            conn.Close();
+
+            return pazari;
+        }
+
+        public Pazar getProizvodUPazaru(string proizvod) {
+            DateTime datum = DateTime.Now.Date;
+            Pazar p = null;
+            string connstr = "Data Source = localhost\\SQLEXPRESS; Initial Catalog = baza; Integrated Security = true";
+            SqlConnection conn = new SqlConnection(connstr);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("select * from pazar where proizvod = '" + proizvod + "' and datum = '" + datum + "'", conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                p = new Pazar(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetDateTime(3));
+                conn.Close();
+                return p;
+            }
+            conn.Close();
+            return p;
+        }
+
+        public void updatePazar(string proizvod, int kolicina) {
+            DateTime datum = DateTime.Now.Date;
+            string connstr = "Data Source = localhost\\SQLEXPRESS; Initial Catalog = baza; Integrated Security = true";
+            SqlConnection conn = new SqlConnection(connstr);
+            conn.Open();
+            Pazar pazar = getProizvodUPazaru(proizvod);
+            
+            if (pazar != null){
+                kolicina += pazar.Kolicina;
+                SqlCommand cmd = new SqlCommand("update pazar set kolicina = '" + kolicina + "' where proizvod = '" + proizvod + "' and datum = '" + datum + "'", conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+            } else {
+                SqlCommand cmd = new SqlCommand("insert into pazar (proizvod, kolicina, datum) values (@proizvod, @kolicina, @datum)", conn);
+                cmd.Parameters.AddWithValue("@proizvod", proizvod);
+                cmd.Parameters.AddWithValue("@kolicina", kolicina);
+                cmd.Parameters.AddWithValue("@datum", datum);
+                cmd.ExecuteNonQuery();
+            }
+            
+            conn.Close();
         }
     }
 

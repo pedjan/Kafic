@@ -43,7 +43,7 @@ namespace Kafic
             stoBtn.Location = new System.Drawing.Point(posX, posY);
             stoBtn.Name = ime;
             stoBtn.Text = ime;
-            stoBtn.Size = new System.Drawing.Size(100, 100);
+            stoBtn.Size = new System.Drawing.Size(75, 75);
             stoBtn.UseVisualStyleBackColor = false;
             stoBtn.TabIndex = idS;
             //stoBtn.Anchor = (System.Windows.Forms.AnchorStyles.None);

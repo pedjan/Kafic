@@ -63,9 +63,9 @@ namespace Kafic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _2149872527 {
+        internal static System.Drawing.Bitmap login {
             get {
-                object obj = ResourceManager.GetObject("2149872527", resourceCulture);
+                object obj = ResourceManager.GetObject("login", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,39 +73,9 @@ namespace Kafic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap luke_chesser_KR2mdHJ5qMg_unsplash {
+        internal static System.Drawing.Bitmap plaza {
             get {
-                object obj = ResourceManager.GetObject("luke-chesser-KR2mdHJ5qMg-unsplash", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap pexels_fotios_photos_734973 {
-            get {
-                object obj = ResourceManager.GetObject("pexels-fotios-photos-734973", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap pexels_jolodiazr_3661921 {
-            get {
-                object obj = ResourceManager.GetObject("pexels-jolodiazr-3661921", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap pexels_pixmike_413195 {
-            get {
-                object obj = ResourceManager.GetObject("pexels-pixmike-413195", resourceCulture);
+                object obj = ResourceManager.GetObject("plaza", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +93,29 @@ namespace Kafic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pojsto {
+        internal static System.Drawing.Bitmap pojedinacni_sto {
             get {
-                object obj = ResourceManager.GetObject("pojsto", resourceCulture);
+                object obj = ResourceManager.GetObject("pojedinacni sto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap splav {
+            get {
+                object obj = ResourceManager.GetObject("splav", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap upravljanje_proizvodima {
+            get {
+                object obj = ResourceManager.GetObject("upravljanje proizvodima", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -118,25 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pexels-pixmike-413195" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pexels-pixmike-413195.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="upravljanje proizvodima" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\upravljanje proizvodima.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="2149872527" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2149872527.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pojsto" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pojsto.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pexels-jolodiazr-3661921" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pexels-jolodiazr-3661921.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pojedinacni sto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pojedinacni sto.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pod" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pod.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="luke-chesser-KR2mdHJ5qMg-unsplash" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\luke-chesser-KR2mdHJ5qMg-unsplash.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="login" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\login.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pexels-fotios-photos-734973" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pexels-fotios-photos-734973.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="splav" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\splav.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="plaza" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\plaza.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

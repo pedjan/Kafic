@@ -49,7 +49,7 @@
             this.odjavi_se.BackColor = System.Drawing.SystemColors.Control;
             this.odjavi_se.FlatAppearance.BorderSize = 0;
             this.odjavi_se.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.odjavi_se.Location = new System.Drawing.Point(1139, 58);
+            this.odjavi_se.Location = new System.Drawing.Point(1225, 58);
             this.odjavi_se.Name = "odjavi_se";
             this.odjavi_se.Size = new System.Drawing.Size(75, 23);
             this.odjavi_se.TabIndex = 0;
@@ -77,7 +77,7 @@
             this.napraviSto.BackColor = System.Drawing.SystemColors.Control;
             this.napraviSto.FlatAppearance.BorderSize = 0;
             this.napraviSto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.napraviSto.Location = new System.Drawing.Point(471, 58);
+            this.napraviSto.Location = new System.Drawing.Point(514, 58);
             this.napraviSto.Name = "napraviSto";
             this.napraviSto.Size = new System.Drawing.Size(75, 23);
             this.napraviSto.TabIndex = 7;
@@ -91,7 +91,7 @@
             this.obrisiSto.BackColor = System.Drawing.SystemColors.Control;
             this.obrisiSto.FlatAppearance.BorderSize = 0;
             this.obrisiSto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.obrisiSto.Location = new System.Drawing.Point(564, 58);
+            this.obrisiSto.Location = new System.Drawing.Point(607, 58);
             this.obrisiSto.Name = "obrisiSto";
             this.obrisiSto.Size = new System.Drawing.Size(75, 23);
             this.obrisiSto.TabIndex = 8;
@@ -117,7 +117,7 @@
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1280, 100);
+            this.panel1.Size = new System.Drawing.Size(1366, 100);
             this.panel1.TabIndex = 9;
             // 
             // labelMesto
@@ -125,7 +125,7 @@
             this.labelMesto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelMesto.AutoSize = true;
             this.labelMesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMesto.Location = new System.Drawing.Point(838, 34);
+            this.labelMesto.Location = new System.Drawing.Point(881, 34);
             this.labelMesto.Name = "labelMesto";
             this.labelMesto.Size = new System.Drawing.Size(82, 31);
             this.labelMesto.TabIndex = 10;
@@ -137,7 +137,7 @@
             this.buttonPomeriSto.BackColor = System.Drawing.SystemColors.Control;
             this.buttonPomeriSto.FlatAppearance.BorderSize = 0;
             this.buttonPomeriSto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPomeriSto.Location = new System.Drawing.Point(658, 58);
+            this.buttonPomeriSto.Location = new System.Drawing.Point(701, 58);
             this.buttonPomeriSto.Name = "buttonPomeriSto";
             this.buttonPomeriSto.Size = new System.Drawing.Size(75, 23);
             this.buttonPomeriSto.TabIndex = 14;
@@ -151,7 +151,7 @@
             this.buttonKafic.BackColor = System.Drawing.SystemColors.Control;
             this.buttonKafic.FlatAppearance.BorderSize = 0;
             this.buttonKafic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonKafic.Location = new System.Drawing.Point(658, 23);
+            this.buttonKafic.Location = new System.Drawing.Point(701, 23);
             this.buttonKafic.Name = "buttonKafic";
             this.buttonKafic.Size = new System.Drawing.Size(75, 23);
             this.buttonKafic.TabIndex = 13;
@@ -165,7 +165,7 @@
             this.buttonPlaza.BackColor = System.Drawing.SystemColors.Control;
             this.buttonPlaza.FlatAppearance.BorderSize = 0;
             this.buttonPlaza.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPlaza.Location = new System.Drawing.Point(564, 23);
+            this.buttonPlaza.Location = new System.Drawing.Point(607, 23);
             this.buttonPlaza.Name = "buttonPlaza";
             this.buttonPlaza.Size = new System.Drawing.Size(75, 23);
             this.buttonPlaza.TabIndex = 12;
@@ -179,7 +179,7 @@
             this.buttonSplav.BackColor = System.Drawing.SystemColors.Control;
             this.buttonSplav.FlatAppearance.BorderSize = 0;
             this.buttonSplav.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSplav.Location = new System.Drawing.Point(471, 23);
+            this.buttonSplav.Location = new System.Drawing.Point(514, 23);
             this.buttonSplav.Name = "buttonSplav";
             this.buttonSplav.Size = new System.Drawing.Size(75, 23);
             this.buttonSplav.TabIndex = 11;
@@ -191,7 +191,7 @@
             // 
             this.datumIVreme.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.datumIVreme.AutoSize = true;
-            this.datumIVreme.Location = new System.Drawing.Point(994, 23);
+            this.datumIVreme.Location = new System.Drawing.Point(1080, 23);
             this.datumIVreme.Name = "datumIVreme";
             this.datumIVreme.Size = new System.Drawing.Size(73, 13);
             this.datumIVreme.TabIndex = 10;
@@ -201,7 +201,7 @@
             // 
             this.korisnikLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.korisnikLabel.AutoSize = true;
-            this.korisnikLabel.Location = new System.Drawing.Point(994, 63);
+            this.korisnikLabel.Location = new System.Drawing.Point(1080, 63);
             this.korisnikLabel.Name = "korisnikLabel";
             this.korisnikLabel.Size = new System.Drawing.Size(86, 13);
             this.korisnikLabel.TabIndex = 9;
@@ -212,13 +212,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackgroundImage = global::Kafic.Properties.Resources.pexels_fotios_photos_734973;
+            this.BackgroundImage = global::Kafic.Properties.Resources.splav;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.ClientSize = new System.Drawing.Size(1366, 768);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(1280, 720);
+            this.MinimumSize = new System.Drawing.Size(1366, 768);
             this.Name = "Pocetna";
             this.Text = "Pocetna";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

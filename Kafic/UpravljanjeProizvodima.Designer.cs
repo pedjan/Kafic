@@ -46,7 +46,10 @@
             this.labelVrsta = new System.Windows.Forms.Label();
             this.labelPrizvod = new System.Windows.Forms.Label();
             this.labelKolicina = new System.Windows.Forms.Label();
-            this.labelProizvodi = new System.Windows.Forms.Label();
+            this.proizvodiTB = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.pazar = new System.Windows.Forms.Button();
+            this.labelDatum = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.vrstaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bazaDataSet)).BeginInit();
             this.panel1.SuspendLayout();
@@ -87,13 +90,14 @@
             this.izmeniKol.TabIndex = 2;
             this.izmeniKol.Text = "Izmeni kolicinu";
             this.izmeniKol.UseVisualStyleBackColor = true;
+            this.izmeniKol.Click += new System.EventHandler(this.izmeniKol_Click);
             // 
             // nazad
             // 
             this.nazad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.nazad.FlatAppearance.BorderSize = 0;
             this.nazad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nazad.Location = new System.Drawing.Point(1161, 626);
+            this.nazad.Location = new System.Drawing.Point(1263, 713);
             this.nazad.Name = "nazad";
             this.nazad.Size = new System.Drawing.Size(75, 23);
             this.nazad.TabIndex = 3;
@@ -145,7 +149,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1264, 100);
+            this.panel1.Size = new System.Drawing.Size(1366, 100);
             this.panel1.TabIndex = 6;
             // 
             // naslov
@@ -154,7 +158,7 @@
             this.naslov.AutoSize = true;
             this.naslov.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.naslov.ForeColor = System.Drawing.Color.White;
-            this.naslov.Location = new System.Drawing.Point(453, 30);
+            this.naslov.Location = new System.Drawing.Point(504, 30);
             this.naslov.Name = "naslov";
             this.naslov.Size = new System.Drawing.Size(382, 39);
             this.naslov.TabIndex = 0;
@@ -162,6 +166,8 @@
             // 
             // buttonDodaj
             // 
+            this.buttonDodaj.FlatAppearance.BorderSize = 0;
+            this.buttonDodaj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDodaj.Location = new System.Drawing.Point(170, 430);
             this.buttonDodaj.Name = "buttonDodaj";
             this.buttonDodaj.Size = new System.Drawing.Size(75, 23);
@@ -228,25 +234,65 @@
             this.labelKolicina.Text = "Izaberi kolicinu:";
             this.labelKolicina.Visible = false;
             // 
-            // labelProizvodi
+            // proizvodiTB
             // 
-            this.labelProizvodi.AutoSize = true;
-            this.labelProizvodi.Font = new System.Drawing.Font("Cascadia Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProizvodi.Location = new System.Drawing.Point(81, 206);
-            this.labelProizvodi.Name = "labelProizvodi";
-            this.labelProizvodi.Size = new System.Drawing.Size(56, 17);
-            this.labelProizvodi.TabIndex = 14;
-            this.labelProizvodi.Text = "label1";
-            this.labelProizvodi.Visible = false;
+            this.proizvodiTB.AcceptsReturn = true;
+            this.proizvodiTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.proizvodiTB.BackColor = System.Drawing.SystemColors.Control;
+            this.proizvodiTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.proizvodiTB.Font = new System.Drawing.Font("Cascadia Mono", 9.75F);
+            this.proizvodiTB.Location = new System.Drawing.Point(79, 199);
+            this.proizvodiTB.Multiline = true;
+            this.proizvodiTB.Name = "proizvodiTB";
+            this.proizvodiTB.ReadOnly = true;
+            this.proizvodiTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.proizvodiTB.Size = new System.Drawing.Size(614, 487);
+            this.proizvodiTB.TabIndex = 15;
+            this.proizvodiTB.Visible = false;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(152, 272);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 16;
+            this.dateTimePicker1.Visible = false;
+            // 
+            // pazar
+            // 
+            this.pazar.FlatAppearance.BorderSize = 0;
+            this.pazar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pazar.Location = new System.Drawing.Point(888, 307);
+            this.pazar.Name = "pazar";
+            this.pazar.Size = new System.Drawing.Size(85, 23);
+            this.pazar.TabIndex = 17;
+            this.pazar.Text = "Pazar";
+            this.pazar.UseVisualStyleBackColor = true;
+            this.pazar.Click += new System.EventHandler(this.pazar_Click);
+            // 
+            // labelDatum
+            // 
+            this.labelDatum.AutoSize = true;
+            this.labelDatum.BackColor = System.Drawing.Color.Transparent;
+            this.labelDatum.ForeColor = System.Drawing.Color.White;
+            this.labelDatum.Location = new System.Drawing.Point(66, 278);
+            this.labelDatum.Name = "labelDatum";
+            this.labelDatum.Size = new System.Drawing.Size(73, 13);
+            this.labelDatum.TabIndex = 18;
+            this.labelDatum.Text = "Izaberi datum:";
+            this.labelDatum.Visible = false;
             // 
             // UpravljanjeProizvodima
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Kafic.Properties.Resources._2149872527;
+            this.BackgroundImage = global::Kafic.Properties.Resources.upravljanje_proizvodima;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.labelProizvodi);
+            this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.Controls.Add(this.labelDatum);
+            this.Controls.Add(this.pazar);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.labelKolicina);
             this.Controls.Add(this.labelPrizvod);
             this.Controls.Add(this.labelVrsta);
@@ -260,8 +306,10 @@
             this.Controls.Add(this.izmeniKol);
             this.Controls.Add(this.stanje);
             this.Controls.Add(this.nabavka);
+            this.Controls.Add(this.proizvodiTB);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(1366, 768);
             this.Name = "UpravljanjeProizvodima";
             this.Text = "UpravljanjeProizvodima";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -295,6 +343,9 @@
         private System.Windows.Forms.Label labelVrsta;
         private System.Windows.Forms.Label labelPrizvod;
         private System.Windows.Forms.Label labelKolicina;
-        private System.Windows.Forms.Label labelProizvodi;
+        private System.Windows.Forms.TextBox proizvodiTB;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button pazar;
+        private System.Windows.Forms.Label labelDatum;
     }
 }

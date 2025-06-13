@@ -80,10 +80,17 @@ namespace Kafic
             {
                 if (sto.getRacun().Items.Count > 0)
                 {
-                    MessageBox.Show("Niste naplatili sve račune!");
+                    MessageBox.Show("Niste naplatili sve račune!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
+            List<Pazar> pazar = baza.getPazar(DateTime.Now);
+            int kolicina = 0;
+            foreach (Pazar p in pazar)
+            {
+                kolicina += p.Kolicina * (int)baza.getProizvodByName(p.Proizvod).getCena();
+            }
+            MessageBox.Show("Pazar iznosi: " + kolicina, "Pazar za danas", MessageBoxButtons.OK, MessageBoxIcon.Information);
             parentForm.Show();
             this.Hide();
         }
@@ -283,14 +290,16 @@ namespace Kafic
             korisnikLabel.Text = "Prijavljen si kao: " + k.getIme();
 
 
-            System.Timers.Timer aTimer = new System.Timers.Timer();
-            aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            //System.Timers.Timer aTimer = new System.Timers.Timer();
+            System.Windows.Forms.Timer aTimer = new System.Windows.Forms.Timer();
+            //aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            aTimer.Tick += new EventHandler(OnTimedEvent);
             aTimer.Interval = 1000;
             aTimer.Enabled = true;
 
         }
 
-        private void OnTimedEvent(object source, ElapsedEventArgs e)
+        private void OnTimedEvent(object sender, EventArgs e)
         {
             try
             {
@@ -301,7 +310,7 @@ namespace Kafic
             }
             catch (ObjectDisposedException)
             {
-                // Ignorisi exception ako je forma zatvorena
+                // Ignore exception if the form is closed
             }
         }
 
@@ -346,7 +355,7 @@ namespace Kafic
             {
                 mesto = 0;
                 labelMesto.Text = "Splav";
-                this.BackgroundImage = Properties.Resources.pexels_fotios_photos_734973;
+                this.BackgroundImage = Properties.Resources.splav;
                 this.BackgroundImageLayout = ImageLayout.Stretch;
                 foreach (PojedinacanSto sto in listaPojedinacnihStolova)
                 {
@@ -365,7 +374,7 @@ namespace Kafic
             {
                 mesto = 1;
                 labelMesto.Text = "Plaza";
-                this.BackgroundImage = Properties.Resources.pexels_jolodiazr_3661921;
+                this.BackgroundImage = Properties.Resources.plaza;
                 this.BackgroundImageLayout = ImageLayout.Stretch;
                 foreach (PojedinacanSto sto in listaPojedinacnihStolova)
                 {
