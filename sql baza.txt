@@ -27,11 +27,11 @@ insert into proizvodi (ime, idV, cena, kolicina) values ('Espresso', 1, 180, 100
 insert into proizvodi (ime, idV, cena, kolicina) values ('Ice kafa', 1, 250, 100)
 
 insert into proizvodi (ime, idV, cena, kolicina) values ('Rosa 0.33', 2, 190, 100)
-insert into proizvodi (ime, idV, cena, kolicina) values ('Knjac 0.25', 2, 220, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Knjaz 0.25', 2, 220, 100)
 insert into proizvodi (ime, idV, cena, kolicina) values ('Rosa 0.7', 2, 500, 100)
 insert into proizvodi (ime, idV, cena, kolicina) values ('Knjaz 0.7', 2, 500, 100)
+insert into proizvodi (ime, idV, cena, kolicina) values ('Limunska trava', 2, 260, 100)
 
-insert into proizvodi (ime, idV, cena, kolicina) values ('Limunska trava', 3, 260, 100)
 insert into proizvodi (ime, idV, cena, kolicina) values ('Cedevita', 3, 250, 100)
 insert into proizvodi (ime, idV, cena, kolicina) values ('Sokici', 3, 290, 100)
 insert into proizvodi (ime, idV, cena, kolicina) values ('Sola', 3, 250, 100)

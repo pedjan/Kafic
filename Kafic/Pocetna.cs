@@ -90,7 +90,7 @@ namespace Kafic
             {
                 kolicina += p.Kolicina * (int)baza.getProizvodByName(p.Proizvod).getCena();
             }
-            MessageBox.Show("Pazar iznosi: " + kolicina, "Pazar za danas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Pazar iznosi: " + kolicina + "RSD", "Pazar za danas", MessageBoxButtons.OK, MessageBoxIcon.Information);
             parentForm.Show();
             this.Hide();
         }
@@ -163,7 +163,7 @@ namespace Kafic
                 }
 
                 //Y
-                if (newBtnY <= 0)
+                if (newBtnY <= 100)
                 {
                     newBtnY = b.Location.Y;
                 }

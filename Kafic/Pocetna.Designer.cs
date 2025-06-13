@@ -151,7 +151,7 @@
             this.buttonKafic.BackColor = System.Drawing.SystemColors.Control;
             this.buttonKafic.FlatAppearance.BorderSize = 0;
             this.buttonKafic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonKafic.Location = new System.Drawing.Point(701, 23);
+            this.buttonKafic.Location = new System.Drawing.Point(607, 23);
             this.buttonKafic.Name = "buttonKafic";
             this.buttonKafic.Size = new System.Drawing.Size(75, 23);
             this.buttonKafic.TabIndex = 13;
@@ -165,7 +165,7 @@
             this.buttonPlaza.BackColor = System.Drawing.SystemColors.Control;
             this.buttonPlaza.FlatAppearance.BorderSize = 0;
             this.buttonPlaza.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPlaza.Location = new System.Drawing.Point(607, 23);
+            this.buttonPlaza.Location = new System.Drawing.Point(701, 23);
             this.buttonPlaza.Name = "buttonPlaza";
             this.buttonPlaza.Size = new System.Drawing.Size(75, 23);
             this.buttonPlaza.TabIndex = 12;
@@ -218,7 +218,7 @@
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(1366, 768);
+            this.MinimumSize = new System.Drawing.Size(1364, 726);
             this.Name = "Pocetna";
             this.Text = "Pocetna";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

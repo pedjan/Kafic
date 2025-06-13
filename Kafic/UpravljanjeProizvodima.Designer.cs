@@ -50,6 +50,8 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.pazar = new System.Windows.Forms.Button();
             this.labelDatum = new System.Windows.Forms.Label();
+            this.labelTrenutnaKolicina = new System.Windows.Forms.Label();
+            this.buttonStanjeKasa = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.vrstaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bazaDataSet)).BeginInit();
             this.panel1.SuspendLayout();
@@ -180,6 +182,11 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(152, 365);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown1.TabIndex = 9;
@@ -283,6 +290,30 @@
             this.labelDatum.Text = "Izaberi datum:";
             this.labelDatum.Visible = false;
             // 
+            // labelTrenutnaKolicina
+            // 
+            this.labelTrenutnaKolicina.AutoSize = true;
+            this.labelTrenutnaKolicina.BackColor = System.Drawing.Color.Transparent;
+            this.labelTrenutnaKolicina.ForeColor = System.Drawing.Color.White;
+            this.labelTrenutnaKolicina.Location = new System.Drawing.Point(53, 435);
+            this.labelTrenutnaKolicina.Name = "labelTrenutnaKolicina";
+            this.labelTrenutnaKolicina.Size = new System.Drawing.Size(103, 13);
+            this.labelTrenutnaKolicina.TabIndex = 19;
+            this.labelTrenutnaKolicina.Text = "Trenutna kolicina je:";
+            this.labelTrenutnaKolicina.Visible = false;
+            // 
+            // buttonStanjeKasa
+            // 
+            this.buttonStanjeKasa.FlatAppearance.BorderSize = 0;
+            this.buttonStanjeKasa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonStanjeKasa.Location = new System.Drawing.Point(1016, 307);
+            this.buttonStanjeKasa.Name = "buttonStanjeKasa";
+            this.buttonStanjeKasa.Size = new System.Drawing.Size(104, 23);
+            this.buttonStanjeKasa.TabIndex = 20;
+            this.buttonStanjeKasa.Text = "Izmeni stanje kase";
+            this.buttonStanjeKasa.UseVisualStyleBackColor = true;
+            this.buttonStanjeKasa.Click += new System.EventHandler(this.buttonStanjeKasa_Click);
+            // 
             // UpravljanjeProizvodima
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -290,6 +321,8 @@
             this.BackgroundImage = global::Kafic.Properties.Resources.upravljanje_proizvodima;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.Controls.Add(this.buttonStanjeKasa);
+            this.Controls.Add(this.labelTrenutnaKolicina);
             this.Controls.Add(this.labelDatum);
             this.Controls.Add(this.pazar);
             this.Controls.Add(this.dateTimePicker1);
@@ -347,5 +380,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button pazar;
         private System.Windows.Forms.Label labelDatum;
+        private System.Windows.Forms.Label labelTrenutnaKolicina;
+        private System.Windows.Forms.Button buttonStanjeKasa;
     }
 }

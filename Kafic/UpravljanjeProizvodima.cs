@@ -34,6 +34,7 @@ namespace Kafic
             stanje.Visible = true;
             izmeniKol.Visible = true;
             pazar.Visible = true;
+            buttonStanjeKasa.Visible = true;
 
             labelVrsta.Visible = false;
             comboBox1.Visible = false;
@@ -45,6 +46,8 @@ namespace Kafic
             buttonDodaj.Visible = false;
             naslovRadnje.Visible = false;
             dateTimePicker1.Visible = false;
+            labelTrenutnaKolicina.Visible = false;
+            
 
             labelDatum.Visible = false;
 
@@ -96,9 +99,12 @@ namespace Kafic
 
         private void izabanProizvod(object sender, EventArgs e)
         {
+            labelKolicina.Text = "Izberi kolicinu: ";
             labelKolicina.Visible = true;
             numericUpDown1.Visible = true;
             buttonDodaj.Visible = true;
+            labelTrenutnaKolicina.Visible = true;
+            labelTrenutnaKolicina.Text = "Trenutna količina: " + baza.getProizvodByName(comboBox2.SelectedItem.ToString()).getKolicina();
             if (opcija == 1) {
                 buttonDodaj.Text = "Izmeni";
 
@@ -109,19 +115,21 @@ namespace Kafic
 
         private void buttonDodaj_Click(object sender, EventArgs e)
         {
-            
-            if(opcija != 2 && numericUpDown1.Value < 1)
+
+            if (opcija != 2 && numericUpDown1.Value < 1)
             {
                 MessageBox.Show("Količina mora biti veća od 0.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            }else {
+            }
+            else
+            {
                 uint kolicina = (uint)numericUpDown1.Value;
                 if (opcija == 1)
                 {
                     baza.kolicinaProizvoda(comboBox2.SelectedItem.ToString(), kolicina);
                     MessageBox.Show("Uspesno ste postavili " + kolicina + " komada za proizvod: " + comboBox2.Text, "Uspesno", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                if(opcija == 2)
+                if (opcija == 2)
                 {
                     DateTime datum = dateTimePicker1.Value;
                     List<Pazar> lista = baza.getPazar(datum);
@@ -138,7 +146,19 @@ namespace Kafic
                     proizvodiTB.Text = format;
                     proizvodiTB.Size = new Size(280, 500);
                     proizvodiTB.Visible = true;
-                    
+
+                }
+                if (opcija == 3)
+                {
+                    int kasa = baza.getKasa() - (int)kolicina;
+                    if (kasa < 0)
+                    {
+                        MessageBox.Show("Nema dovoljno novca u kasi.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    baza.updateKasa(-(int)kolicina);
+                    MessageBox.Show("Uspesno ste izvadili " + kolicina + " RSD iz kase. Trenutno stanje: " + kasa + "RSD", "Uspesno", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    naslovRadnje.Text = "Izmena stanja kase, trenurno: " + kasa + "RSD";
                 }
                 else
                 {
@@ -147,9 +167,13 @@ namespace Kafic
                 }
                 labelPrizvod.Visible = false;
                 comboBox2.Visible = false;
-                labelKolicina.Visible = false;
-                numericUpDown1.Visible = false;
-                buttonDodaj.Visible = false;
+                numericUpDown1.Value = 0;
+                if (opcija != 3) {
+                    labelKolicina.Visible = false;
+                    numericUpDown1.Visible = false;
+                    buttonDodaj.Visible = false;
+                }
+                
                 dateTimePicker1.Visible = false;
                 labelDatum.Visible = false;
                 comboBox2.Items.Clear();
@@ -221,6 +245,29 @@ namespace Kafic
             dateTimePicker1.Visible = true;
 
             opcija = 2;
+        }
+
+        private void buttonStanjeKasa_Click(object sender, EventArgs e)
+        {
+            this.nazad.Click -= new System.EventHandler(this.nazad_Click);
+            this.nazad.Click += new System.EventHandler(this.nazadP_Click);
+
+            nabavka.Visible = false;
+            stanje.Visible = false;
+            izmeniKol.Visible = false;
+            pazar.Visible = false;
+            buttonStanjeKasa.Visible = false;
+
+            buttonDodaj.Text = "Izmeni";
+            buttonDodaj.Visible = true;
+
+            labelKolicina.Text = "Izvadi iz kase: ";
+            labelKolicina.Visible = true;
+            numericUpDown1.Visible = true;
+
+            naslovRadnje.Visible = true;
+            naslovRadnje.Text = "Izmena stanja kase, trenurno: " + baza.getKasa() + "RSD";
+            opcija = 3;
         }
     }
 }

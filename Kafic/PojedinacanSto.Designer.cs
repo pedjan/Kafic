@@ -98,7 +98,6 @@
             this.Kolicina,
             this.columnHeader1});
             this.test.HideSelection = false;
-            this.test.LabelEdit = true;
             this.test.Location = new System.Drawing.Point(12, 12);
             this.test.Name = "test";
             this.test.Size = new System.Drawing.Size(400, 656);
@@ -205,7 +204,7 @@
             this.Controls.Add(this.nazad);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(1366, 768);
+            this.MinimumSize = new System.Drawing.Size(1364, 726);
             this.Name = "PojedinacanSto";
             this.Text = "Sto";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
