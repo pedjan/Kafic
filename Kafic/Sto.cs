@@ -37,7 +37,7 @@ namespace Kafic
             this.pocetna = pocetna;
             this.mesto = mesto;
 
-            stoBtn.BackColor = System.Drawing.Color.Blue;
+            stoBtn.BackColor = System.Drawing.Color.LightGreen;
             stoBtn.FlatAppearance.BorderSize = 5;
             stoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             stoBtn.Location = new System.Drawing.Point(posX, posY);

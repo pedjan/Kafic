@@ -80,7 +80,7 @@ namespace Kafic
             
             if (string.IsNullOrEmpty(novaCena))
             {
-                parentForm.GetStoByName(sto).BackColor = Color.Blue;
+                parentForm.GetStoByName(sto).BackColor = Color.LightGreen;
                 parentForm.GetStoByName(sto).Text = sto;
             }
             else

@@ -48,7 +48,7 @@
             this.labelKolicina = new System.Windows.Forms.Label();
             this.proizvodiTB = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.pazar = new System.Windows.Forms.Button();
+            this.izvestaji = new System.Windows.Forms.Button();
             this.labelDatum = new System.Windows.Forms.Label();
             this.labelTrenutnaKolicina = new System.Windows.Forms.Label();
             this.buttonStanjeKasa = new System.Windows.Forms.Button();
@@ -111,6 +111,7 @@
             // 
             this.comboBox1.DataSource = this.vrstaBindingSource;
             this.comboBox1.DisplayMember = "ime";
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(152, 234);
             this.comboBox1.Name = "comboBox1";
@@ -136,6 +137,7 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(152, 298);
             this.comboBox2.Name = "comboBox2";
@@ -266,17 +268,17 @@
             this.dateTimePicker1.TabIndex = 16;
             this.dateTimePicker1.Visible = false;
             // 
-            // pazar
+            // izvestaji
             // 
-            this.pazar.FlatAppearance.BorderSize = 0;
-            this.pazar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pazar.Location = new System.Drawing.Point(888, 307);
-            this.pazar.Name = "pazar";
-            this.pazar.Size = new System.Drawing.Size(85, 23);
-            this.pazar.TabIndex = 17;
-            this.pazar.Text = "Pazar";
-            this.pazar.UseVisualStyleBackColor = true;
-            this.pazar.Click += new System.EventHandler(this.pazar_Click);
+            this.izvestaji.FlatAppearance.BorderSize = 0;
+            this.izvestaji.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.izvestaji.Location = new System.Drawing.Point(888, 307);
+            this.izvestaji.Name = "izvestaji";
+            this.izvestaji.Size = new System.Drawing.Size(85, 23);
+            this.izvestaji.TabIndex = 17;
+            this.izvestaji.Text = "Izvestaji";
+            this.izvestaji.UseVisualStyleBackColor = true;
+            this.izvestaji.Click += new System.EventHandler(this.izvestaji_Click);
             // 
             // labelDatum
             // 
@@ -324,7 +326,7 @@
             this.Controls.Add(this.buttonStanjeKasa);
             this.Controls.Add(this.labelTrenutnaKolicina);
             this.Controls.Add(this.labelDatum);
-            this.Controls.Add(this.pazar);
+            this.Controls.Add(this.izvestaji);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.labelKolicina);
             this.Controls.Add(this.labelPrizvod);
@@ -378,7 +380,7 @@
         private System.Windows.Forms.Label labelKolicina;
         private System.Windows.Forms.TextBox proizvodiTB;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button pazar;
+        private System.Windows.Forms.Button izvestaji;
         private System.Windows.Forms.Label labelDatum;
         private System.Windows.Forms.Label labelTrenutnaKolicina;
         private System.Windows.Forms.Button buttonStanjeKasa;
