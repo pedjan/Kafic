@@ -35,8 +35,6 @@
             this.nazad = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.vrstaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bazaDataSet = new Kafic.bazaDataSet();
-            this.vrstaTableAdapter = new Kafic.bazaDataSetTableAdapters.vrstaTableAdapter();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.naslov = new System.Windows.Forms.Label();
@@ -53,7 +51,6 @@
             this.labelTrenutnaKolicina = new System.Windows.Forms.Label();
             this.buttonStanjeKasa = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.vrstaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bazaDataSet)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
@@ -109,8 +106,6 @@
             // 
             // comboBox1
             // 
-            this.comboBox1.DataSource = this.vrstaBindingSource;
-            this.comboBox1.DisplayMember = "ime";
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(152, 234);
@@ -124,16 +119,6 @@
             // vrstaBindingSource
             // 
             this.vrstaBindingSource.DataMember = "vrsta";
-            this.vrstaBindingSource.DataSource = this.bazaDataSet;
-            // 
-            // bazaDataSet
-            // 
-            this.bazaDataSet.DataSetName = "bazaDataSet";
-            this.bazaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // vrstaTableAdapter
-            // 
-            this.vrstaTableAdapter.ClearBeforeFill = true;
             // 
             // comboBox2
             // 
@@ -348,9 +333,7 @@
             this.Name = "UpravljanjeProizvodima";
             this.Text = "UpravljanjeProizvodima";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.UpravljanjeProizvodima_Load);
             ((System.ComponentModel.ISupportInitialize)(this.vrstaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bazaDataSet)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -366,9 +349,7 @@
         private System.Windows.Forms.Button izmeniKol;
         private System.Windows.Forms.Button nazad;
         private System.Windows.Forms.ComboBox comboBox1;
-        private bazaDataSet bazaDataSet;
         private System.Windows.Forms.BindingSource vrstaBindingSource;
-        private bazaDataSetTableAdapters.vrstaTableAdapter vrstaTableAdapter;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label naslov;

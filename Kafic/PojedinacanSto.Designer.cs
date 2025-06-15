@@ -40,13 +40,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.stoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bazaDataSet2 = new Kafic.bazaDataSet2();
             this.labelPremestiNaSto = new System.Windows.Forms.Label();
             this.buttonPomeri = new System.Windows.Forms.Button();
-            this.stoTableAdapter = new Kafic.bazaDataSet2TableAdapters.stoTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bazaDataSet2)).BeginInit();
             this.SuspendLayout();
             // 
             // nazad
@@ -144,8 +141,6 @@
             // comboBox1
             // 
             this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.comboBox1.DataSource = this.stoBindingSource;
-            this.comboBox1.DisplayMember = "ime";
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(283, 691);
@@ -157,12 +152,6 @@
             // stoBindingSource
             // 
             this.stoBindingSource.DataMember = "sto";
-            this.stoBindingSource.DataSource = this.bazaDataSet2;
-            // 
-            // bazaDataSet2
-            // 
-            this.bazaDataSet2.DataSetName = "bazaDataSet2";
-            this.bazaDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // labelPremestiNaSto
             // 
@@ -189,10 +178,6 @@
             this.buttonPomeri.UseVisualStyleBackColor = false;
             this.buttonPomeri.Click += new System.EventHandler(this.buttonPomeri_Click);
             // 
-            // stoTableAdapter
-            // 
-            this.stoTableAdapter.ClearBeforeFill = true;
-            // 
             // PojedinacanSto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,11 +194,9 @@
             this.Name = "PojedinacanSto";
             this.Text = "Sto";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.PojedinacanSto_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bazaDataSet2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -232,8 +215,6 @@
         private System.Windows.Forms.Button buttonPomeri;
         private System.Windows.Forms.Label labelPremestiNaSto;
         private System.Windows.Forms.ComboBox comboBox1;
-        private bazaDataSet2 bazaDataSet2;
         private System.Windows.Forms.BindingSource stoBindingSource;
-        private bazaDataSet2TableAdapters.stoTableAdapter stoTableAdapter;
     }
 }

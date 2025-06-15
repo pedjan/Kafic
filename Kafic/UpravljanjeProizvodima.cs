@@ -20,6 +20,12 @@ namespace Kafic
         {
             InitializeComponent();
             this.parentForm = parentForm;
+
+            List<Vrsta> vrste = baza.getVrste();
+            foreach (Vrsta vrsta in vrste)
+            {
+                comboBox1.Items.Add(vrsta.getIme());
+            }
         }
 
         private void nazad_Click(object sender, EventArgs e)
@@ -75,13 +81,6 @@ namespace Kafic
             naslovRadnje.Visible = true;
             naslovRadnje.Text = "Nabavka proizvoda";
             opcija = 0;
-
-        }
-
-        private void UpravljanjeProizvodima_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'bazaDataSet.vrsta' table. You can move, or remove it, as needed.
-            this.vrstaTableAdapter.Fill(this.bazaDataSet.vrsta);
 
         }
 

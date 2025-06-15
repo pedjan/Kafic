@@ -60,6 +60,13 @@ namespace Kafic
                 vrstaBtn.Click += vrstaBtn_Click;
                 this.Controls.Add(vrstaBtn);
             }
+
+            List<Sto> stolovi = baza.getSveStolove();
+            foreach (Sto s in stolovi)
+            {
+                comboBox1.Items.Add(s.getIme());
+            }
+            
         }
 
         private void nazad_Click(object sender, EventArgs e)
@@ -187,7 +194,7 @@ namespace Kafic
                 MessageBox.Show("Kolicina mora biti broj veci od 0");
                 isNumeric = uint.TryParse(kolicina.Text, out kolicinaBroj);
             }
-            baza.updateProizvod(izabraniProizvod.getIme(), (int)(kolicinaBroj));
+            baza.updateProizvod(izabraniProizvod, (int)(kolicinaBroj));
             formKolicina.Hide();
         }
 
@@ -362,7 +369,9 @@ namespace Kafic
         private void confirmNovaKolicinaButton_Click(object sender, EventArgs e) {
             if (uint.TryParse(novaKolicinaT.Text, out uint novaKolicina) && novaKolicina > 0)
             {
-                baza.updateProizvod(item.SubItems[0].Text, (int)novaKolicina - int.Parse(item.SubItems[2].Text));
+
+                Proizvod p = baza.getProizvodByName(item.SubItems[0].Text);
+                baza.updateProizvod(p, (int)novaKolicina - int.Parse(item.SubItems[2].Text));
 
                 item.SubItems[2].Text = novaKolicina.ToString();
                 double cena = double.Parse(item.SubItems[1].Text);
@@ -383,7 +392,8 @@ namespace Kafic
                 test.Items.Remove(item);
                 ukupnoC -= double.Parse(item.SubItems[3].Text);
                 ukupno.Text = "UKUPNO: " + ukupnoC;
-                baza.updateProizvod(item.SubItems[0].Text, 0-int.Parse(item.SubItems[2].Text));
+                Proizvod p = baza.getProizvodByName(item.SubItems[0].Text);
+                baza.updateProizvod(p, 0-int.Parse(item.SubItems[2].Text));
                 if (ukupnoC == 0)
                 {
                     UpdateStoCena(this.Text, String.Empty);
@@ -448,11 +458,5 @@ namespace Kafic
             }
         }
 
-        private void PojedinacanSto_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'bazaDataSet2.sto' table. You can move, or remove it, as needed.
-            this.stoTableAdapter.Fill(this.bazaDataSet2.sto);
-
-        }
     }
 }

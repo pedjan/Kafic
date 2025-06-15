@@ -1,0 +1,342 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+//using System.Data.SqlClient;
+using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
+using System.Runtime.InteropServices;
+
+using System.Data.SQLite;
+//using System.SQLiteConnection;
+
+namespace Kafic
+{
+    internal class Baza
+    {
+        //private string connstr = "Data Source = localhost\\SQLEXPRESS; Initial Catalog = baza; Integrated Security = true";
+        private string connstr = "Data Source=D:\\Ostalo\\GIT\\Kafic\\Kafic\\kafic.db;Version=3;";
+        //private string connstr = "Data Source=kafic.db;Version=3;";
+
+        public Korisnik getKorisnik(string ime, string sifra) {
+            Korisnik k = new Korisnik();
+
+            
+            SQLiteConnection conn = new SQLiteConnection(connstr);
+            conn.Open();
+
+            SQLiteCommand cmd = new SQLiteCommand("select * from korisnik where ime = '" + ime + "' and sifra = '" + sifra + "'", conn);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                k.setId(reader.GetInt32(0));
+                k.setIme(reader.GetString(1));
+                k.setSifra(reader.GetString(2));
+            }
+            else
+            {
+                conn.Close();
+                return null;
+            }
+            conn.Close();
+            return k;
+        }
+
+        public Proizvod getProizvodByName(string ime) { 
+            Proizvod p = new Proizvod();
+
+            SQLiteConnection conn = new SQLiteConnection(connstr);
+            conn.Open();
+
+            SQLiteCommand cmd = new SQLiteCommand("select * from proizvodi where ime = '" + ime + "'", conn);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                p.setId(reader.GetInt32(0));
+                p.setIme(reader.GetString(1));
+                p.setIdV(this.getVrstaById(reader.GetInt32(2)));
+                p.setCena(reader.GetDouble(3));
+                p.setKolicina(reader.GetInt32(4));
+            }
+            else
+            {
+                conn.Close();
+                return null;
+            }
+            conn.Close();
+            return p;
+        }
+
+        public void updateProizvod(String ime, int kolicina) 
+        {
+            Proizvod p = getProizvodByName(ime);
+            int novaKolicina = (p.getKolicina() - kolicina);
+
+            SQLiteConnection conn = new SQLiteConnection(connstr);
+            conn.Open();
+
+            SQLiteCommand cmd = new SQLiteCommand("update proizvodi set kolicina = '" + novaKolicina + "' where ime = '" + ime + "'", conn);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            conn.Close();
+        }
+
+        public void kolicinaProizvoda(String ime, uint kolicina) {
+            SQLiteConnection conn = new SQLiteConnection(connstr);
+            conn.Open();
+
+            SQLiteCommand cmd = new SQLiteCommand("update proizvodi set kolicina = '" + kolicina + "' where ime = '" + ime + "'", conn);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            conn.Close();
+        }
+
+        public void dodajKolicinuZaProizvod(String ime, uint kolicina)
+        {
+            Proizvod p = getProizvodByName(ime);
+            uint novaKolicina = (uint)p.getKolicina() + kolicina;
+
+            SQLiteConnection conn = new SQLiteConnection(connstr);
+            conn.Open();
+
+            SQLiteCommand cmd = new SQLiteCommand("update proizvodi set kolicina = '" + novaKolicina + "' where ime = '" + ime + "'", conn);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            conn.Close();
+        }
+
+        public void updateSto(string ime, int x, int y)
+        {
+            SQLiteConnection conn = new SQLiteConnection(connstr);
+            conn.Open();
+
+            SQLiteCommand cmd = new SQLiteCommand("update sto set x = '" + x + "', y = '" + y + "' where ime = '" + ime + "'", conn);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            conn.Close();
+        }
+
+        public List<Sto> getSveStolove()
+        {
+            List<Sto> stolovi = new List<Sto>();
+
+            SQLiteConnection conn = new SQLiteConnection(connstr);
+            conn.Open();
+
+            SQLiteCommand cmd = new SQLiteCommand("select * from Sto", conn);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Sto sto = new Sto(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4));
+                stolovi.Add(sto);
+            }
+            conn.Close();
+            return stolovi;
+        }
+
+        public void dodajSto(int idS, string ime, int X, int Y, int mesto)
+        {
+            SQLiteConnection conn = new SQLiteConnection(connstr);
+            conn.Open();
+
+            SQLiteCommand cmd = new SQLiteCommand("insert into Sto (idS, ime, x, y, mesto) values (@idS, @ime, @X, @Y, @mesto)", conn);
+            cmd.Parameters.AddWithValue("@idS", idS);
+            cmd.Parameters.AddWithValue("@ime", ime);
+            cmd.Parameters.AddWithValue("@X", X);
+            cmd.Parameters.AddWithValue("@Y", Y);
+            cmd.Parameters.AddWithValue("@mesto", mesto);
+            cmd.ExecuteNonQuery();
+
+
+            conn.Close();
+        }
+
+        public void obrisiSto(string ime) {
+            SQLiteConnection conn = new SQLiteConnection(connstr);
+            conn.Open();
+            SQLiteCommand cmd = new SQLiteCommand("delete from Sto where ime = @ime", conn);
+            cmd.Parameters.AddWithValue("@ime", ime);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        public int getBrStolova() {
+            int broj = 0;
+            SQLiteConnection conn = new SQLiteConnection(connstr);
+            conn.Open();
+
+            SQLiteCommand cmd = new SQLiteCommand("SELECT COUNT(*) FROM sto", conn);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                broj = reader.GetInt32(0);
+            }
+            conn.Close();
+            return broj;
+        }
+
+        public List<Vrsta> getVrste() {
+            List<Vrsta> vrste = new List<Vrsta>();
+
+            SQLiteConnection conn = new SQLiteConnection(connstr);
+            conn.Open();
+
+            SQLiteCommand cmd = new SQLiteCommand("select * from vrsta", conn);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Vrsta vrsta = new Vrsta(reader.GetInt32(0), reader.GetString(1));
+                vrste.Add(vrsta);
+            }
+            conn.Close();
+            return vrste;
+        }
+
+        public List<Proizvod> getProizvodiByVrsta(int idV)
+        {
+            List<Proizvod> proizvodi = new List<Proizvod>();
+
+            SQLiteConnection conn = new SQLiteConnection(connstr);
+            conn.Open();
+
+            SQLiteCommand cmd = new SQLiteCommand("select * from proizvodi where idV = '"+ idV + "' ", conn);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Proizvod proizvod = new Proizvod(reader.GetInt32(0), reader.GetString(1), getVrstaById(idV), reader.GetDouble(3), reader.GetInt32(4));
+                proizvodi.Add(proizvod);
+            }
+            conn.Close();
+
+            return proizvodi;
+
+
+        }
+
+        public Vrsta getVrstaById(int id)
+        {
+            Vrsta v = new Vrsta();
+            SQLiteConnection conn = new SQLiteConnection(connstr);
+            conn.Open();
+            SQLiteCommand cmd = new SQLiteCommand("select * from vrsta where idV = '" + id + "'", conn);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                v.setIdV(reader.GetInt32(0));
+                v.setIme(reader.GetString(1));
+            }
+            else
+            {
+                conn.Close();
+                return null;
+            }
+            conn.Close();
+            return v;
+        }
+
+        public List<Proizvod> getSveProizvode()
+        {
+            List<Proizvod> proizvodi = new List<Proizvod>();
+            SQLiteConnection conn = new SQLiteConnection(connstr);
+            conn.Open();
+            SQLiteCommand cmd = new SQLiteCommand("select * from proizvodi", conn);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Proizvod proizvod = new Proizvod(reader.GetInt32(0), reader.GetString(1), getVrstaById(reader.GetInt32(2)), reader.GetDouble(3), reader.GetInt32(4));
+                proizvodi.Add(proizvod);
+            }
+            conn.Close();
+            return proizvodi;
+        }
+
+        public int getKasa() {
+            int kasa = 0;
+            SQLiteConnection conn = new SQLiteConnection(connstr);
+            conn.Open();
+            SQLiteCommand cmd = new SQLiteCommand("select * from kasa", conn);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                kasa = reader.GetInt32(1);
+            }
+            conn.Close();
+            return kasa;
+        }
+
+        public void updateKasa(int izmena)
+        {
+            int novoStanje = getKasa() + izmena;
+            Console.WriteLine("Stanje kase pre izmene: " + getKasa());
+            Console.WriteLine("Izmena kase: " + izmena);
+            Console.WriteLine("Novo stanje kase: " + novoStanje);
+
+            SQLiteConnection conn = new SQLiteConnection(connstr);
+            conn.Open();
+
+            SQLiteCommand cmd = new SQLiteCommand("update kasa set stanje = '" + novoStanje + "'", conn);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            conn.Close();
+        }
+
+        public List<Pazar> getPazar(DateTime datum) {
+
+            List<Pazar> pazari = new List<Pazar>();
+
+            SQLiteConnection conn = new SQLiteConnection(connstr);
+            conn.Open();
+            SQLiteCommand cmd = new SQLiteCommand("select * from pazar where datum = '" + datum + "'", conn);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Pazar pazar = new Pazar(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetDateTime(3));
+                pazari.Add(pazar);
+            }
+            conn.Close();
+
+            return pazari;
+        }
+
+        public Pazar getProizvodUPazaru(string proizvod) {
+            DateTime datum = DateTime.Now.Date;
+            Pazar p = null;
+            SQLiteConnection conn = new SQLiteConnection(connstr);
+            conn.Open();
+            SQLiteCommand cmd = new SQLiteCommand("select * from pazar where proizvod = '" + proizvod + "' and datum = '" + datum + "'", conn);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                p = new Pazar(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetDateTime(3));
+                conn.Close();
+                return p;
+            }
+            conn.Close();
+            return p;
+        }
+
+        public void updatePazar(string proizvod, int kolicina) {
+            DateTime datum = DateTime.Now.Date;
+            SQLiteConnection conn = new SQLiteConnection(connstr);
+            conn.Open();
+            Pazar pazar = getProizvodUPazaru(proizvod);
+            
+            if (pazar != null){
+                kolicina += pazar.Kolicina;
+                SQLiteCommand cmd = new SQLiteCommand("update pazar set kolicina = '" + kolicina + "' where proizvod = '" + proizvod + "' and datum = '" + datum + "'", conn);
+                SQLiteDataReader reader = cmd.ExecuteReader();
+            } else {
+                SQLiteCommand cmd = new SQLiteCommand("insert into pazar (proizvod, kolicina, datum) values (@proizvod, @kolicina, @datum)", conn);
+                cmd.Parameters.AddWithValue("@proizvod", proizvod);
+                cmd.Parameters.AddWithValue("@kolicina", kolicina);
+                cmd.Parameters.AddWithValue("@datum", datum);
+                cmd.ExecuteNonQuery();
+            }
+            
+            conn.Close();
+        }
+    }
+
+}
