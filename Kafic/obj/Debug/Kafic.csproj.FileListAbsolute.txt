@@ -50,3 +50,7 @@ D:\Ostalo\GIT\Kafic\Kafic\obj\Debug\Kafic.csproj.Up2Date
 D:\Ostalo\GIT\Kafic\Kafic\obj\Debug\Kafic.exe
 D:\Ostalo\GIT\Kafic\Kafic\obj\Debug\Kafic.pdb
 D:\Ostalo\GIT\Kafic\Kafic\obj\Debug\Kafic.exe.config
+D:\Ostalo\GIT\Kafic\Kafic\bin\Debug\Kafic.exe.manifest
+D:\Ostalo\GIT\Kafic\Kafic\bin\Debug\Kafic.application
+D:\Ostalo\GIT\Kafic\Kafic\obj\Debug\Kafic.exe.manifest
+D:\Ostalo\GIT\Kafic\Kafic\obj\Debug\Kafic.application

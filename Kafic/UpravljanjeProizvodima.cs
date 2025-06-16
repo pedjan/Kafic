@@ -173,7 +173,8 @@ namespace Kafic
                         MessageBox.Show("Morate izabrati proizvod.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    baza.dodajKolicinuZaProizvod(comboBox2.SelectedItem.ToString(), kolicina);
+                    Proizvod p = baza.getProizvodByName(comboBox2.SelectedItem.ToString());
+                    baza.dodajKolicinuZaProizvod(p, kolicina);
                     MessageBox.Show("Uspesno ste dodali " + kolicina + " komada za proizvod: " + comboBox2.Text, "Uspesno", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 labelPrizvod.Visible = false;

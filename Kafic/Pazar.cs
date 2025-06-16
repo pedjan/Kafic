@@ -12,9 +12,9 @@ namespace Kafic
         private int id;
         private string proizvod;
         private int kolicina;
-        private DateTime datum;
+        private string datum;
 
-        public Pazar(int id, string proizvod, int kolicina, DateTime datum)
+        public Pazar(int id, string proizvod, int kolicina, string datum)
         {
             this.id = id;
             this.proizvod = proizvod;
@@ -37,7 +37,7 @@ namespace Kafic
             get { return kolicina; }
             set { kolicina = value; }
         }
-        public DateTime Datum
+        public string Datum
         {
             get { return datum; }
             set { datum = value; }
