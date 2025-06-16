@@ -88,7 +88,7 @@
             this.izmeniKol.Name = "izmeniKol";
             this.izmeniKol.Size = new System.Drawing.Size(85, 23);
             this.izmeniKol.TabIndex = 2;
-            this.izmeniKol.Text = "Izmeni kolicinu";
+            this.izmeniKol.Text = "Izmeni količinu";
             this.izmeniKol.UseVisualStyleBackColor = true;
             this.izmeniKol.Click += new System.EventHandler(this.izmeniKol_Click);
             // 
@@ -227,7 +227,7 @@
             this.labelKolicina.Name = "labelKolicina";
             this.labelKolicina.Size = new System.Drawing.Size(80, 13);
             this.labelKolicina.TabIndex = 13;
-            this.labelKolicina.Text = "Izaberi kolicinu:";
+            this.labelKolicina.Text = "Izaberi količinu:";
             this.labelKolicina.Visible = false;
             // 
             // proizvodiTB
@@ -263,7 +263,7 @@
             this.izvestaji.Name = "izvestaji";
             this.izvestaji.Size = new System.Drawing.Size(85, 23);
             this.izvestaji.TabIndex = 17;
-            this.izvestaji.Text = "Izvestaji";
+            this.izvestaji.Text = "Izveštaji";
             this.izvestaji.UseVisualStyleBackColor = true;
             this.izvestaji.Click += new System.EventHandler(this.izvestaji_Click);
             // 
@@ -288,7 +288,7 @@
             this.labelTrenutnaKolicina.Name = "labelTrenutnaKolicina";
             this.labelTrenutnaKolicina.Size = new System.Drawing.Size(103, 13);
             this.labelTrenutnaKolicina.TabIndex = 19;
-            this.labelTrenutnaKolicina.Text = "Trenutna kolicina je:";
+            this.labelTrenutnaKolicina.Text = "Trenutna količina je:";
             this.labelTrenutnaKolicina.Visible = false;
             // 
             // buttonStanjeKasa

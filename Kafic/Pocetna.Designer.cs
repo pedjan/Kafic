@@ -96,7 +96,7 @@
             this.obrisiSto.Name = "obrisiSto";
             this.obrisiSto.Size = new System.Drawing.Size(75, 23);
             this.obrisiSto.TabIndex = 8;
-            this.obrisiSto.Text = "Obrisi sto";
+            this.obrisiSto.Text = "Obriši sto";
             this.obrisiSto.UseVisualStyleBackColor = false;
             this.obrisiSto.Click += new System.EventHandler(this.obrisiSto_Click);
             // 
@@ -156,7 +156,7 @@
             this.buttonKafic.Name = "buttonKafic";
             this.buttonKafic.Size = new System.Drawing.Size(75, 23);
             this.buttonKafic.TabIndex = 13;
-            this.buttonKafic.Text = "Kafic";
+            this.buttonKafic.Text = "Kafić";
             this.buttonKafic.UseVisualStyleBackColor = false;
             this.buttonKafic.Click += new System.EventHandler(this.mesto_Click);
             // 
@@ -170,7 +170,7 @@
             this.buttonPlaza.Name = "buttonPlaza";
             this.buttonPlaza.Size = new System.Drawing.Size(75, 23);
             this.buttonPlaza.TabIndex = 12;
-            this.buttonPlaza.Text = "Plaza";
+            this.buttonPlaza.Text = "Plaža";
             this.buttonPlaza.UseVisualStyleBackColor = false;
             this.buttonPlaza.Click += new System.EventHandler(this.mesto_Click);
             // 

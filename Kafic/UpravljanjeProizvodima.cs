@@ -94,7 +94,7 @@ namespace Kafic
 
         private void izabanProizvod(object sender, EventArgs e)
         {
-            labelKolicina.Text = "Izberi kolicinu: ";
+            labelKolicina.Text = "Izberi količinu: ";
             labelKolicina.Visible = true;
             numericUpDown1.Visible = true;
             buttonDodaj.Visible = true;
@@ -158,7 +158,7 @@ namespace Kafic
                         return;
                     }
                     baza.updateKasa(-(int)kolicina);
-                    MessageBox.Show("Uspesno ste izvadili " + kolicina + " RSD iz kase. Trenutno stanje: " + kasa + "RSD", "Uspesno", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Ušpesno ste izvadili " + kolicina + " RSD iz kase. Trenutno stanje: " + kasa + "RSD", "Uspešno", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     naslovRadnje.Text = "Izmena stanja kase, trenurno: " + kasa + "RSD";
                 }
                 else
@@ -170,7 +170,7 @@ namespace Kafic
                     }
                     Proizvod p = baza.getProizvodByName(comboBox2.SelectedItem.ToString());
                     baza.dodajKolicinuZaProizvod(p, kolicina);
-                    MessageBox.Show("Uspesno ste dodali " + kolicina + " komada za proizvod: " + comboBox2.Text, "Uspesno", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Uspešno ste dodali " + kolicina + " komada za proizvod: " + comboBox2.Text, "Uspešno", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 labelPrizvod.Visible = false;
                 comboBox2.Visible = false;
@@ -231,7 +231,7 @@ namespace Kafic
             comboBox1.Visible = true;
 
             naslovRadnje.Visible = true;
-            naslovRadnje.Text = "Izmena kolicine";
+            naslovRadnje.Text = "Izmena količine";
 
             opcija = 1;
         }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PojedinacanSto));
             this.nazad = new System.Windows.Forms.Button();
             this.naplati = new System.Windows.Forms.Button();
@@ -42,9 +41,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.labelPremestiNaSto = new System.Windows.Forms.Label();
             this.buttonPomeri = new System.Windows.Forms.Button();
-            this.stoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.stoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // nazad
@@ -116,7 +113,7 @@
             // 
             // Kolicina
             // 
-            this.Kolicina.Text = "Kolicina";
+            this.Kolicina.Text = "Količina";
             this.Kolicina.Width = 49;
             // 
             // columnHeader1
@@ -176,10 +173,6 @@
             this.buttonPomeri.UseVisualStyleBackColor = false;
             this.buttonPomeri.Click += new System.EventHandler(this.buttonPomeri_Click);
             // 
-            // stoBindingSource
-            // 
-            this.stoBindingSource.DataMember = "sto";
-            // 
             // PojedinacanSto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,7 +192,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.stoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -218,6 +210,5 @@
         private System.Windows.Forms.Button buttonPomeri;
         private System.Windows.Forms.Label labelPremestiNaSto;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.BindingSource stoBindingSource;
     }
 }

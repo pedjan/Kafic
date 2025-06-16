@@ -252,12 +252,20 @@ namespace Kafic
                 {
                     if (ime.Equals(listaStolova[i].getIme()))
                     {
-                        baza.obrisiSto(listaStolova[i].getIme());
-                        listaStolova.RemoveAt(i);
-                        listaPojedinacnihStolova.RemoveAt(i);
-                        b.Dispose();
-                        BROJ_STOLOVA--;
-                        break;
+                        if (listaPojedinacnihStolova[i].getRacun().Items.Count > 0)
+                        {
+                            MessageBox.Show("Ne možeš obrisati sto koji ima račune!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                        else
+                        {
+                            baza.obrisiSto(listaStolova[i].getIme());
+                            listaStolova.RemoveAt(i);
+                            listaPojedinacnihStolova.RemoveAt(i);
+                            b.Dispose();
+                            BROJ_STOLOVA--;
+                            break;
+                        }
                     }
                 }
             }
@@ -281,10 +289,7 @@ namespace Kafic
             }
             korisnikLabel.Text = "Prijavljen si kao: " + k.getIme();
 
-
-            //System.Timers.Timer aTimer = new System.Timers.Timer();
             System.Windows.Forms.Timer aTimer = new System.Windows.Forms.Timer();
-            //aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
             aTimer.Tick += new EventHandler(OnTimedEvent);
             aTimer.Interval = 1000;
             aTimer.Enabled = true;
@@ -365,7 +370,7 @@ namespace Kafic
             else if (imeDugmeta.Equals("buttonPlaza"))
             {
                 mesto = 1;
-                labelMesto.Text = "Plaza";
+                labelMesto.Text = "Plaža";
                 this.BackgroundImage = Properties.Resources.plaza;
                 this.BackgroundImageLayout = ImageLayout.Stretch;
                 foreach (PojedinacanSto sto in listaPojedinacnihStolova)
@@ -384,7 +389,7 @@ namespace Kafic
             else if (imeDugmeta.Equals("buttonKafic"))
             {
                 mesto = 2;
-                labelMesto.Text = "Kafic";
+                labelMesto.Text = "Kafić";
                 this.BackgroundImage = Properties.Resources.pod;
                 this.BackgroundImageLayout = ImageLayout.Tile;
                 foreach (PojedinacanSto sto in listaPojedinacnihStolova)

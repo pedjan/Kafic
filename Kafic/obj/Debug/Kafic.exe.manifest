@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Kafic.exe" size="1506784">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Kafic.exe" size="1506272">
       <assemblyIdentity name="Kafic" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>LScdFrvQHL9miT8CPe+00E2pXfpFliU+hxr45pwZDYs=</dsig:DigestValue>
+        <dsig:DigestValue>rNU45Q7sZ+A/A1cbz/lUdE8isQGgH277D06YSss1URg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -75,13 +75,13 @@
       <dsig:DigestValue>kzinpDbYny7fWSQwsimDiNcz6GvJDSkNflrNNXsbjKw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Kafic.exe.config" size="536">
+  <file name="Kafic.exe.config" size="259">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>/KJ0lomtOT6HnwUuLrXRUzuC2JKC8JIK7tSK0fPkcGA=</dsig:DigestValue>
+      <dsig:DigestValue>2xxJz/OpR/SCjdGj/4QB4QHR/6RSbR6kiQBcA8LfDyk=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

@@ -130,6 +130,7 @@ namespace Kafic
                 }
                 ukupno.Text = "UKUPNO: " + ukupnoC;
                 UpdateStoCena(this.Text, ukupnoC.ToString());
+                baza.updateProizvod(izabraniProizvod, (int)(kolicinaBroj));
             }
         }
 
@@ -141,7 +142,7 @@ namespace Kafic
 
             Label text = new Label
             {
-                Text = "Unesite kolicinu",
+                Text = "Unesite količinu",
                 Location = new Point(100, 20),
                 Size = new Size(200, 20)
             };
@@ -162,7 +163,7 @@ namespace Kafic
 
             Button cancelButton = new Button
             {
-                Text = "Otkazi",
+                Text = "Otkaži",
                 Location = new Point(100, 150),
                 Size = new Size(75, 30)
             };
@@ -182,10 +183,9 @@ namespace Kafic
             isNumeric = uint.TryParse(kolicina.Text, out kolicinaBroj);
             if (!isNumeric)
             {
-                MessageBox.Show("Kolicina mora biti broj veci od 0");
+                MessageBox.Show("Količina mora biti broj veci od 0");
                 isNumeric = uint.TryParse(kolicina.Text, out kolicinaBroj);
             }
-            baza.updateProizvod(izabraniProizvod, (int)(kolicinaBroj));
             formKolicina.Hide();
         }
 
@@ -200,7 +200,7 @@ namespace Kafic
 
             Label text = new Label
             {
-                Text = "Unesite iznos koji zelite da platite",
+                Text = "Unesite iznos koji želite da platite",
                 Location = new Point(70, 20),
                 Size = new Size(200, 20)
             };
@@ -216,7 +216,7 @@ namespace Kafic
 
             Button cancelButton = new Button
             {
-                Text = "Otkazi",
+                Text = "Otkaži",
                 Location = new Point(100, 150),
                 Size = new Size(75, 30)
             };
@@ -241,7 +241,7 @@ namespace Kafic
             bool isNumeric = double.TryParse(iznos.Text, out iznosBroj);
             if (!isNumeric || ukupnoC > iznosBroj)
             {
-                MessageBox.Show("Moras uneti ispravan izraz racuna koji iznosi " + ukupnoC + "RSD");
+                MessageBox.Show("Moraš uneti ispravan izraz računa koji iznosi " + ukupnoC + "RSD");
                 naplata.Show();
                 isNumeric = double.TryParse(iznos.Text, out iznosBroj);
             }
@@ -257,7 +257,7 @@ namespace Kafic
                 }
                 baza.updateKasa((int)ukupnoC);
                 double kusur = iznosBroj - ukupnoC;
-                MessageBox.Show("Uspesno ste platili racun\nKusur iznosi: " + Math.Round(kusur, 2) + "RSD");
+                MessageBox.Show("Uspesno ste platili račun\nKusur iznosi: " + Math.Round(kusur, 2) + "RSD");
                 ukupnoC = 0;
                 ukupno.Text = "UKUPNO: " + ukupnoC;
                 UpdateStoCena(this.Text, String.Empty);
@@ -320,7 +320,7 @@ namespace Kafic
 
                 Label text = new Label
                 {
-                    Text = "Unesite novu kolicinu\n0 da obrisete",
+                    Text = "Unesite novu količinu\n0 da obrišete",
                     Location = new Point(100, 20),
                     Size = new Size(200, 30)
                 };
@@ -341,7 +341,7 @@ namespace Kafic
 
                 Button cancelButton = new Button
                 {
-                    Text = "Otkazi",
+                    Text = "Otkaži",
                     Location = new Point(100, 150),
                     Size = new Size(75, 30)
                 };

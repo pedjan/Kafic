@@ -38,7 +38,7 @@ namespace Kafic
             }
             else
             {
-                MessageBox.Show("Podaci za prijacu nisu validni!");
+                MessageBox.Show("Podaci za prijavu nisu validni!");
             }
         }
 

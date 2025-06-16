@@ -102,7 +102,7 @@
             this.labelKorisnickoIme.Name = "labelKorisnickoIme";
             this.labelKorisnickoIme.Size = new System.Drawing.Size(78, 13);
             this.labelKorisnickoIme.TabIndex = 5;
-            this.labelKorisnickoIme.Text = "Korisnicko ime:";
+            this.labelKorisnickoIme.Text = "Korisničko ime:";
             // 
             // labelSifra
             // 
