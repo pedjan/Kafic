@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PojedinacanSto));
             this.nazad = new System.Windows.Forms.Button();
             this.naplati = new System.Windows.Forms.Button();
             this.ukupno = new System.Windows.Forms.Label();
@@ -39,9 +40,9 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.stoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelPremestiNaSto = new System.Windows.Forms.Label();
             this.buttonPomeri = new System.Windows.Forms.Button();
+            this.stoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stoBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -141,6 +142,7 @@
             // comboBox1
             // 
             this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboBox1.DisplayMember = "ime";
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(283, 691);
@@ -148,10 +150,6 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 11;
             this.comboBox1.ValueMember = "ime";
-            // 
-            // stoBindingSource
-            // 
-            this.stoBindingSource.DataMember = "sto";
             // 
             // labelPremestiNaSto
             // 
@@ -178,6 +176,10 @@
             this.buttonPomeri.UseVisualStyleBackColor = false;
             this.buttonPomeri.Click += new System.EventHandler(this.buttonPomeri_Click);
             // 
+            // stoBindingSource
+            // 
+            this.stoBindingSource.DataMember = "sto";
+            // 
             // PojedinacanSto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -190,6 +192,7 @@
             this.Controls.Add(this.nazad);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1364, 726);
             this.Name = "PojedinacanSto";
             this.Text = "Sto";

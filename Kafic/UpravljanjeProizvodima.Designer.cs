@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpravljanjeProizvodima));
             this.nabavka = new System.Windows.Forms.Button();
             this.stanje = new System.Windows.Forms.Button();
             this.izmeniKol = new System.Windows.Forms.Button();
@@ -106,6 +107,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DisplayMember = "idV";
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(152, 234);
@@ -329,6 +331,7 @@
             this.Controls.Add(this.proizvodiTB);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1366, 768);
             this.Name = "UpravljanjeProizvodima";
             this.Text = "UpravljanjeProizvodima";

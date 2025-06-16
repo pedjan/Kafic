@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pocetna));
             this.odjavi_se = new System.Windows.Forms.Button();
             this.uprproj = new System.Windows.Forms.Button();
             this.napraviSto = new System.Windows.Forms.Button();
@@ -218,6 +219,7 @@
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1364, 726);
             this.Name = "Pocetna";
             this.Text = "Pocetna";

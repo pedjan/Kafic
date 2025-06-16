@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.prijavi_se = new System.Windows.Forms.Button();
             this.Ime = new System.Windows.Forms.TextBox();
             this.Sifra = new System.Windows.Forms.TextBox();
@@ -45,7 +46,7 @@
             this.prijavi_se.Location = new System.Drawing.Point(295, 314);
             this.prijavi_se.Name = "prijavi_se";
             this.prijavi_se.Size = new System.Drawing.Size(75, 23);
-            this.prijavi_se.TabIndex = 0;
+            this.prijavi_se.TabIndex = 2;
             this.prijavi_se.Text = "Prijavi se";
             this.prijavi_se.UseVisualStyleBackColor = true;
             this.prijavi_se.Click += new System.EventHandler(this.prijavi_se_Click);
@@ -56,7 +57,7 @@
             this.Ime.Location = new System.Drawing.Point(281, 230);
             this.Ime.Name = "Ime";
             this.Ime.Size = new System.Drawing.Size(100, 20);
-            this.Ime.TabIndex = 1;
+            this.Ime.TabIndex = 0;
             // 
             // Sifra
             // 
@@ -65,7 +66,7 @@
             this.Sifra.Name = "Sifra";
             this.Sifra.PasswordChar = '*';
             this.Sifra.Size = new System.Drawing.Size(100, 20);
-            this.Sifra.TabIndex = 2;
+            this.Sifra.TabIndex = 1;
             // 
             // ugasi_program
             // 
@@ -134,6 +135,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1366, 768);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
