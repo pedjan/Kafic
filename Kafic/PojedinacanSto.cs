@@ -148,6 +148,9 @@ namespace Kafic
             };
             formKolicina.Controls.Add(text);
 
+            kolicina = new TextBox { Location = new Point(90, 50) };
+            formKolicina.Controls.Add(kolicina);
+
             Button confirmKolicinaButton = new Button
             {
                 Text = "Potvrdi",
@@ -155,9 +158,6 @@ namespace Kafic
                 Size = new Size(75, 30)
             };
             formKolicina.Controls.Add(confirmKolicinaButton);
-
-            kolicina = new TextBox { Location = new Point(90, 50) };
-            formKolicina.Controls.Add(kolicina);
 
             confirmKolicinaButton.Click += new System.EventHandler(confirmKolicinaButton_Click);
 
@@ -326,6 +326,9 @@ namespace Kafic
                 };
                 formIzmenaKolicine.Controls.Add(text);
 
+                novaKolicinaT = new TextBox { Location = new Point(90, 50) };
+                formIzmenaKolicine.Controls.Add(novaKolicinaT);
+
                 Button confirmKolicinaButton = new Button
                 {
                     Text = "Potvrdi",
@@ -333,9 +336,6 @@ namespace Kafic
                     Size = new Size(75, 30)
                 };
                 formIzmenaKolicine.Controls.Add(confirmKolicinaButton);
-
-                novaKolicinaT = new TextBox { Location = new Point(90, 50) };
-                formIzmenaKolicine.Controls.Add(novaKolicinaT);
 
                 confirmKolicinaButton.Click += new System.EventHandler(confirmNovaKolicinaButton_Click);
 

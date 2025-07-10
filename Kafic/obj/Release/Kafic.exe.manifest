@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Kafic.exe" size="1506272">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Kafic.exe" size="1503712">
       <assemblyIdentity name="Kafic" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>qmyi9tKKE4lvtfUUZaLwT+9cYo4FOE7nC+NT8YDGUnQ=</dsig:DigestValue>
+        <dsig:DigestValue>hi9nfL1+rNqOQ+Ez68o/P6lE6bCwrdwikQC6mAKut9w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

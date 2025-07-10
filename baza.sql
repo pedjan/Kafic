@@ -96,7 +96,7 @@ INSERT INTO sto (ime, x, y, mesto) VALUES ('Sto 49', 525, 373, 1);
 INSERT INTO sto (ime, x, y, mesto) VALUES ('Sto 50', 308, 373, 1);
 INSERT INTO sto (ime, x, y, mesto) VALUES ('Sto 51', 1191, 530, 1);
 INSERT INTO sto (ime, x, y, mesto) VALUES ('Sto 52', 953, 529, 1);
-INSERT INTO sto (ime, x, y, mesto) VALUES ('Sto 53', 735, 528, 1)
+INSERT INTO sto (ime, x, y, mesto) VALUES ('Sto 53', 735, 528, 1);
 INSERT INTO sto (ime, x, y, mesto) VALUES ('Sto 54', 522, 529, 1);
 INSERT INTO sto (ime, x, y, mesto) VALUES ('Sto 55', 306, 523, 1);
 INSERT INTO sto (ime, x, y, mesto) VALUES ('Sto 56', 1192, 689, 1);

@@ -113,7 +113,7 @@
             this.labelSifra.Name = "labelSifra";
             this.labelSifra.Size = new System.Drawing.Size(31, 13);
             this.labelSifra.TabIndex = 6;
-            this.labelSifra.Text = "Sifra:";
+            this.labelSifra.Text = "Šifra:";
             // 
             // Login
             // 
